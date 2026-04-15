@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>星命閣 — 星座・塔羅・紫微・命盤</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --void: #080612;
+    --deep: #0e0a1f;
+    --surface: #130e28;
+    --panel: #1a1335;
+    --lift: #221944;
+    --border: rgba(180,140,255,0.15);
+    --border-bright: rgba(200,160,255,0.35);
+    --gold: #d4a843;
+    --gold-light: #f0c96a;
+    --gold-dim: rgba(212,168,67,0.3);
+    --purple: #9b6fd4;
+    --purple-light: #c49ef0;
+    --purple-glow: rgba(155,111,212,0.2);
+    --silver: #c8c0e0;
+    --silver-dim: rgba(200,192,224,0.5);
+    --text: #e8e0f8;
+    --text-dim: rgba(232,224,248,0.6);
+    --text-faint: rgba(232,224,248,0.35);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--void);
+    color: var(--text);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  /* Star field background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.8) 0%, transparent 100%),
+      radial-gradient(1px 1px at 25% 40%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 40% 10%, rgba(255,255,255,0.9) 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 25%, rgba(255,255,255,0.7) 0%, transparent 100%),
+      radial-gradient(1px 1px at 75% 55%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 85% 20%, rgba(255,255,255,0.8) 0%, transparent 100%),
+      radial-gradient(1px 1px at 92% 70%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 15% 80%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 50% 65%, rgba(255,255,255,0.7) 0%, transparent 100%),
+      radial-gradient(1px 1px at 30% 90%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 70% 85%, rgba(255,255,255,0.6) 0%, transparent 100%),
+      radial-gradient(1px 1px at 5% 50%, rgba(255,255,255,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 45% 35%, rgba(255,255,255,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 88% 45%, rgba(255,255,255,0.7) 0%, transparent 100%),
+      radial-gradient(1px 1px at 20% 60%, rgba(255,255,255,0.5) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+    animation: twinkle 6s ease-in-out infinite alternate;
+  }
+
+  @keyframes twinkle {
+    0% { opacity: 0.6; }
+    100% { opacity: 1; }
+  }
+
+  /* Nebula glow */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 20% 30%, rgba(100,50,180,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 50% at 80% 70%, rgba(60,20,120,0.15) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 30% at 50% 10%, rgba(180,120,80,0.06) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ─── NAV ─────────────────────────────────────────── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3rem;
+    height: 64px;
+    background: rgba(8,6,18,0.8);
+    backdrop-filter: blur(20px);
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 18px;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--purple-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 0;
+    list-style: none;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-dim);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    transition: color 0.2s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 4px; left: 18px; right: 18px;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+
+  /* ─── HERO ────────────────────────────────────────── */
+  #hero {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 2rem 4rem;
+  }
+
+  .hero-symbol {
+    font-size: 72px;
+    line-height: 1;
+    margin-bottom: 2rem;
+    animation: float 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 30px rgba(155,111,212,0.6));
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .hero-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--purple-light) 50%, var(--gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  .hero-subtitle-cn {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    color: var(--gold-light);
+    letter-spacing: 0.3em;
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+  }
+
+  .hero-tagline {
+    font-size: 15px;
+    color: var(--text-dim);
+    letter-spacing: 0.12em;
+    margin-bottom: 3rem;
+    max-width: 480px;
+  }
+
+  .hero-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    width: 300px;
+  }
+
+  .hero-divider span { flex: 1; height: 0.5px; background: linear-gradient(90deg, transparent, var(--gold-dim), transparent); }
+  .hero-divider em { font-style: normal; color: var(--gold); font-size: 16px; }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn-gold {
+    display: inline-block;
+    padding: 12px 32px;
+    background: linear-gradient(135deg, var(--gold) 0%, #b8862a 100%);
+    color: #1a0e00;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  }
+
+  .btn-gold:hover {
+    filter: brightness(1.15);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    display: inline-block;
+    padding: 11px 32px;
+    background: transparent;
+    color: var(--purple-light);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    border: 0.5px solid var(--purple);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .btn-outline:hover {
+    background: var(--purple-glow);
+    border-color: var(--purple-light);
+    transform: translateY(-2px);
+  }
+
+  /* ─── SECTION BASE ────────────────────────────────── */
+  section {
+    position: relative;
+    z-index: 1;
+    padding: 6rem 2rem;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .section-eyebrow {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+  }
+
+  .section-desc {
+    font-size: 14px;
+    color: var(--text-dim);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.8;
+    letter-spacing: 0.05em;
+  }
+
+  .ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .ornament span { width: 40px; height: 0.5px; background: var(--gold-dim); }
+  .ornament em { font-style: normal; color: var(--gold); font-size: 14px; }
+
+  /* ─── FEATURE GRID ────────────────────────────────── */
+  #features { background: var(--deep); }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5px;
+    background: var(--border);
+  }
+
+  .feature-card {
+    background: var(--surface);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: background 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+  }
+
+  .feature-card:hover { background: var(--panel); }
+
+  .feature-icon {
+    font-size: 48px;
+    margin-bottom: 1.2rem;
+    display: block;
+    filter: drop-shadow(0 0 15px rgba(155,111,212,0.5));
+  }
+
+  .feature-name {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.1em;
+  }
+
+  .feature-desc {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.8;
+    letter-spacing: 0.05em;
+  }
+
+  .feature-arrow {
+    display: inline-block;
+    margin-top: 1.2rem;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--purple);
+    transition: color 0.2s, letter-spacing 0.2s;
+  }
+
+  .feature-card:hover .feature-arrow {
+    color: var(--purple-light);
+    letter-spacing: 0.3em;
+  }
+
+  /* ─── ZODIAC SECTION ──────────────────────────────── */
+  #zodiac { background: var(--void); }
+
+  .zodiac-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .zodiac-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  .zodiac-item {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    padding: 1rem 0.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .zodiac-item:hover {
+    background: var(--panel);
+    border-color: var(--border-bright);
+    transform: translateY(-3px);
+  }
+
+  .zodiac-item.active {
+    background: var(--lift);
+    border-color: var(--gold);
+  }
+
+  .zodiac-symbol { font-size: 28px; display: block; margin-bottom: 4px; }
+  .zodiac-name { font-size: 12px; color: var(--text-dim); letter-spacing: 0.05em; }
+  .zodiac-item.active .zodiac-name { color: var(--gold-light); }
+
+  .zodiac-result {
+    background: var(--panel);
+    border: 0.5px solid var(--border-bright);
+    padding: 2.5rem;
+    min-height: 200px;
+    display: none;
+  }
+
+  .zodiac-result.show { display: block; }
+
+  .zodiac-result-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .zodiac-result-icon { font-size: 40px; }
+
+  .zodiac-result-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    letter-spacing: 0.1em;
+  }
+
+  .zodiac-result-date { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
+
+  .fortune-bars { display: grid; gap: 12px; }
+
+  .fortune-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .fortune-label { width: 60px; font-size: 12px; color: var(--text-dim); letter-spacing: 0.05em; }
+
+  .fortune-track {
+    flex: 1;
+    height: 4px;
+    background: rgba(255,255,255,0.08);
+    position: relative;
+  }
+
+  .fortune-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--purple) 0%, var(--gold) 100%);
+    transition: width 0.8s ease;
+  }
+
+  .fortune-score { width: 30px; text-align: right; font-size: 12px; color: var(--gold); }
+
+  .fortune-text {
+    margin-top: 1.5rem;
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.9;
+    letter-spacing: 0.05em;
+    font-family: 'Noto Serif TC', serif;
+  }
+
+  /* ─── TAROT SECTION ───────────────────────────────── */
+  #tarot { background: var(--deep); }
+
+  .tarot-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (max-width: 768px) {
+    .tarot-area { grid-template-columns: 1fr; }
+  }
+
+  .tarot-deck {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .tarot-card-wrap {
+    perspective: 1000px;
+    width: 180px;
+    height: 300px;
+  }
+
+  .tarot-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(.4,0,.2,1);
+    cursor: pointer;
+  }
+
+  .tarot-card.flipped { transform: rotateY(180deg); }
+
+  .tarot-front, .tarot-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border: 0.5px solid var(--border-bright);
+  }
+
+  .tarot-back {
+    background: var(--panel);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(155,111,212,0.05) 10px,
+      rgba(155,111,212,0.05) 20px
+    );
+  }
+
+  .tarot-front {
+    background: var(--surface);
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .tarot-front-icon { font-size: 56px; margin-bottom: 0.8rem; }
+
+  .tarot-front-name {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--gold-light);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+
+  .tarot-front-num { font-size: 11px; color: var(--purple-light); letter-spacing: 0.2em; }
+
+  .tarot-btn {
+    background: transparent;
+    border: 0.5px solid var(--gold);
+    color: var(--gold);
+    padding: 10px 28px;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    font-family: 'Noto Sans TC', sans-serif;
+    transition: all 0.2s;
+  }
+
+  .tarot-btn:hover { background: var(--gold-dim); }
+
+  .tarot-info { padding-top: 1rem; }
+
+  .tarot-info h3 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    margin-bottom: 1rem;
+    letter-spacing: 0.1em;
+  }
+
+  .tarot-meaning {
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.9;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+    font-family: 'Noto Serif TC', serif;
+    display: none;
+  }
+
+  .tarot-meaning.show { display: block; }
+
+  .tarot-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    display: none;
+  }
+
+  .tarot-keywords.show { display: flex; }
+
+  .keyword-tag {
+    background: var(--lift);
+    border: 0.5px solid var(--border-bright);
+    color: var(--purple-light);
+    font-size: 11px;
+    padding: 4px 12px;
+    letter-spacing: 0.1em;
+  }
+
+  .tarot-placeholder {
+    font-size: 14px;
+    color: var(--text-faint);
+    line-height: 1.9;
+    letter-spacing: 0.05em;
+    font-family: 'Noto Serif TC', serif;
+  }
+
+  /* ─── ZIWEI SECTION ───────────────────────────────── */
+  #ziwei { background: var(--void); }
+
+  .ziwei-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--panel);
+    border: 0.5px solid var(--border);
+    padding: 2.5rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-group { display: flex; flex-direction: column; gap: 8px; }
+
+  .form-label {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+  }
+
+  .form-input, .form-select {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    color: var(--text);
+    padding: 10px 14px;
+    font-size: 14px;
+    font-family: 'Noto Sans TC', sans-serif;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .form-input:focus, .form-select:focus { border-color: var(--purple); }
+  .form-select option { background: var(--deep); }
+
+  .form-submit {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 14px;
+    background: linear-gradient(135deg, rgba(155,111,212,0.3) 0%, rgba(212,168,67,0.2) 100%);
+    border: 0.5px solid var(--purple);
+    color: var(--purple-light);
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+    font-family: 'Noto Sans TC', sans-serif;
+    transition: all 0.3s;
+  }
+
+  .form-submit:hover {
+    background: linear-gradient(135deg, rgba(155,111,212,0.5) 0%, rgba(212,168,67,0.3) 100%);
+    border-color: var(--purple-light);
+  }
+
+  .ziwei-result {
+    max-width: 600px;
+    margin: 2rem auto 0;
+    display: none;
+  }
+
+  .ziwei-result.show { display: block; }
+
+  .ziwei-palace-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: var(--border);
+    margin-bottom: 1.5rem;
+  }
+
+  .palace-cell {
+    background: var(--surface);
+    padding: 0.8rem;
+    min-height: 80px;
+    font-size: 11px;
+    color: var(--text-dim);
+    position: relative;
+  }
+
+  .palace-cell.center {
+    background: var(--panel);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column: span 2;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 14px;
+    color: var(--gold-light);
+    letter-spacing: 0.15em;
+  }
+
+  .palace-name {
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+
+  .palace-star {
+    font-size: 12px;
+    color: var(--purple-light);
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 600;
+  }
+
+  .palace-minor { font-size: 10px; color: var(--text-faint); margin-top: 2px; }
+
+  /* ─── CHART SECTION ───────────────────────────────── */
+  #chart-section { background: var(--deep); }
+
+  .chart-form {
+    max-width: 640px;
+    margin: 0 auto;
+    background: var(--panel);
+    border: 0.5px solid var(--border);
+    padding: 2.5rem;
+  }
+
+  .chart-result {
+    max-width: 640px;
+    margin: 2rem auto 0;
+    display: none;
+  }
+
+  .chart-result.show { display: block; }
+
+  .planet-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 600px) {
+    .planet-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .planet-card {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .planet-icon { font-size: 24px; margin-bottom: 6px; display: block; }
+  .planet-name { font-size: 11px; color: var(--text-dim); letter-spacing: 0.1em; margin-bottom: 4px; }
+  .planet-sign { font-size: 14px; color: var(--purple-light); font-family: 'Noto Serif TC', serif; font-weight: 600; }
+
+  .chart-summary {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    padding: 1.5rem;
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.9;
+    font-family: 'Noto Serif TC', serif;
+    letter-spacing: 0.05em;
+  }
+
+  /* ─── FOOTER ──────────────────────────────────────── */
+  footer {
+    position: relative;
+    z-index: 1;
+    background: var(--void);
+    border-top: 0.5px solid var(--border);
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 20px;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--purple-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-tagline { font-size: 12px; color: var(--text-faint); letter-spacing: 0.2em; margin-bottom: 1.5rem; }
+
+  .footer-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+
+  .footer-links a { font-size: 12px; color: var(--text-dim); text-decoration: none; letter-spacing: 0.1em; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+
+  .footer-copy { font-size: 11px; color: var(--text-faint); letter-spacing: 0.1em; }
+
+  /* ─── MOBILE ──────────────────────────────────────── */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+    .ziwei-palace-grid { grid-template-columns: repeat(3, 1fr); }
+    .tarot-area { grid-template-columns: 1fr; text-align: center; }
+    .planet-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ─── ANIMATION ───────────────────────────────────── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">星命閣</a>
+  <ul class="nav-links">
+    <li><a href="#zodiac">星座運勢</a></li>
+    <li><a href="#tarot">塔羅占卜</a></li>
+    <li><a href="#ziwei">紫微斗數</a></li>
+    <li><a href="#chart-section">西洋命盤</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-symbol">✦</div>
+  <h1 class="hero-title">星命閣</h1>
+  <p class="hero-subtitle-cn">星座・塔羅・紫微・命盤</p>
+  <div class="hero-divider">
+    <span></span>
+    <em>☽</em>
+    <span></span>
+  </div>
+  <p class="hero-tagline">穿越星空的指引，探尋命運的密語<br>讓宇宙的智慧為您照亮前行之路</p>
+  <div class="hero-cta">
+    <a href="#zodiac" class="btn-gold">探索運勢</a>
+    <a href="#tarot" class="btn-outline">抽一張牌</a>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="ornament"><span></span><em>✦</em><span></span></div>
+      <p class="section-eyebrow">四大神秘術數</p>
+      <h2 class="section-title">探索命運的四把鑰匙</h2>
+    </div>
+    <div class="feature-grid fade-in">
+      <a href="#zodiac" class="feature-card">
+        <span class="feature-icon">♈</span>
+        <p class="feature-name">西洋星座</p>
+        <p class="feature-desc">十二星座每日運勢、愛情財運健康，讓星辰為您指路</p>
+        <span class="feature-arrow">EXPLORE →</span>
+      </a>
+      <a href="#tarot" class="feature-card">
+        <span class="feature-icon">🃏</span>
+        <p class="feature-name">塔羅占卜</p>
+        <p class="feature-desc">78張神秘塔羅牌，每日抽牌解讀，揭示潛意識的訊息</p>
+        <span class="feature-arrow">DRAW →</span>
+      </a>
+      <a href="#ziwei" class="feature-card">
+        <span class="feature-icon">☯</span>
+        <p class="feature-name">紫微斗數</p>
+        <p class="feature-desc">依生辰八字排列命宮，以東方星象解析您的命運格局</p>
+        <span class="feature-arrow">CHART →</span>
+      </a>
+      <a href="#chart-section" class="feature-card">
+        <span class="feature-icon">🌌</span>
+        <p class="feature-name">西洋命盤</p>
+        <p class="feature-desc">輸入出生時間與地點，精算行星位置，解讀靈魂藍圖</p>
+        <span class="feature-arrow">CAST →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ZODIAC -->
+<section id="zodiac">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="ornament"><span></span><em>♈</em><span></span></div>
+      <p class="section-eyebrow">Western Astrology</p>
+      <h2 class="section-title">十二星座今日運勢</h2>
+      <p class="section-desc">點選您的星座，探索今日的宇宙訊息</p>
+    </div>
+    <div class="zodiac-grid fade-in" id="zodiacGrid"></div>
+    <div class="zodiac-result fade-in" id="zodiacResult"></div>
+  </div>
+</section>
+
+<!-- TAROT -->
+<section id="tarot">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="ornament"><span></span><em>🃏</em><span></span></div>
+      <p class="section-eyebrow">Tarot Reading</p>
+      <h2 class="section-title">塔羅每日一牌</h2>
+      <p class="section-desc">靜心冥想，點擊牌背，揭示今日的塔羅啟示</p>
+    </div>
+    <div class="tarot-area fade-in">
+      <div class="tarot-deck">
+        <div class="tarot-card-wrap">
+          <div class="tarot-card" id="tarotCard">
+            <div class="tarot-back">✦</div>
+            <div class="tarot-front" id="tarotFront">
+              <span class="tarot-front-icon" id="tarotIcon">✦</span>
+              <p class="tarot-front-name" id="tarotName">—</p>
+              <p class="tarot-front-num" id="tarotNum">—</p>
+            </div>
+          </div>
+        </div>
+        <button class="tarot-btn" onclick="drawTarot()">✦ 抽取今日牌 ✦</button>
+      </div>
+      <div class="tarot-info">
+        <h3>牌意解讀</h3>
+        <p class="tarot-placeholder" id="tarotPlaceholder">
+          請先靜心片刻，將您的問題放在心中，然後點擊左側的「抽取今日牌」按鈕，讓塔羅為您揭示宇宙的訊息。
+        </p>
+        <p class="tarot-meaning" id="tarotMeaning"></p>
+        <div class="tarot-keywords" id="tarotKeywords"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZIWEI -->
+<section id="ziwei">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="ornament"><span></span><em>☯</em><span></span></div>
+      <p class="section-eyebrow">Purple Star Astrology</p>
+      <h2 class="section-title">紫微斗數命盤</h2>
+      <p class="section-desc">輸入您的農曆生辰，系統將為您排列專屬命宮</p>
+    </div>
+    <div class="ziwei-form fade-in">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">出生年份（民國）</label>
+          <input type="number" class="form-input" id="ziweiYear" placeholder="例：75" min="1" max="120">
+        </div>
+        <div class="form-group">
+          <label class="form-label">出生月份（農曆）</label>
+          <select class="form-select" id="ziweiMonth">
+            <option value="">選擇月份</option>
+            <option value="1">正月</option><option value="2">二月</option>
+            <option value="3">三月</option><option value="4">四月</option>
+            <option value="5">五月</option><option value="6">六月</option>
+            <option value="7">七月</option><option value="8">八月</option>
+            <option value="9">九月</option><option value="10">十月</option>
+            <option value="11">十一月</option><option value="12">十二月</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">出生日期（農曆）</label>
+          <select class="form-select" id="ziweiDay">
+            <option value="">選擇日期</option>
+            <script>for(let i=1;i<=30;i++){document.write(`<option value="${i}">${i}日</option>`)}</script>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">出生時辰</label>
+          <select class="form-select" id="ziweiHour">
+            <option value="">選擇時辰</option>
+            <option value="0">子時（23-01時）</option>
+            <option value="1">丑時（01-03時）</option>
+            <option value="2">寅時（03-05時）</option>
+            <option value="3">卯時（05-07時）</option>
+            <option value="4">辰時（07-09時）</option>
+            <option value="5">巳時（09-11時）</option>
+            <option value="6">午時（11-13時）</option>
+            <option value="7">未時（13-15時）</option>
+            <option value="8">申時（15-17時）</option>
+            <option value="9">酉時（17-19時）</option>
+            <option value="10">戌時（19-21時）</option>
+            <option value="11">亥時（21-23時）</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group" style="margin-bottom:0">
+        <label class="form-label">性別</label>
+        <select class="form-select" id="ziweiGender">
+          <option value="">選擇性別</option>
+          <option value="m">男命</option>
+          <option value="f">女命</option>
+        </select>
+      </div>
+      <button class="form-submit" onclick="generateZiwei()">✦ 排列紫微命盤 ✦</button>
+    </div>
+    <div class="ziwei-result" id="ziweiResult"></div>
+  </div>
+</section>
+
+<!-- WESTERN CHART -->
+<section id="chart-section">
+  <div class="container">
+    <div class="section-header fade-in">
+      <div class="ornament"><span></span><em>🌌</em><span></span></div>
+      <p class="section-eyebrow">Natal Chart</p>
+      <h2 class="section-title">西洋占星命盤</h2>
+      <p class="section-desc">輸入精確的出生時間與地點，解讀您的靈魂藍圖</p>
+    </div>
+    <div class="chart-form fade-in">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">出生日期</label>
+          <input type="date" class="form-input" id="chartDate">
+        </div>
+        <div class="form-group">
+          <label class="form-label">出生時間</label>
+          <input type="time" class="form-input" id="chartTime">
+        </div>
+      </div>
+      <div class="form-group" style="margin-bottom:1rem">
+        <label class="form-label">出生城市</label>
+        <input type="text" class="form-input" id="chartCity" placeholder="例：台北市、高雄市、台中市">
+      </div>
+      <button class="form-submit" onclick="generateChart()">✦ 計算西洋命盤 ✦</button>
+    </div>
+    <div class="chart-result" id="chartResult"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-logo">星命閣</p>
+  <p class="footer-tagline">STARS · TAROT · ZIWEI · DESTINY</p>
+  <div class="footer-links">
+    <a href="#zodiac">星座運勢</a>
+    <a href="#tarot">塔羅占卜</a>
+    <a href="#ziwei">紫微斗數</a>
+    <a href="#chart-section">西洋命盤</a>
+  </div>
+  <p class="footer-copy">© 2025 星命閣 · 僅供娛樂參考，不構成任何建議</p>
+</footer>
+
+<script>
+// ─── ZODIAC DATA ──────────────────────────────────────
+const zodiacs = [
+  { sym:'♈', name:'牡羊', date:'3/21–4/19', en:'Aries',
+    love:85, money:70, health:90, career:80,
+    text:'今日火星為您注入充沛的行動力，適合開創新局。感情上勇敢表達心意，對方能感受您的真誠。財務方面宜謹慎，衝動消費可能帶來後悔。' },
+  { sym:'♉', name:'金牛', date:'4/20–5/20', en:'Taurus',
+    love:75, money:90, health:70, career:85,
+    text:'金星守護下，今日財運亨通，適合處理金錢事務。感情穩定而甜蜜，伴侶間有心有靈犀之感。健康方面注意飲食節制，避免過度享樂。' },
+  { sym:'♊', name:'雙子', date:'5/21–6/21', en:'Gemini',
+    love:80, money:65, health:75, career:90,
+    text:'水星賜予您靈活的思維，溝通與表達力達到巔峰。今日適合簽約、談判或重要會議。感情上需要更多傾聽，別讓話語傷了對方。' },
+  { sym:'♋', name:'巨蟹', date:'6/22–7/22', en:'Cancer',
+    love:90, money:75, health:80, career:70,
+    text:'月亮的光芒照耀著您，今日情感豐沛而細膩。家庭關係和諧，是與親人共度美好時光的日子。職場上發揮同理心，能獲得同事的信任。' },
+  { sym:'♌', name:'獅子', date:'7/23–8/22', en:'Leo',
+    love:85, money:80, career:95, health:75,
+    text:'太陽璀璨地照耀您，今日光芒四射，是展現自我的絕佳時機。事業上有貴人相助，把握機會展現領導才能。愛情方面魅力無限，令人著迷。' },
+  { sym:'♍', name:'處女', date:'8/23–9/22', en:'Virgo',
+    love:70, money:85, health:90, career:85,
+    text:'水星為您帶來敏銳的分析力，今日適合處理細節性工作。健康意識增強，是開始新健康計畫的好時機。感情上可能因完美主義產生摩擦，放鬆心態。' },
+  { sym:'♎', name:'天秤', date:'9/23–10/23', en:'Libra',
+    love:95, money:70, health:75, career:80,
+    text:'金星守護使您魅力倍增，今日桃花運旺盛。感情上可能有令人心動的邂逅，單身者把握機會。財務方面注意衝動消費，需要做出平衡的決策。' },
+  { sym:'♏', name:'天蠍', date:'10/24–11/21', en:'Scorpio',
+    love:80, money:90, health:70, career:85,
+    text:'冥王星的神秘力量使您洞察力超強，今日能看穿事物的本質。財務上有意外收穫的可能，直覺可信賴。感情深刻且強烈，避免過度佔有。' },
+  { sym:'♐', name:'射手', date:'11/22–12/21', en:'Sagittarius',
+    love:75, money:80, health:90, career:75,
+    text:'木星的祝福帶來樂觀與機遇，今日充滿冒險精神。旅行或學習新事物能帶來意想不到的驚喜。感情上需要更多承諾，給伴侶安全感很重要。' },
+  { sym:'♑', name:'摩羯', date:'12/22–1/19', en:'Capricorn',
+    love:70, money:95, health:80, career:90,
+    text:'土星賜予您堅韌與紀律，今日在事業和財務上的努力將帶來豐厚回報。長期規劃的成果開始顯現。感情上稍嫌保守，試著表達內心的柔情。' },
+  { sym:'♒', name:'水瓶', date:'1/20–2/18', en:'Aquarius',
+    love:75, money:80, health:75, career:85,
+    text:'天王星激發您的創造力與革新思維，今日適合提出新想法或加入社群活動。人際關係豐富，貴人在意想不到的地方出現。感情上需要保持獨立空間。' },
+  { sym:'♓', name:'雙魚', date:'2/19–3/20', en:'Pisces',
+    love:90, money:70, health:80, career:75,
+    text:'海王星賜予您豐富的直覺與感受力，今日靈感湧現，適合藝術創作或冥想。感情上浪漫而夢幻，容易墜入愛河。現實事務需要更務實的態度。' }
+];
+
+function renderZodiacGrid() {
+  const grid = document.getElementById('zodiacGrid');
+  grid.innerHTML = zodiacs.map((z,i) => `
+    <div class="zodiac-item" onclick="showZodiac(${i})" id="zi-${i}">
+      <span class="zodiac-symbol">${z.sym}</span>
+      <span class="zodiac-name">${z.name}座</span>
+    </div>
+  `).join('');
+}
+
+function showZodiac(i) {
+  document.querySelectorAll('.zodiac-item').forEach(el => el.classList.remove('active'));
+  document.getElementById(`zi-${i}`).classList.add('active');
+  const z = zodiacs[i];
+  const result = document.getElementById('zodiacResult');
+  result.className = 'zodiac-result show';
+  result.innerHTML = `
+    <div class="zodiac-result-header">
+      <span class="zodiac-result-icon">${z.sym}</span>
+      <div>
+        <p class="zodiac-result-title">${z.name}座 ${z.en}</p>
+        <p class="zodiac-result-date">${z.date}</p>
+      </div>
+    </div>
+    <div class="fortune-bars">
+      ${[['愛情',z.love],['財運',z.money],['健康',z.health],['事業',z.career]].map(([label,val])=>`
+      <div class="fortune-row">
+        <span class="fortune-label">${label}</span>
+        <div class="fortune-track"><div class="fortune-fill" style="width:${val}%"></div></div>
+        <span class="fortune-score">${val}</span>
+      </div>`).join('')}
+    </div>
+    <p class="fortune-text">「${z.text}」</p>
+  `;
+}
+
+renderZodiacGrid();
+
+// ─── TAROT DATA ───────────────────────────────────────
+const tarotCards = [
+  { icon:'🌟', name:'愚者', num:'0 · THE FOOL', keywords:['新開始','冒險','天真','自由'],
+    meaning:'愚者象徵著新旅程的起點，帶著純真與勇氣踏入未知。今日宇宙邀請您放下恐懼，以開放的心迎接生命中的新體驗。相信自己的直覺，勇敢邁出第一步，即便前方道路不明，也要相信宇宙的指引。' },
+  { icon:'🔮', name:'魔法師', num:'I · THE MAGICIAN', keywords:['意志力','創造','掌控','技巧'],
+    meaning:'魔法師代表將願望化為現實的能力。您擁有成功所需的一切工具，現在是運用意志力付諸行動的時刻。集中專注力，相信自己的技能，任何目標都可以透過努力與智慧達成。' },
+  { icon:'🌙', name:'女祭司', num:'II · HIGH PRIESTESS', keywords:['直覺','神秘','內省','潛意識'],
+    meaning:'女祭司邀請您向內探索，傾聽潛意識的低語。今日不宜貿然行動，而是靜心冥想，讓直覺為您引路。隱藏的真相即將浮現，保持耐心與開放的心態。' },
+  { icon:'🌺', name:'女皇', num:'III · THE EMPRESS', keywords:['豐盛','創造力','母性','自然'],
+    meaning:'女皇帶來豐盛與創造的能量，今日萬物蓬勃生長。感情上充滿溫暖與滋養，事業上創意豐沛。好好照顧自己與所愛之人，享受生命的美好與豐盛。' },
+  { icon:'⚡', name:'力量', num:'VIII · STRENGTH', keywords:['勇氣','耐心','內在力量','仁慈'],
+    meaning:'力量牌提醒您，真正的強大來自內心的平靜與仁慈，而非蠻力。面對今日的挑戰，以溫柔而堅定的方式應對，您的耐心與愛心是最有力的武器。' },
+  { icon:'☀️', name:'太陽', num:'XIX · THE SUN', keywords:['喜悅','成功','活力','正能量'],
+    meaning:'太陽帶來光明與喜悅，今日萬事如意，充滿正能量。您的努力得到認可，快樂與成功如影隨形。分享您的光與熱，感染周圍的人，共同創造美好的一天。' },
+  { icon:'🌊', name:'月亮', num:'XVIII · THE MOON', keywords:['幻象','直覺','潛意識','迷霧'],
+    meaning:'月亮牌揭示了隱藏於表面之下的真實。今日可能面臨迷惑或不確定感，不要輕易相信表象。深入探索自己的情感與直覺，真相在迷霧中等待被發現。' },
+  { icon:'⭐', name:'星星', num:'XVII · THE STAR', keywords:['希望','靈感','更新','信念'],
+    meaning:'星星是希望與更新的象徵，在最黑暗的時刻仍有光芒指引。今日無論身處何種困境，請相信美好的未來正在等待您。保持信念，讓希望成為前行的動力。' },
+  { icon:'⚖️', name:'正義', num:'XI · JUSTICE', keywords:['公平','真相','因果','平衡'],
+    meaning:'正義牌提醒您，每個行動都有其因果。今日面對決定時，依照內心的真理與公平原則行事。過去的善因將在此時開花結果，誠實面對自己與他人。' },
+  { icon:'🔔', name:'命運之輪', num:'X · WHEEL OF FORTUNE', keywords:['轉機','命運','循環','機遇'],
+    meaning:'命運之輪轉動，帶來變化與轉機。今日是命運的轉折點，把握此刻的機遇，勇於迎接新的可能性。記住，所有的起落都是生命循環的一部分，保持平靜迎接改變。' },
+];
+
+let tarotDrawn = false;
+
+function drawTarot() {
+  const card = document.getElementById('tarotCard');
+  const randomCard = tarotCards[Math.floor(Math.random() * tarotCards.length)];
+
+  if (tarotDrawn) {
+    card.classList.remove('flipped');
+    setTimeout(() => { setTarotCard(randomCard); card.classList.add('flipped'); }, 400);
+  } else {
+    setTarotCard(randomCard);
+    card.classList.add('flipped');
+    tarotDrawn = true;
+  }
+
+  setTimeout(() => {
+    document.getElementById('tarotPlaceholder').style.display = 'none';
+    const meaning = document.getElementById('tarotMeaning');
+    meaning.textContent = randomCard.meaning;
+    meaning.className = 'tarot-meaning show';
+
+    const keywords = document.getElementById('tarotKeywords');
+    keywords.innerHTML = randomCard.keywords.map(k => `<span class="keyword-tag">${k}</span>`).join('');
+    keywords.className = 'tarot-keywords show';
+  }, 900);
+}
+
+function setTarotCard(card) {
+  document.getElementById('tarotIcon').textContent = card.icon;
+  document.getElementById('tarotName').textContent = card.name;
+  document.getElementById('tarotNum').textContent = card.num;
+}
+
+// ─── ZIWEI DATA ───────────────────────────────────────
+const ziweiStars = ['紫微','天機','太陽','武曲','天同','廉貞','天府','太陰','貪狼','巨門','天相','天梁','七殺','破軍'];
+const palaceNames = ['命宮','兄弟','夫妻','子女','財帛','疾厄','遷移','僕役','官祿','田宅','福德','父母'];
+
+function generateZiwei() {
+  const year = document.getElementById('ziweiYear').value;
+  const month = document.getElementById('ziweiMonth').value;
+  const day = document.getElementById('ziweiDay').value;
+  const hour = document.getElementById('ziweiHour').value;
+  const gender = document.getElementById('ziweiGender').value;
+
+  if (!year || !month || !day || !gender) {
+    alert('請填寫完整的生辰資料');
+    return;
+  }
+
+  // Simulate palace assignment based on input
+  const seed = (parseInt(year) + parseInt(month) + parseInt(day) + parseInt(hour||0));
+  const shuffled = [...ziweiStars].sort(() => Math.sin(seed * 9301 + 49297) - 0.5);
+  const minorStars = ['文昌','文曲','左輔','右弼','天魁','天鉞','祿存','天馬','火星','鈴星'];
+
+  const result = document.getElementById('ziweiResult');
+  result.className = 'ziwei-result show';
+
+  // Build 4x4 grid (outer 12 palaces + center)
+  const outer = palaceNames.map((name, i) => ({
+    name, star: shuffled[i % shuffled.length], minor: minorStars[i % minorStars.length]
+  }));
+
+  // Layout: top row L-R, right col T-B, bottom row R-L, left col B-T
+  const layout = [
+    outer[10], outer[11], outer[0], outer[1],
+    outer[9], null, null, outer[2],
+    outer[8], null, null, outer[3],
+    outer[7], outer[6], outer[5], outer[4],
+  ];
+
+  const genderText = gender === 'm' ? '男命' : '女命';
+  const hourNames = ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+
+  result.innerHTML = `
+    <div class="ziwei-palace-grid">
+      ${layout.map((cell, i) => {
+        if (cell === null) {
+          if (i === 5) return `<div class="palace-cell center" style="grid-row:span 2;grid-column:span 2">
+            <div style="text-align:center">
+              <div style="font-size:13px;color:var(--text-dim);letter-spacing:0.1em;margin-bottom:8px">民國 ${year} 年</div>
+              <div style="font-family:'Noto Serif TC';font-size:16px;color:var(--gold-light);letter-spacing:0.15em">${genderText}</div>
+              <div style="font-size:12px;color:var(--text-faint);margin-top:6px;letter-spacing:0.1em">${month}月${day}日 ${hour!==''?hourNames[hour]+'時':''}生</div>
+            </div>
+          </div>`;
+          return '';
+        }
+        return `<div class="palace-cell">
+          <p class="palace-name">${cell.name}</p>
+          <p class="palace-star">${cell.star}</p>
+          <p class="palace-minor">${cell.minor}</p>
+        </div>`;
+      }).join('')}
+    </div>
+    <div style="background:var(--surface);border:0.5px solid var(--border);padding:1.5rem;font-size:14px;color:var(--text-dim);line-height:1.9;font-family:'Noto Serif TC';letter-spacing:0.05em">
+      ✦ 命宮主星「${outer[0].star}」入命，此命格${outer[0].star === '紫微' || outer[0].star === '天府' ? '貴氣逼人，具有領袖氣質，一生多得貴人相助' : outer[0].star === '太陽' || outer[0].star === '廉貞' ? '光明磊落，性格直爽，事業心旺盛' : '深謀遠慮，智慧超群，善於分析判斷'}。財帛宮見「${outer[4].star}」，${outer[4].star === '武曲' || outer[4].star === '天府' ? '財庫豐厚，理財能力強' : '財來財去，需謹慎理財'}。感情方面夫妻宮「${outer[2].star}」，感情生活${outer[2].star === '太陰' || outer[2].star === '天同' ? '和諧美滿，感情穩定' : '多有波折，需要多方溝通'}。
+    </div>
+  `;
+}
+
+// ─── WESTERN CHART ────────────────────────────────────
+const planets = [
+  { icon:'☀️', name:'太陽', signs:['牡羊','金牛','雙子','巨蟹','獅子','處女','天秤','天蠍','射手','摩羯','水瓶','雙魚'] },
+  { icon:'🌙', name:'月亮', signs:['巨蟹','天蠍','雙魚','牡羊','金牛','雙子','獅子','處女','天秤','射手','摩羯','水瓶'] },
+  { icon:'☿', name:'水星', signs:['雙子','處女','牡羊','金牛','巨蟹','獅子','天秤','天蠍','射手','摩羯','水瓶','雙魚'] },
+  { icon:'♀', name:'金星', signs:['金牛','天秤','雙魚','牡羊','雙子','巨蟹','獅子','處女','天蠍','射手','摩羯','水瓶'] },
+  { icon:'♂', name:'火星', signs:['牡羊','天蠍','摩羯','獅子','雙子','射手','牡羊','天蠍','摩羯','牡羊','牡羊','雙魚'] },
+  { icon:'♃', name:'木星', signs:['射手','雙魚','巨蟹','牡羊','獅子','天秤','射手','射手','射手','摩羯','水瓶','雙魚'] },
+  { icon:'♄', name:'土星', signs:['摩羯','水瓶','天秤','牡羊','巨蟹','處女','摩羯','摩羯','水瓶','摩羯','水瓶','雙魚'] },
+  { icon:'↑', name:'上升星座', signs:['牡羊','金牛','雙子','巨蟹','獅子','處女','天秤','天蠍','射手','摩羯','水瓶','雙魚'] },
+];
+
+function generateChart() {
+  const date = document.getElementById('chartDate').value;
+  const time = document.getElementById('chartTime').value;
+  const city = document.getElementById('chartCity').value;
+
+  if (!date || !city) {
+    alert('請輸入出生日期與城市');
+    return;
+  }
+
+  const d = new Date(date + 'T' + (time || '12:00'));
+  const month = d.getMonth();
+  const hour = d.getHours();
+  const seed = d.getDate() + hour;
+
+  const planetPositions = planets.map(p => ({
+    ...p,
+    sign: p.signs[(month + seed) % 12]
+  }));
+
+  const result = document.getElementById('chartResult');
+  result.className = 'chart-result show';
+
+  const sun = planetPositions[0].sign;
+  const moon = planetPositions[1].sign;
+  const asc = planetPositions[7].sign;
+
+  result.innerHTML = `
+    <div class="planet-grid">
+      ${planetPositions.map(p => `
+        <div class="planet-card">
+          <span class="planet-icon">${p.icon}</span>
+          <p class="planet-name">${p.name}</p>
+          <p class="planet-sign">${p.sign}座</p>
+        </div>
+      `).join('')}
+    </div>
+    <div class="chart-summary">
+      ✦ 您的太陽在${sun}座，代表您的本質與核心自我；月亮在${moon}座，反映您的情感需求與潛意識；上升星座${asc}座，則是您展現給世界的外在形象與第一印象。
+      <br><br>
+      三重星座的組合構成了您獨特的靈魂藍圖——${sun}座的特質為您帶來${sun==='獅子'?'光芒四射的領袖魅力':sun==='處女'?'精準細膩的分析能力':sun==='天秤'?'追求和諧的美感天賦':sun==='天蠍'?'深邃透徹的洞察直覺':sun==='射手'?'自由奔放的冒險精神':sun==='摩羯'?'腳踏實地的執行力':sun==='水瓶'?'革新前衛的創造思維':sun==='雙魚'?'豐富浪漫的藝術感知':'充沛活躍的生命力'}，月亮${moon}座則讓您在內心深處渴望${moon==='巨蟹'||moon==='雙魚'?'溫暖與歸屬':moon==='天蠍'?'深刻與真實':moon==='射手'?'自由與探索':'穩定與安全感'}。
+    </div>
+  `;
+}
+
+// ─── SCROLL ANIMATION ─────────────────────────────────
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
