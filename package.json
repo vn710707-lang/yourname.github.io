@@ -1,0 +1,1 @@
+{"name": "yourname.github.io", "version": "1.0.0", "description": "Comprehensive member system for managing users with Firebase, email notifications, and payment integration.", "main": "index.js", "scripts": {"start": "node index.js"}, "dependencies": {"firebase-admin": "^10.0.0", "nodemailer": "^6.6.3", "stripe": "^8.0.0"}, "author": "vn710707-lang", "license": "MIT"}
