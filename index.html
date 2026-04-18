@@ -486,6 +486,91 @@ footer{position:relative;z-index:1;background:var(--void);border-top:.5px solid 
 /* PWA */
 #pwabanner{position:fixed;bottom:0;left:0;right:0;z-index:300;background:rgba(13,10,31,.97);border-top:.5px solid rgba(200,160,255,.4);padding:12px 16px;display:flex;align-items:center;gap:11px;transform:translateY(100%);transition:transform .4s cubic-bezier(.4,0,.2,1);backdrop-filter:blur(20px)}
 #pwabanner.on{transform:translateY(0)}
+
+/* ══ 八字命盤 ══ */
+#bazi{background:var(--deep)}
+.bz-form{background:var(--panel);border:.5px solid var(--border);padding:1.8rem;max-width:620px;margin:0 auto}
+.bz-res{max-width:900px;margin:2rem auto 0;display:none}
+.bz-res.on{display:block;animation:fadup .5s ease}
+/* 四柱牌 */
+.bz-pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1.5rem}
+@media(max-width:500px){.bz-pillars{grid-template-columns:repeat(2,1fr)}}
+.bz-pillar{background:var(--surface);border:.5px solid var(--border-bright);text-align:center;padding:0;overflow:hidden;position:relative;transition:transform .2s}
+.bz-pillar:hover{transform:translateY(-3px)}
+.bz-pillar-head{padding:.6rem .4rem;font-size:10px;letter-spacing:.18em;color:var(--gold-light);border-bottom:.5px solid var(--border);background:linear-gradient(180deg,rgba(212,168,67,.12),transparent)}
+.bz-stem-wrap{padding:1rem .5rem .5rem;position:relative}
+.bz-stem{font-family:'Noto Serif TC',serif;font-size:2.2rem;font-weight:700;line-height:1;margin-bottom:.4rem}
+.bz-stem-name{font-size:10px;letter-spacing:.1em;color:var(--text-dim);margin-bottom:.6rem}
+.bz-branch-wrap{padding:.5rem .5rem 1rem;border-top:.5px solid var(--border)}
+.bz-branch{font-family:'Noto Serif TC',serif;font-size:2rem;font-weight:700;line-height:1;margin-bottom:.3rem}
+.bz-branch-name{font-size:10px;letter-spacing:.1em;color:var(--text-dim);margin-bottom:.3rem}
+.bz-branch-animal{font-size:18px;margin-bottom:.2rem;display:block}
+.bz-nayin{font-size:9px;color:var(--text-faint);letter-spacing:.08em}
+/* 五行能量條 */
+.bz-wuxing{background:var(--surface);border:.5px solid var(--border);padding:1.3rem 1.5rem;margin-bottom:1.2rem}
+.bz-wuxing-title{font-size:10px;letter-spacing:.2em;color:var(--gold);margin-bottom:1rem}
+.bz-wx-row{display:flex;align-items:center;gap:.8rem;margin-bottom:.7rem}
+.bz-wx-icon{font-size:18px;flex-shrink:0}
+.bz-wx-label{width:30px;font-size:11px;font-family:'Noto Serif TC',serif;color:var(--text-dim)}
+.bz-wx-track{flex:1;height:8px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden}
+.bz-wx-fill{height:100%;border-radius:4px;transition:width 1.1s cubic-bezier(.4,0,.2,1)}
+.bz-wx-count{width:20px;text-align:right;font-size:11px;color:var(--text-dim)}
+.bz-wx-tag{font-size:9px;letter-spacing:.07em;padding:2px 7px;flex-shrink:0}
+/* 天干色彩 */
+.stem-jia{color:#5db85d}.stem-yi{color:#7fcc7f}.stem-bing{color:#e05555}.stem-ding{color:#ee8888}
+.stem-wu{color:#c8a855}.stem-ji{color:#d4b870}.stem-geng{color:#aaaacc}.stem-xin{color:#c8c8ee}
+.stem-ren{color:#5588cc}.stem-gui{color:#88aaee}
+/* 地支色彩 */
+.branch-zi{color:#5588cc}.branch-chou{color:#c8a855}.branch-yin{color:#5db85d}.branch-mao{color:#7fcc7f}
+.branch-chen{color:#c8a855}.branch-si{color:#e05555}.branch-wu{color:#e05555}.branch-wei{color:#c8a855}
+.branch-shen{color:#aaaacc}.branch-you{color:#c8c8ee}.branch-xu{color:#c8a855}.branch-hai{color:#5588cc}
+/* 命盤解析卡片 */
+.bz-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.2rem}
+@media(max-width:600px){.bz-cards{grid-template-columns:1fr}}
+.bz-card{background:var(--panel);border:.5px solid var(--border);overflow:hidden}
+.bz-card-head{padding:.8rem 1.1rem;border-bottom:.5px solid var(--border);display:flex;align-items:center;gap:.6rem;background:linear-gradient(90deg,rgba(155,111,212,.08),transparent)}
+.bz-card-icon{font-size:17px}
+.bz-card-title{font-family:'Noto Serif TC',serif;font-size:12px;font-weight:600;color:var(--gold-light);letter-spacing:.09em}
+.bz-card-body{padding:1rem 1.1rem;font-size:11px;color:var(--text-dim);line-height:1.9;letter-spacing:.04em;font-family:'Noto Serif TC',serif}
+.bz-tag{display:inline-block;font-size:9px;padding:2px 8px;border:.5px solid;letter-spacing:.08em;margin-right:.4rem;margin-bottom:.4rem;border-radius:0}
+.bz-tag.wood{color:#7fcc7f;border-color:#5db85d}
+.bz-tag.fire{color:#ee8888;border-color:#e05555}
+.bz-tag.earth{color:#d4b870;border-color:#c8a855}
+.bz-tag.metal{color:#c8c8ee;border-color:#aaaacc}
+.bz-tag.water{color:#88aaee;border-color:#5588cc}
+.bz-tag.neutral{color:var(--purple-light);border-color:var(--purple)}
+/* 大運流年 */
+.bz-luck{background:var(--surface);border:.5px solid var(--border);padding:1.2rem 1.4rem;margin-bottom:1.2rem}
+.bz-luck-title{font-size:10px;letter-spacing:.2em;color:var(--gold);margin-bottom:1rem}
+.bz-luck-scroll{display:flex;gap:8px;overflow-x:auto;padding-bottom:.5rem}
+.bz-luck-scroll::-webkit-scrollbar{height:3px}.bz-luck-scroll::-webkit-scrollbar-thumb{background:var(--border-bright)}
+.bz-decade{background:var(--panel);border:.5px solid var(--border);padding:.7rem .8rem;text-align:center;min-width:75px;flex-shrink:0;cursor:pointer;transition:all .2s}
+.bz-decade:hover,.bz-decade.cur{border-color:var(--gold);background:var(--lift)}
+.bz-decade-age{font-size:9px;color:var(--text-faint);letter-spacing:.06em;margin-bottom:.2rem}
+.bz-decade-stem{font-family:'Noto Serif TC',serif;font-size:1.3rem;font-weight:700;line-height:1}
+.bz-decade-branch{font-family:'Noto Serif TC',serif;font-size:1.2rem;font-weight:700;line-height:1;margin-top:.1rem}
+.bz-decade-animal{font-size:13px;margin-top:.2rem;display:block}
+.bz-decade-luck{font-size:9px;color:var(--text-faint);margin-top:.2rem}
+/* 今年流年 */
+.bz-year-now{background:var(--panel);border:.5px solid var(--gold-dim);padding:1.1rem 1.4rem;margin-bottom:1.2rem}
+.bz-year-title{font-size:10px;letter-spacing:.2em;color:var(--gold);margin-bottom:.8rem}
+.bz-year-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+@media(max-width:480px){.bz-year-grid{grid-template-columns:repeat(2,1fr)}}
+.bz-year-item{text-align:center;padding:.6rem .4rem;background:var(--surface);border:.5px solid var(--border)}
+.bz-year-lbl{font-size:9px;color:var(--text-faint);letter-spacing:.1em;margin-bottom:.3rem}
+.bz-year-val{font-family:'Noto Serif TC',serif;font-size:13px;color:var(--gold-light);font-weight:600;letter-spacing:.06em}
+.bz-year-sub{font-size:9px;color:var(--text-dim);margin-top:.2rem;letter-spacing:.04em}
+/* 格局徽章 */
+.bz-gejv{display:flex;flex-wrap:wrap;gap:.5rem;margin:.8rem 0}
+.bz-gejv-badge{display:inline-flex;align-items:center;gap:.4rem;background:linear-gradient(135deg,rgba(155,111,212,.18),rgba(212,168,67,.1));border:.5px solid var(--border-bright);padding:.35rem .9rem;font-family:'Noto Serif TC',serif;font-size:11px;color:var(--gold-light);letter-spacing:.08em}
+.bz-gejv-badge em{font-style:normal;font-size:14px}
+/* 喜用神 */
+.bz-xiyong{background:var(--surface);border:.5px solid var(--border);padding:1.2rem 1.4rem}
+.bz-xiyong-title{font-size:10px;letter-spacing:.2em;color:var(--gold);margin-bottom:.8rem}
+.bz-xiyong-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem}
+.bz-xiyong-item{padding:.8rem;border:.5px solid var(--border);background:var(--panel)}
+.bz-xiyong-lbl{font-size:9px;color:var(--text-faint);letter-spacing:.1em;margin-bottom:.3rem}
+.bz-xiyong-val{font-family:'Noto Serif TC',serif;font-size:13px;font-weight:600;letter-spacing:.06em}
 </style>
 </head>
 <body>
@@ -569,6 +654,7 @@ footer{position:relative;z-index:1;background:var(--void);border-top:.5px solid 
     <li><a href="#zodiac">星座</a></li>
     <li><a href="#tarot">塔羅</a></li>
     <li><a href="#ziwei">紫微</a></li>
+    <li><a href="#bazi">八字</a></li>
     <li><a href="#chart-section">命盤</a></li>
     <li><a href="#astrocal">占星曆</a></li>
     <li><a href="#luckydraw">幸運籤</a></li>
@@ -597,6 +683,7 @@ footer{position:relative;z-index:1;background:var(--void);border-top:.5px solid 
   <a href="#zodiac" onclick="closeMM()">♈ 星座運勢</a>
   <a href="#tarot" onclick="closeMM()">🃏 塔羅占卜</a>
   <a href="#ziwei" onclick="closeMM()">☯ 紫微斗數</a>
+  <a href="#bazi" onclick="closeMM()">🔯 八字命理</a>
   <a href="#chart-section" onclick="closeMM()">🌌 西洋命盤</a>
   <a href="#astrocal" onclick="closeMM()">📆 占星日曆</a>
   <a href="#luckydraw" onclick="closeMM()">🎴 今日幸運籤</a>
@@ -661,6 +748,7 @@ footer{position:relative;z-index:1;background:var(--void);border-top:.5px solid 
       <a href="#zodiac" class="fc"><span class="fc-icon">♈</span><p class="fc-name">西洋星座</p><p class="fc-desc">十二星座今日運勢 + 本週預測</p><span class="fc-arr">EXPLORE →</span></a>
       <a href="#tarot" class="fc"><span class="fc-icon">🃏</span><p class="fc-name">塔羅占卜</p><div class="fc-badge">含三牌陣</div><p class="fc-desc">每日一牌 + 過去現在未來三牌陣</p><span class="fc-arr">DRAW →</span></a>
       <a href="#ziwei" class="fc"><span class="fc-icon">☯</span><p class="fc-name">紫微斗數</p><p class="fc-desc">生辰排列十二宮位完整命盤</p><span class="fc-arr">CHART →</span></a>
+      <a href="#bazi" class="fc"><span class="fc-icon">🔯</span><p class="fc-name">八字命理</p><div class="fc-badge">大運流年</div><p class="fc-desc">四柱八字・五行格局・大運流年・喜用神</p><span class="fc-arr">ANALYZE →</span></a>
       <a href="#chart-section" class="fc"><span class="fc-icon">🌌</span><p class="fc-name">西洋命盤</p><p class="fc-desc">行星位置精算，靈魂藍圖解讀</p><span class="fc-arr">CAST →</span></a>
       <a href="#astrocal" class="fc"><span class="fc-icon">📆</span><p class="fc-name">占星日曆</p><div class="fc-badge">NEW</div><p class="fc-desc">月相週期・行星逆行・重要天象</p><span class="fc-arr">PLAN →</span></a>
       <a href="#luckydraw" class="fc"><span class="fc-icon">🎴</span><p class="fc-name">今日幸運籤</p><div class="fc-badge">每日更新</div><p class="fc-desc">幸運色・數字・方位・食物・行動</p><span class="fc-arr">DRAW →</span></a>
@@ -750,6 +838,55 @@ footer{position:relative;z-index:1;background:var(--void);border-top:.5px solid 
       <button class="fsub" onclick="genZiwei()">✦ 排列紫微命盤 ✦</button>
     </div>
     <div class="zires" id="zires"></div>
+  </div>
+</section>
+
+<!-- 八字命理 -->
+<section id="bazi" style="background:var(--void)">
+  <div class="con">
+    <div class="sh fi2">
+      <div class="orn"><span></span><em>🔯</em><span></span></div>
+      <p class="sey">BaZi · Four Pillars of Destiny</p>
+      <h2 class="st">八字命盤解析</h2>
+      <p class="sd">輸入國曆生日與時辰，自動排列四柱八字，深度解析五行格局・大運流年・喜用神</p>
+    </div>
+    <div class="bz-form fi2">
+      <div class="formrow">
+        <div class="fg3"><label class="fl3">出生年份（西元）</label><input type="number" class="fi3" id="bz-year" placeholder="例：1990" min="1900" max="2024"></div>
+        <div class="fg3"><label class="fl3">出生月份</label>
+          <select class="fs3" id="bz-month"><option value="">選擇月份</option>
+            <option value="1">1月</option><option value="2">2月</option><option value="3">3月</option>
+            <option value="4">4月</option><option value="5">5月</option><option value="6">6月</option>
+            <option value="7">7月</option><option value="8">8月</option><option value="9">9月</option>
+            <option value="10">10月</option><option value="11">11月</option><option value="12">12月</option>
+          </select>
+        </div>
+      </div>
+      <div class="formrow">
+        <div class="fg3"><label class="fl3">出生日期</label>
+          <select class="fs3" id="bz-day"><option value="">選擇日期</option></select>
+        </div>
+        <div class="fg3"><label class="fl3">出生時辰</label>
+          <select class="fs3" id="bz-hour">
+            <option value="">選擇時辰</option>
+            <option value="0">子時 23:00–01:00</option><option value="1">丑時 01:00–03:00</option>
+            <option value="2">寅時 03:00–05:00</option><option value="3">卯時 05:00–07:00</option>
+            <option value="4">辰時 07:00–09:00</option><option value="5">巳時 09:00–11:00</option>
+            <option value="6">午時 11:00–13:00</option><option value="7">未時 13:00–15:00</option>
+            <option value="8">申時 15:00–17:00</option><option value="9">酉時 17:00–19:00</option>
+            <option value="10">戌時 19:00–21:00</option><option value="11">亥時 21:00–23:00</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg3"><label class="fl3">性別</label>
+        <select class="fs3" id="bz-gender">
+          <option value="">選擇性別</option>
+          <option value="m">男命</option><option value="f">女命</option>
+        </select>
+      </div>
+      <button class="fsub" onclick="genBazi()">✦ 排列八字命盤 ✦</button>
+    </div>
+    <div class="bz-res" id="bz-res"></div>
   </div>
 </section>
 
@@ -948,7 +1085,7 @@ footer{position:relative;z-index:1;background:var(--void);border-top:.5px solid 
 <footer>
   <div class="fin">
     <div class="fbrand"><div class="flogo">古錐星命閣</div><span style="font-size:9px;letter-spacing:.18em;color:var(--text-faint)">STARS · TAROT · DESTINY</span><p>穿越星空的指引<br>探尋命運的密語<br>每日自動更新</p></div>
-    <div class="fcol"><p class="fcolt">功能</p><a href="#daily">每日運勢</a><a href="#zodiac">星座運勢</a><a href="#tarot">塔羅占卜</a><a href="#ziwei">紫微斗數</a><a href="#chart-section">西洋命盤</a><a href="#astrocal">占星日曆</a><a href="#luckydraw">今日幸運籤</a><a href="#compat">星座合盤</a><a href="#meditation">靜心冥想</a></div>
+    <div class="fcol"><p class="fcolt">功能</p><a href="#daily">每日運勢</a><a href="#zodiac">星座運勢</a><a href="#tarot">塔羅占卜</a><a href="#ziwei">紫微斗數</a><a href="#bazi">八字命理</a><a href="#chart-section">西洋命盤</a><a href="#astrocal">占星日曆</a><a href="#luckydraw">今日幸運籤</a><a href="#compat">星座合盤</a><a href="#meditation">靜心冥想</a></div>
     <div class="fcol"><p class="fcolt">會員</p><a href="#membership">方案介紹</a><a onclick="openModal('authModal','register')">免費加入</a><a onclick="openModal('authModal','login')">會員登入</a><a href="#sponsor">廠商合作</a></div>
     <div class="fcol"><p class="fcolt">關於</p><a href="#contact">聯絡我們</a><a>服務條款</a><a>隱私政策</a><a>常見問題</a></div>
   </div>
@@ -1557,6 +1694,426 @@ if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.ser
 // ══════════════════════════════════════════════
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis');});},{threshold:.07});
 document.querySelectorAll('.fi2').forEach(el=>obs.observe(el));
+
+// ══════════════════════════════════════════════
+// ✦ 八字命盤完整引擎
+// ══════════════════════════════════════════════
+
+// 填充日期下拉
+const bzDayEl=document.getElementById('bz-day');
+if(bzDayEl){for(let i=1;i<=31;i++){const o=document.createElement('option');o.value=i;o.textContent=i+'日';bzDayEl.appendChild(o);}}
+
+// 天干地支基礎資料
+const BZ={
+  stems:['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'],
+  branches:['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'],
+  animals:['鼠','牛','虎','兔','龍','蛇','馬','羊','猴','雞','狗','豬'],
+  animalEmoji:['🐭','🐮','🐯','🐰','🐲','🐍','🐴','🐑','🐵','🐔','🐶','🐷'],
+  // 天干五行：0=木,1=木,2=火,3=火,4=土,5=土,6=金,7=金,8=水,9=水
+  stemWx:[0,0,2,2,4,4,6,6,8,8],
+  // 地支五行：子=水,丑=土,寅=木,卯=木,辰=土,巳=火,午=火,未=土,申=金,酉=金,戌=土,亥=水
+  branchWx:[8,4,0,0,4,2,2,4,6,6,4,8],
+  // 天干陰陽：甲陽,乙陰,丙陽,丁陰...
+  stemYY:['陽','陰','陽','陰','陽','陰','陽','陰','陽','陰'],
+  branchYY:['陽','陰','陽','陰','陽','陰','陽','陰','陽','陰','陽','陰'],
+  wxNames:['木','火','土','金','水'],
+  wxEmoji:['🌿','🔥','🌍','⚙️','💧'],
+  wxColors:['wood','fire','earth','metal','water'],
+  wxBgColors:['rgba(93,184,93,.15)','rgba(224,85,85,.15)','rgba(200,168,85,.15)','rgba(170,170,204,.15)','rgba(85,136,204,.15)'],
+  wxBorderColors:['#5db85d','#e05555','#c8a855','#aaaacc','#5588cc'],
+  wxFillColors:['#5db85d','#e05555','#c8a855','#aaaacc','#5588cc'],
+  stemClasses:['stem-jia','stem-yi','stem-bing','stem-ding','stem-wu','stem-ji','stem-geng','stem-xin','stem-ren','stem-gui'],
+  branchClasses:['branch-zi','branch-chou','branch-yin','branch-mao','branch-chen','branch-si','branch-wu','branch-wei','branch-shen','branch-you','branch-xu','branch-hai'],
+  // 納音（60甲子）
+  nayin:['海中金','海中金','爐中火','爐中火','大林木','大林木','路旁土','路旁土','劍鋒金','劍鋒金',
+         '山頭火','山頭火','澗下水','澗下水','城頭土','城頭土','白蠟金','白蠟金','楊柳木','楊柳木',
+         '泉中水','泉中水','屋上土','屋上土','霹靂火','霹靂火','松柏木','松柏木','長流水','長流水',
+         '砂中金','砂中金','山下火','山下火','平地木','平地木','壁上土','壁上土','金箔金','金箔金',
+         '覆燈火','覆燈火','天河水','天河水','大驛土','大驛土','釵釧金','釵釧金','桑柘木','桑柘木',
+         '大溪水','大溪水','沙中土','沙中土','天上火','天上火','石榴木','石榴木','大海水','大海水','大海水'],
+};
+
+// 月份對應月柱天干（以年干為基礎）
+// 寅月(3月節)開始，共12個月
+const MONTH_STEM_BASE=[2,4,6,8,0]; // 甲己年→寅月起丙,乙庚年→起戊,丙辛→起庚,丁壬→起壬,戊癸→起甲
+function getMonthStem(yearStemIdx, monthBranchIdx){
+  // 月支固定從寅(2)開始排列
+  const base=MONTH_STEM_BASE[yearStemIdx%5];
+  return (base + monthBranchIdx)%10;
+}
+
+// 日柱計算（簡化版，基於Julian Day）
+function getDayStem(year, month, day){
+  // 計算距離1900年1月1日（甲子日為基準）的天數
+  const base=new Date(1900,0,1);
+  const target=new Date(year,month-1,day);
+  const diff=Math.floor((target-base)/86400000);
+  return((diff%60)+60)%60;
+}
+
+// 時柱計算
+function getHourPillar(dayStemIdx, hourBranchIdx){
+  // 子時起，日干甲己→甲子,乙庚→丙子,丙辛→戊子,丁壬→庚子,戊癸→壬子
+  const base=[0,2,4,6,8][dayStemIdx%5];
+  const stemIdx=(base+hourBranchIdx)%10;
+  return{stem:stemIdx, branch:hourBranchIdx};
+}
+
+// 年柱計算
+function getYearPillar(year){
+  // 甲子年=1984，計算差異
+  const baseYear=1984;
+  const idx=((year-baseYear)%60+60)%60;
+  return{stem:idx%10, branch:idx%12, ganzhi:idx};
+}
+
+// 月支對應（以節氣為準，簡化為按月份）
+// 真實節氣需複雜計算，此處以月份近似
+function getMonthBranch(month){
+  // 1月=丑(1), 2月=寅(2)... 按農曆月份對應
+  const map=[1,2,3,4,5,6,7,8,9,10,11,0]; // 1月丑,2月寅...12月子
+  return map[month-1];
+}
+
+// 計算八字四柱
+function calcBazi(year, month, day, hour, gender){
+  const yp=getYearPillar(year);
+  const mbranch=getMonthBranch(month);
+  const mstem=getMonthStem(yp.stem, [10,11,0,1,2,3,4,5,6,7,8,9][mbranch]);
+  const dayGanzhi=getDayStem(year,month,day);
+  const dStem=dayGanzhi%10, dBranch=dayGanzhi%12;
+  const hp=getHourPillar(dStem, hour);
+
+  return{
+    year:{stem:yp.stem, branch:yp.branch, nayin:BZ.nayin[yp.ganzhi]},
+    month:{stem:mstem, branch:mbranch, nayin:BZ.nayin[(mstem*12+mbranch)%60]||''},
+    day:{stem:dStem, branch:dBranch, nayin:BZ.nayin[dayGanzhi]},
+    hour:{stem:hp.stem, branch:hp.branch, nayin:BZ.nayin[(hp.stem*12+hp.branch)%60]||''},
+    dayMaster:dStem,
+    gender:gender
+  };
+}
+
+// 計算五行分布
+function calcWuxing(pillars){
+  const counts=[0,0,0,0,0]; // 木火土金水
+  [pillars.year,pillars.month,pillars.day,pillars.hour].forEach(p=>{
+    counts[BZ.stemWx[p.stem]]++;
+    counts[BZ.branchWx[p.branch]]++;
+  });
+  return counts;
+}
+
+// 大運計算（10年一換）
+function calcDayunStart(year, month, day, gender, yearStem){
+  // 陽年男命、陰年女命為順行；陰年男命、陽年女命為逆行
+  const isYangYear=yearStem%2===0;
+  const isForward=(isYangYear&&gender==='m')||(!isYangYear&&gender==='f');
+  return{forward:isForward};
+}
+
+// 大運天干地支序列
+function getDayunPillars(birthYear, birthMonth, birthDay, gender, yearStemIdx){
+  const {forward}=calcDayunStart(birthYear,birthMonth,birthDay,gender,yearStemIdx);
+  const dayGanzhi=getDayStem(birthYear,birthMonth,birthDay);
+  const monthGanzhi=((getMonthStem(yearStemIdx,[10,11,0,1,2,3,4,5,6,7,8,9][getMonthBranch(birthMonth)])*12)+getMonthBranch(birthMonth))%60;
+
+  const results=[];
+  for(let i=1;i<=9;i++){
+    let gz;
+    if(forward){gz=(monthGanzhi+i*10)%60;}
+    else{gz=((monthGanzhi-i*10)%60+60)%60;}
+    const stem=gz%10, branch=gz%12;
+    const startAge=Math.max(1,(i*10)-(10-3)); // 簡化起運年齡
+    results.push({stem,branch,startAge:startAge,endAge:startAge+9,idx:gz});
+  }
+  return results;
+}
+
+// 命格判斷
+function judgeGejv(dayMaster,wuxing,gender){
+  const wx=BZ.wxNames[BZ.stemWx[dayMaster]];
+  const yy=BZ.stemYY[dayMaster];
+  const strong=wuxing[BZ.stemWx[dayMaster]]>=3;
+  const water=wuxing[4], wood=wuxing[0], fire=wuxing[2], earth=wuxing[3], metal=wuxing[4];
+
+  let gejvs=[];
+  if(strong) gejvs.push('身強格');
+  else gejvs.push('身弱格');
+  if(wuxing[4]>=3) gejvs.push('從旺格');
+  if(Math.max(...wuxing)>=5) gejvs.push('專旺格');
+  if(wuxing.filter(v=>v===0).length>=2) gejvs.push('五行偏枯');
+
+  // 特殊格局
+  if(BZ.wxNames[BZ.stemWx[dayMaster]]==='木'&&wuxing[0]>=3) gejvs.push('曲直格');
+  if(BZ.wxNames[BZ.stemWx[dayMaster]]==='火'&&wuxing[2]>=3) gejvs.push('炎上格');
+  if(BZ.wxNames[BZ.stemWx[dayMaster]]==='土'&&wuxing[3]>=3) gejvs.push('稼穡格');
+  if(BZ.wxNames[BZ.stemWx[dayMaster]]==='金'&&wuxing[4]>=3) gejvs.push('從革格');
+  if(BZ.wxNames[BZ.stemWx[dayMaster]]==='水'&&wuxing[8]>=3) gejvs.push('潤下格');
+
+  return{gejvs, strong, wx, yy};
+}
+
+// 喜用神判斷
+function getXiyong(dayMaster, wuxing, strong){
+  const wx=BZ.stemWx[dayMaster];
+  // 五行相生：木生火生土生金生水生木
+  // 五行相剋：木剋土,土剋水,水剋火,火剋金,金剋木
+  const sheng=[1,3,4,6,0]; // 生我的：木→水生,火→木生...
+  const ke=[3,4,0,1,2];    // 我剋的
+  const beike=[1,2,3,4,0]; // 剋我的（反）
+
+  let xi,yong,ji;
+  if(strong){
+    // 身強：喜剋洩，忌生扶
+    xi=BZ.wxNames[ke[wx]]+'（剋制）、'+BZ.wxNames[(wx+3)%5]+'（洩秀）';
+    yong=BZ.wxNames[ke[wx]];
+    ji=BZ.wxNames[sheng[wx]]+'（過旺）';
+  }else{
+    // 身弱：喜生扶，忌剋洩
+    xi=BZ.wxNames[sheng[wx]]+'（生扶）、'+BZ.wxNames[wx]+'（比劫）';
+    yong=BZ.wxNames[sheng[wx]];
+    ji=BZ.wxNames[ke[wx]]+'（剋制）';
+  }
+
+  // 對應職業、顏色、方向
+  const wxCareer=[
+    ['文教・設計・農林・環保・藥材'],
+    ['能源・餐飲・娛樂・表演・電子'],
+    ['地產・建築・農業・食品・仲介'],
+    ['金融・珠寶・機械・科技・法律'],
+    ['航運・漁業・貿易・旅遊・飲料']
+  ];
+  const wxColor=[
+    ['綠色・青色・藍綠色'],
+    ['紅色・橙色・紫色'],
+    ['黃色・棕色・咖啡色'],
+    ['白色・銀色・灰色'],
+    ['黑色・深藍色・深灰色']
+  ];
+  const wxDir=[['東方・東南方'],['南方'],['中央・四維'],['西方・西北方'],['北方']];
+
+  const yongIdx=BZ.wxNames.indexOf(yong);
+  return{
+    xi, yong, ji,
+    career:yongIdx>=0?wxCareer[yongIdx][0]:'多元發展',
+    color:yongIdx>=0?wxColor[yongIdx][0]:'依流年調整',
+    direction:yongIdx>=0?wxDir[yongIdx][0]:'依流年調整'
+  };
+}
+
+// 個性分析
+function getPersonality(dayMaster, wuxing, strong){
+  const wx=BZ.stemWx[dayMaster];
+  const traits={
+    0:{s:'仁義禮讓，有創造力，善於規劃，重視人際關係。',w:'優柔寡斷，容易被情緒左右，偶爾理想化過頭。',gift:'藝術創作・教育・策劃'},
+    2:{s:'熱情開朗，思維敏捷，行動力強，魅力四射。',w:'急躁衝動，容易三分鐘熱度，情緒起伏較大。',gift:'演講・藝術・領導'},
+    4:{s:'踏實穩重，信用卓著，有耐心，善於積累財富。',w:'保守固執，行動偏慢，有時過於謹慎失去機會。',gift:'理財・管理・協調'},
+    6:{s:'果斷剛毅，原則性強，組織能力出色，追求完美。',w:'固執己見，有時過於嚴苛，不善表達情感。',gift:'法律・金融・工程'},
+    8:{s:'聰明睿智，洞察力強，擅長處理複雜問題，有藝術氣質。',w:'多愁善感，想太多，有時缺乏行動力。',gift:'哲學・藝術・研究'}
+  };
+  const t=traits[wx];
+  const dominantWx=wuxing.indexOf(Math.max(...wuxing));
+  return t;
+}
+
+// 今年流年分析
+function getThisYearAnalysis(dayMaster, birthYear, currentYear){
+  const cyp=getYearPillar(currentYear);
+  const wx_dm=BZ.stemWx[dayMaster];
+  const wx_cy=BZ.stemWx[cyp.stem];
+  // 判斷流年五行與日主的關係
+  const relations=['比劫年（同行相遇，競爭加劇）','食傷年（洩秀發揮，才華展現）',
+    '財星年（財運亨通，機遇降臨）','官殺年（名聲提升，有利升職）','印綬年（貴人相助，學習進步）'];
+  const diff=(wx_cy-wx_dm+5)%5;
+  const relation=relations[diff];
+  const age=currentYear-birthYear;
+
+  const analyses=[
+    `流年${BZ.stems[cyp.stem]}${BZ.branches[cyp.branch]}年，${BZ.animals[cyp.branch]}年，${relation}。今年對您而言是${diff===2?'財運豐收':diff===3?'事業騰飛':diff===0?'人際拓展':diff===1?'才華展現':'貴人相助'}的重要時期。`,
+    `今年${BZ.wxNames[wx_cy]}氣當旺，與您日主${BZ.wxNames[wx_dm]}的關係形成「${relation.split('（')[0]}」，宜把握${diff===2?'投資理財、拓展業務':diff===3?'爭取晉升、建立威信':diff===0?'廣交朋友、合作共贏':diff===1?'展現才華、創作發表':'學習充電、尋求貴人指點'}的機遇。`
+  ];
+  return{
+    yearStem:cyp.stem,yearBranch:cyp.branch,
+    relation,age,
+    analysis:analyses[Math.floor(Math.random()*2)],
+    highlights:[
+      {label:'流年行運',val:BZ.wxNames[wx_cy]+'氣'},
+      {label:'流年生肖',val:BZ.animals[cyp.branch]+'年 '+BZ.animalEmoji[cyp.branch]},
+      {label:'與日主關係',val:relation.split('（')[0]},
+      {label:'今年年齡',val:age+'歲'},
+      {label:'今年重點',val:diff===2?'財運・投資':diff===3?'事業・升職':diff===0?'人際・合作':diff===1?'才華・創作':'學習・貴人'},
+      {label:'今年注意',val:diff===2?'謹慎理財，避免衝動':diff===3?'謙遜謹慎，避免衝突':diff===0?'競爭激烈，保持冷靜':diff===1?'過度付出，注意休息':'依賴性過強，保持獨立'}
+    ]
+  };
+}
+
+// 主渲染函數
+function genBazi(){
+  const year=parseInt(document.getElementById('bz-year').value);
+  const month=parseInt(document.getElementById('bz-month').value);
+  const day=parseInt(document.getElementById('bz-day').value);
+  const hour=parseInt(document.getElementById('bz-hour').value);
+  const gender=document.getElementById('bz-gender').value;
+
+  if(!year||!month||!day||isNaN(hour)||!gender){
+    alert('請填寫完整的出生資訊（年月日時辰性別）');return;
+  }
+  if(year<1900||year>2030){alert('請輸入 1900–2030 之間的年份');return;}
+
+  const pillars=calcBazi(year,month,day,hour,gender);
+  const wuxing=calcWuxing(pillars);
+  const {gejvs,strong,wx,yy}=judgeGejv(pillars.dayMaster,wuxing,gender);
+  const xiyong=getXiyong(pillars.dayMaster,wuxing,strong);
+  const personality=getPersonality(pillars.dayMaster,wuxing,strong);
+  const dayunList=getDayunPillars(year,month,day,gender,pillars.year.stem);
+  const yearAnalysis=getThisYearAnalysis(pillars.dayMaster,year,YR);
+  const currentAge=YR-year;
+
+  const el=document.getElementById('bz-res');
+  el.className='bz-res on';
+
+  // 找出當前大運
+  const curDayun=dayunList.findIndex(d=>currentAge>=d.startAge&&currentAge<=d.endAge);
+
+  el.innerHTML=`
+    <!-- 四柱牌 -->
+    <div class="bz-pillars">
+      ${[
+        {label:'年柱',p:pillars.year,role:'祖先・少年'},
+        {label:'月柱',p:pillars.month,role:'父母・青年'},
+        {label:'日柱',p:pillars.day,role:'本命・配偶'},
+        {label:'時柱',p:pillars.hour,role:'子女・晚年'},
+      ].map(({label,p,role})=>`
+      <div class="bz-pillar">
+        <div class="bz-pillar-head">${label}<br><span style="font-size:8px;color:var(--text-faint);letter-spacing:.06em">${role}</span></div>
+        <div class="bz-stem-wrap">
+          <div class="bz-stem ${BZ.stemClasses[p.stem]}">${BZ.stems[p.stem]}</div>
+          <div class="bz-stem-name">${BZ.wxNames[BZ.stemWx[p.stem]]} ${BZ.stemYY[p.stem]}</div>
+        </div>
+        <div class="bz-branch-wrap">
+          <div class="bz-branch ${BZ.branchClasses[p.branch]}">${BZ.branches[p.branch]}</div>
+          <div class="bz-branch-name">${BZ.wxNames[BZ.branchWx[p.branch]]} ${BZ.branchYY[p.branch]}</div>
+          <span class="bz-branch-animal">${BZ.animalEmoji[p.branch]}</span>
+          <div class="bz-nayin">${p.nayin}</div>
+        </div>
+      </div>`).join('')}
+    </div>
+
+    <!-- 格局 -->
+    <div class="bz-gejv">
+      <span style="font-size:9px;color:var(--text-faint);letter-spacing:.12em;align-self:center">命格：</span>
+      ${gejvs.map(g=>`<div class="bz-gejv-badge"><em>✦</em>${g}</div>`).join('')}
+      <div class="bz-gejv-badge"><em>${BZ.wxEmoji[BZ.stemWx[pillars.dayMaster]]}</em>日主 ${BZ.wxNames[BZ.stemWx[pillars.dayMaster]]}${BZ.stemYY[pillars.dayMaster]}</div>
+    </div>
+
+    <!-- 五行能量 -->
+    <div class="bz-wuxing">
+      <div class="bz-wuxing-title">✦ 五行能量分布</div>
+      ${BZ.wxNames.map((n,i)=>{
+        const cnt=wuxing[i], pct=Math.round(cnt/8*100);
+        const status=cnt===0?'缺':cnt===1?'弱':cnt===2?'平':cnt>=3?'旺':'強';
+        return`<div class="bz-wx-row">
+          <span class="bz-wx-icon">${BZ.wxEmoji[i]}</span>
+          <span class="bz-wx-label">${n}</span>
+          <div class="bz-wx-track"><div class="bz-wx-fill" style="width:0%;background:${BZ.wxFillColors[i]}" data-w="${pct}%"></div></div>
+          <span class="bz-wx-count">${cnt}</span>
+          <span class="bz-tag ${BZ.wxColors[i]}">${status}</span>
+        </div>`;
+      }).join('')}
+    </div>
+
+    <!-- 命盤解析卡片 -->
+    <div class="bz-cards">
+      <div class="bz-card">
+        <div class="bz-card-head"><span class="bz-card-icon">🌟</span><span class="bz-card-title">個性特質分析</span></div>
+        <div class="bz-card-body">
+          <div style="margin-bottom:.6rem"><span class="bz-tag ${BZ.wxColors[BZ.stemWx[pillars.dayMaster]]}">優點</span>${personality.s}</div>
+          <div style="margin-bottom:.6rem"><span class="bz-tag neutral">成長空間</span>${personality.w}</div>
+          <div><span class="bz-tag neutral">天賦才華</span>${personality.gift}</div>
+        </div>
+      </div>
+      <div class="bz-card">
+        <div class="bz-card-head"><span class="bz-card-icon">💰</span><span class="bz-card-title">事業財運分析</span></div>
+        <div class="bz-card-body">
+          <div style="margin-bottom:.6rem"><span class="bz-tag neutral">適合行業</span>${xiyong.career}</div>
+          <div style="margin-bottom:.6rem"><span class="bz-tag neutral">財運格局</span>${wuxing[BZ.stemWx[pillars.dayMaster]]>=2?'財庫豐厚，具備積累財富的能力，適合長期投資理財。':'財來財去，收入不穩定，宜開源節流，建立緊急儲備。'}</div>
+          <div><span class="bz-tag neutral">事業建議</span>${strong?'身強宜創業，適合獨立發展，展現個人能力。':'身弱宜上班，適合在穩定組織中發揮，避免獨自承擔風險。'}</div>
+        </div>
+      </div>
+      <div class="bz-card">
+        <div class="bz-card-head"><span class="bz-card-icon">💕</span><span class="bz-card-title">感情婚姻分析</span></div>
+        <div class="bz-card-body">
+          ${gender==='m'?`
+          <div style="margin-bottom:.6rem"><span class="bz-tag neutral">感情特質</span>${BZ.wxNames[BZ.stemWx[pillars.dayMaster]]==='木'?'感情細膩，重視精神契合，喜愛有才華的伴侶。':BZ.wxNames[BZ.stemWx[pillars.dayMaster]]==='火'?'熱情奔放，追求浪漫，容易一見鍾情，感情來得快去得也快。':BZ.wxNames[BZ.stemWx[pillars.dayMaster]]==='土'?'感情踏實，重視安全感，忠誠度高，是可靠的伴侶。':BZ.wxNames[BZ.stemWx[pillars.dayMaster]]==='金'?'感情直接，原則性強，伴侶需要尊重您的自我。':'多情善感，感情豐富，需要深度的心靈交流。'}</div>
+          <div><span class="bz-tag neutral">桃花運勢</span>${wuxing[2]>=2?'桃花旺盛，異性緣佳，感情機遇多。':wuxing[0]>=2?'感情緣分不錯，需主動把握。':'感情相對平淡，宜透過交際拓展機緣。'}</div>
+          `:`
+          <div style="margin-bottom:.6rem"><span class="bz-tag neutral">感情特質</span>${BZ.wxNames[BZ.stemWx[pillars.dayMaster]]==='木'?'溫柔體貼，善解人意，重視家庭，是理想的伴侶。':BZ.wxNames[BZ.stemWx[pillars.dayMaster]]==='火'?'獨立自主，個性鮮明，感情中需要尊重與被尊重。':BZ.wxNames[BZ.stemWx[pillars.dayMaster]]==='土'?'傳統穩重，重視家庭倫理，忠貞守義。':BZ.wxNames[BZ.stemWx[pillars.dayMaster]]==='金'?'剛毅果斷，追求高品質感情，不輕易妥協。':'浪漫多情，感情豐富，需要深刻的情感連結。'}</div>
+          <div><span class="bz-tag neutral">婚姻建議</span>${strong?'感情自主意識強，宜找個性溫和能包容您的另一半。':'感情中較依賴，宜找個性穩重、有主見的伴侶。'}</div>
+          `}
+        </div>
+      </div>
+      <div class="bz-card">
+        <div class="bz-card-head"><span class="bz-card-icon">🌿</span><span class="bz-card-title">健康養生建議</span></div>
+        <div class="bz-card-body">
+          <div style="margin-bottom:.6rem"><span class="bz-tag neutral">注意部位</span>${['肝膽・筋骨・眼睛','心臟・血液・小腸','脾胃・消化・肌肉','肺部・大腸・皮膚','腎臟・膀胱・骨髓'][BZ.stemWx[pillars.dayMaster]]}</div>
+          <div style="margin-bottom:.6rem"><span class="bz-tag neutral">養生重點</span>${wuxing[BZ.stemWx[pillars.dayMaster]]>=3?'五行偏旺，需注意過勞。適合靜態養生，如冥想、太極。':'五行偏弱，需補充能量。適合動態鍛鍊，增強體質。'}</div>
+          <div><span class="bz-tag neutral">飲食建議</span>${['多吃綠色蔬菜、酸味食物，護肝養眼','多吃紅色食物、苦味食物，養心護血','多吃黃色食物、甜味食物，健脾養胃','多吃白色食物、辛辣食物，潤肺清腸','多吃黑色食物、鹹味食物，補腎養骨'][BZ.stemWx[pillars.dayMaster]]}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 今年流年 -->
+    <div class="bz-year-now">
+      <div class="bz-year-title">✦ ${YR}年 ${BZ.stems[yearAnalysis.yearStem]}${BZ.branches[yearAnalysis.yearBranch]}年 流年運勢</div>
+      <div class="bz-year-grid">
+        ${yearAnalysis.highlights.map(h=>`
+        <div class="bz-year-item">
+          <div class="bz-year-lbl">${h.label}</div>
+          <div class="bz-year-val">${h.val}</div>
+        </div>`).join('')}
+      </div>
+      <div class="bz-card-body" style="padding:.9rem 0 0;font-size:11px;color:var(--text-dim);line-height:1.9;font-family:'Noto Serif TC',serif;letter-spacing:.04em">${yearAnalysis.analysis}</div>
+    </div>
+
+    <!-- 大運 -->
+    <div class="bz-luck">
+      <div class="bz-luck-title">✦ 大運流程（每十年換一運）</div>
+      <div class="bz-luck-scroll">
+        ${dayunList.map((d,i)=>`
+        <div class="bz-decade ${i===curDayun?'cur':''}">
+          <div class="bz-decade-age">${d.startAge}–${d.endAge}歲</div>
+          <div class="bz-decade-stem ${BZ.stemClasses[d.stem]}">${BZ.stems[d.stem]}</div>
+          <div class="bz-decade-branch ${BZ.branchClasses[d.branch]}">${BZ.branches[d.branch]}</div>
+          <span class="bz-decade-animal">${BZ.animalEmoji[d.branch]}</span>
+          <div class="bz-decade-luck">${i===curDayun?'✦ 當前大運':''+BZ.wxNames[BZ.stemWx[d.stem]]+'運'}</div>
+        </div>`).join('')}
+      </div>
+      ${curDayun>=0?`<div class="bz-card-body" style="padding:.9rem 0 0;font-size:11px;color:var(--text-dim);line-height:1.9;font-family:'Noto Serif TC',serif;letter-spacing:.04em">
+        ✦ 您目前行至「${BZ.stems[dayunList[curDayun].stem]}${BZ.branches[dayunList[curDayun].branch]}」大運，${BZ.wxNames[BZ.stemWx[dayunList[curDayun].stem]]}氣主導。此運${BZ.stemWx[dayunList[curDayun].stem]===BZ.stemWx[pillars.dayMaster]?'比劫旺盛，人際關係活躍，競爭也相對激烈，宜發展個人特色':BZ.stemWx[dayunList[curDayun].stem]===(BZ.stemWx[pillars.dayMaster]+1)%5?'食傷洩秀，才華得以發揮，適合創作、表達與展現自我':BZ.stemWx[dayunList[curDayun].stem]===(BZ.stemWx[pillars.dayMaster]+2)%5?'財星當旺，財運較佳，適合投資理財、拓展事業版圖':BZ.stemWx[dayunList[curDayun].stem]===(BZ.stemWx[pillars.dayMaster]+3)%5?'官殺入運，有升遷或名聲提升的機遇，需謹言慎行':'印綬護命，貴人相助，適合學習深造、尋求長輩指點'}，建議善加把握這段時期的機遇。
+      </div>`:''}
+    </div>
+
+    <!-- 喜用神 -->
+    <div class="bz-xiyong">
+      <div class="bz-xiyong-title">✦ 喜用神・忌神分析</div>
+      <div class="bz-xiyong-grid">
+        <div class="bz-xiyong-item"><div class="bz-xiyong-lbl">喜用神（有利五行）</div><div class="bz-xiyong-val" style="color:var(--gold-light)">${xiyong.xi}</div></div>
+        <div class="bz-xiyong-item"><div class="bz-xiyong-lbl">忌神（不利五行）</div><div class="bz-xiyong-val" style="color:#ee8888">${xiyong.ji}</div></div>
+        <div class="bz-xiyong-item"><div class="bz-xiyong-lbl">有利顏色</div><div class="bz-xiyong-val" style="color:var(--purple-light)">${xiyong.color}</div></div>
+        <div class="bz-xiyong-item"><div class="bz-xiyong-lbl">有利方位</div><div class="bz-xiyong-val" style="color:var(--purple-light)">${xiyong.direction}</div></div>
+        <div class="bz-xiyong-item" style="grid-column:span 2"><div class="bz-xiyong-lbl">建議發展行業</div><div class="bz-xiyong-val" style="color:var(--gold-light);font-size:12px">${xiyong.career}</div></div>
+      </div>
+    </div>
+  `;
+
+  // 動畫條形圖
+  setTimeout(()=>{
+    el.querySelectorAll('[data-w]').forEach(e=>setTimeout(()=>e.style.width=e.dataset.w,80));
+  },100);
+
+  el.scrollIntoView({behavior:'smooth',block:'start'});
+}
 
 // ══════════════════════════════════════════════
 // ✦ 初始化所有功能
