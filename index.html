@@ -4,24 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>古錐星命閣 — 星座・塔羅・紫微・命盤</title>
-
-<!-- PWA 設定 -->
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#080612">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="古錐星命閣">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="description" content="古錐星命閣 — 星座運勢・塔羅占卜・紫微斗數・西洋命盤，探索您的命運密語">
-
-<!-- PWA 圖示 (iOS) -->
+<meta name="description" content="古錐星命閣 — 每日自動更新星座運勢・塔羅占卜・紫微斗數・西洋命盤">
 <link rel="apple-touch-icon" href="icon-192.png">
-
-<!-- SEO / 社群分享 -->
-<meta property="og:title" content="古錐星命閣">
-<meta property="og:description" content="星座運勢・塔羅占卜・紫微斗數・西洋命盤">
-<meta property="og:type" content="website">
-
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -29,1340 +18,1557 @@
   --border:rgba(180,140,255,.15);--border-bright:rgba(200,160,255,.35);
   --gold:#d4a843;--gold-light:#f0c96a;--gold-dim:rgba(212,168,67,.3);
   --purple:#9b6fd4;--purple-light:#c49ef0;--purple-glow:rgba(155,111,212,.2);
-  --silver:#c8c0e0;--text:#e8e0f8;--text-dim:rgba(232,224,248,.6);--text-faint:rgba(232,224,248,.35);
+  --text:#e8e0f8;--text-dim:rgba(232,224,248,.6);--text-faint:rgba(232,224,248,.35);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--void);color:var(--text);font-family:'Noto Sans TC',sans-serif;font-weight:300;overflow-x:hidden}
 body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
-  background-image:radial-gradient(1px 1px at 10% 15%,rgba(255,255,255,.8) 0%,transparent 100%),radial-gradient(1px 1px at 25% 40%,rgba(255,255,255,.6) 0%,transparent 100%),radial-gradient(1.5px 1.5px at 40% 10%,rgba(255,255,255,.9) 0%,transparent 100%),radial-gradient(1px 1px at 60% 25%,rgba(255,255,255,.7) 0%,transparent 100%),radial-gradient(1px 1px at 75% 55%,rgba(255,255,255,.5) 0%,transparent 100%),radial-gradient(1.5px 1.5px at 85% 20%,rgba(255,255,255,.8) 0%,transparent 100%),radial-gradient(1px 1px at 15% 80%,rgba(255,255,255,.5) 0%,transparent 100%),radial-gradient(1px 1px at 50% 65%,rgba(255,255,255,.7) 0%,transparent 100%),radial-gradient(1.5px 1.5px at 70% 85%,rgba(255,255,255,.6) 0%,transparent 100%),radial-gradient(1px 1px at 92% 45%,rgba(255,255,255,.7) 0%,transparent 100%);
+  background-image:
+    radial-gradient(1px 1px at 8% 12%,rgba(255,255,255,.9) 0%,transparent 100%),
+    radial-gradient(1px 1px at 22% 38%,rgba(255,255,255,.6) 0%,transparent 100%),
+    radial-gradient(1.5px 1.5px at 38% 8%,rgba(255,255,255,.9) 0%,transparent 100%),
+    radial-gradient(1px 1px at 55% 22%,rgba(255,255,255,.7) 0%,transparent 100%),
+    radial-gradient(1px 1px at 72% 52%,rgba(255,255,255,.5) 0%,transparent 100%),
+    radial-gradient(1.5px 1.5px at 83% 18%,rgba(255,255,255,.8) 0%,transparent 100%),
+    radial-gradient(1px 1px at 12% 78%,rgba(255,255,255,.5) 0%,transparent 100%),
+    radial-gradient(1px 1px at 48% 63%,rgba(255,255,255,.7) 0%,transparent 100%),
+    radial-gradient(1.5px 1.5px at 68% 83%,rgba(255,255,255,.6) 0%,transparent 100%),
+    radial-gradient(1px 1px at 90% 42%,rgba(255,255,255,.7) 0%,transparent 100%),
+    radial-gradient(1px 1px at 30% 88%,rgba(255,255,255,.4) 0%,transparent 100%),
+    radial-gradient(1px 1px at 62% 5%,rgba(255,255,255,.6) 0%,transparent 100%);
   animation:twinkle 6s ease-in-out infinite alternate}
-@keyframes twinkle{0%{opacity:.6}100%{opacity:1}}
+@keyframes twinkle{0%{opacity:.5}100%{opacity:1}}
 body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
-  background:radial-gradient(ellipse 60% 40% at 20% 30%,rgba(100,50,180,.12) 0%,transparent 70%),radial-gradient(ellipse 50% 50% at 80% 70%,rgba(60,20,120,.15) 0%,transparent 70%)}
+  background:
+    radial-gradient(ellipse 65% 45% at 18% 28%,rgba(100,50,180,.13) 0%,transparent 70%),
+    radial-gradient(ellipse 55% 55% at 82% 72%,rgba(60,20,120,.16) 0%,transparent 70%),
+    radial-gradient(ellipse 35% 35% at 50% 50%,rgba(80,30,150,.06) 0%,transparent 70%)}
 
-/* ── MODAL OVERLAY ─── */
-.modal-overlay{position:fixed;inset:0;background:rgba(4,2,12,.85);backdrop-filter:blur(8px);z-index:500;display:none;align-items:center;justify-content:center;padding:1rem}
+/* SHOOTING STARS */
+.s-star{position:fixed;top:0;left:0;width:2px;height:2px;background:#fff;border-radius:50%;pointer-events:none;z-index:0;opacity:0;animation:shoot linear infinite}
+@keyframes shoot{0%{opacity:0;transform:translate(0,0) rotate(45deg)}10%{opacity:1}100%{opacity:0;transform:translate(700px,400px) rotate(45deg)}}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(4,2,12,.9);backdrop-filter:blur(10px);z-index:500;display:none;align-items:center;justify-content:center;padding:1rem}
 .modal-overlay.open{display:flex}
-.modal-box{background:var(--panel);border:.5px solid var(--border-bright);width:100%;max-width:460px;max-height:90vh;overflow-y:auto;position:relative;animation:modalIn .3s ease}
-@keyframes modalIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.modal-header{padding:1.8rem 2rem 1rem;border-bottom:.5px solid var(--border);display:flex;align-items:center;justify-content:space-between}
-.modal-title{font-family:'Noto Serif TC',serif;font-size:1.1rem;font-weight:600;color:var(--gold-light);letter-spacing:.1em}
-.modal-close{background:none;border:none;color:var(--text-dim);font-size:20px;cursor:pointer;line-height:1;padding:4px 8px;transition:color .2s}
-.modal-close:hover{color:var(--text)}
-.modal-body{padding:1.8rem 2rem}
-.modal-tabs{display:flex;border-bottom:.5px solid var(--border);margin-bottom:1.5rem}
-.modal-tab{flex:1;padding:10px;text-align:center;font-size:13px;letter-spacing:.08em;color:var(--text-dim);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s}
-.modal-tab.active{color:var(--gold-light);border-bottom-color:var(--gold)}
-.modal-pane{display:none}
-.modal-pane.active{display:block}
+.modal-box{background:var(--panel);border:.5px solid var(--border-bright);width:100%;max-width:460px;max-height:92vh;overflow-y:auto;animation:mIn .3s ease}
+@keyframes mIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.mh{padding:1.6rem 1.8rem .9rem;border-bottom:.5px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.mh-title{font-family:'Noto Serif TC',serif;font-size:1rem;font-weight:600;color:var(--gold-light);letter-spacing:.1em}
+.mh-close{background:none;border:none;color:var(--text-dim);font-size:20px;cursor:pointer;padding:4px 8px}
+.mb{padding:1.5rem 1.8rem}
+.m-tabs{display:flex;border-bottom:.5px solid var(--border);margin-bottom:1.3rem}
+.m-tab{flex:1;padding:8px;text-align:center;font-size:12px;letter-spacing:.07em;color:var(--text-dim);cursor:pointer;border-bottom:2px solid transparent;transition:all .2s}
+.m-tab.active{color:var(--gold-light);border-bottom-color:var(--gold)}
+.m-pane{display:none}.m-pane.active{display:block}
 
-/* ── FORMS ── */
-.f-group{margin-bottom:1.2rem}
-.f-label{display:block;font-size:11px;letter-spacing:.18em;color:var(--text-dim);margin-bottom:7px;text-transform:uppercase}
-.f-input,.f-select,.f-textarea{width:100%;background:var(--surface);border:.5px solid var(--border);color:var(--text);padding:11px 14px;font-size:14px;font-family:'Noto Sans TC',sans-serif;outline:none;transition:border-color .2s;-webkit-appearance:none}
-.f-input:focus,.f-select:focus,.f-textarea:focus{border-color:var(--purple)}
-.f-select option{background:var(--deep)}
-.f-textarea{resize:vertical;min-height:100px;line-height:1.7}
-.f-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-@media(max-width:480px){.f-row{grid-template-columns:1fr}}
-.f-btn{width:100%;padding:13px;background:linear-gradient(135deg,rgba(155,111,212,.35),rgba(212,168,67,.2));border:.5px solid var(--purple);color:var(--purple-light);font-size:13px;letter-spacing:.18em;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all .3s;margin-top:.5rem}
-.f-btn:hover{background:linear-gradient(135deg,rgba(155,111,212,.55),rgba(212,168,67,.3));border-color:var(--purple-light)}
-.f-btn.gold{background:linear-gradient(135deg,var(--gold),#a8782a);border-color:var(--gold);color:#1a0e00;font-weight:500}
-.f-btn.gold:hover{filter:brightness(1.1)}
-.f-hint{font-size:11px;color:var(--text-faint);margin-top:6px;letter-spacing:.05em;line-height:1.6}
-.f-divider{display:flex;align-items:center;gap:.8rem;margin:1.2rem 0;color:var(--text-faint);font-size:12px;letter-spacing:.1em}
-.f-divider span{flex:1;height:.5px;background:var(--border)}
-.f-link{font-size:13px;color:var(--purple-light);text-decoration:none;cursor:pointer;letter-spacing:.05em}
-.f-link:hover{color:var(--gold-light)}
-.f-success{background:rgba(20,180,100,.08);border:.5px solid rgba(20,180,100,.3);color:#6fffc0;padding:12px 16px;font-size:13px;letter-spacing:.05em;margin-bottom:1rem;display:none;line-height:1.7}
-.f-success.show{display:block}
-.f-error{background:rgba(220,60,60,.08);border:.5px solid rgba(220,60,60,.3);color:#ff9090;padding:12px 16px;font-size:13px;letter-spacing:.05em;margin-bottom:1rem;display:none}
-.f-error.show{display:block}
-.checkbox-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:1rem}
-.checkbox-row input[type=checkbox]{margin-top:3px;accent-color:var(--purple);width:15px;height:15px;flex-shrink:0}
-.checkbox-row label{font-size:12px;color:var(--text-dim);line-height:1.6;letter-spacing:.03em;cursor:pointer}
+/* FORMS */
+.fg{margin-bottom:1rem}
+.fl{display:block;font-size:10px;letter-spacing:.18em;color:var(--text-dim);margin-bottom:5px;text-transform:uppercase}
+.fi,.fs,.ft{width:100%;background:var(--surface);border:.5px solid var(--border);color:var(--text);padding:9px 12px;font-size:13px;font-family:'Noto Sans TC',sans-serif;outline:none;transition:border-color .2s;-webkit-appearance:none}
+.fi:focus,.fs:focus,.ft:focus{border-color:var(--purple)}
+.fs option{background:var(--deep)}
+.ft{resize:vertical;min-height:85px;line-height:1.7}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+@media(max-width:460px){.fr{grid-template-columns:1fr}}
+.fb{width:100%;padding:11px;background:linear-gradient(135deg,rgba(155,111,212,.3),rgba(212,168,67,.18));border:.5px solid var(--purple);color:var(--purple-light);font-size:12px;letter-spacing:.18em;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all .3s;margin-top:.4rem}
+.fb:hover{background:linear-gradient(135deg,rgba(155,111,212,.5),rgba(212,168,67,.28));border-color:var(--purple-light)}
+.fb.gold{background:linear-gradient(135deg,var(--gold),#a8782a);border-color:var(--gold);color:#1a0e00;font-weight:500}
+.fdiv{display:flex;align-items:center;gap:.7rem;margin:1rem 0;color:var(--text-faint);font-size:11px}
+.fdiv span{flex:1;height:.5px;background:var(--border)}
+.flink{font-size:12px;color:var(--purple-light);cursor:pointer;text-decoration:none}
+.flink:hover{color:var(--gold-light)}
+.fsuc{background:rgba(20,180,100,.08);border:.5px solid rgba(20,180,100,.3);color:#6fffc0;padding:10px 14px;font-size:12px;margin-bottom:.8rem;display:none;line-height:1.7;letter-spacing:.04em}
+.fsuc.show{display:block}
+.ferr{background:rgba(220,60,60,.08);border:.5px solid rgba(220,60,60,.3);color:#ff9090;padding:10px 14px;font-size:12px;margin-bottom:.8rem;display:none}
+.ferr.show{display:block}
+.cbr{display:flex;align-items:flex-start;gap:8px;margin-bottom:.8rem}
+.cbr input{margin-top:3px;accent-color:var(--purple);flex-shrink:0}
+.cbr label{font-size:11px;color:var(--text-dim);line-height:1.6;cursor:pointer}
 
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:60px;background:rgba(8,6,18,.92);backdrop-filter:blur(20px);border-bottom:.5px solid var(--border)}
-.nav-logo{font-family:'Cinzel Decorative',serif;font-size:17px;font-weight:700;background:linear-gradient(135deg,var(--gold),var(--purple-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none}
-.nav-links{display:flex;list-style:none}
-.nav-links a{display:block;padding:8px 12px;font-size:12px;color:var(--text-dim);text-decoration:none;letter-spacing:.08em;transition:color .2s}
-.nav-links a:hover{color:var(--gold-light)}
-.nav-right{display:flex;align-items:center;gap:10px}
-.nav-btn{padding:6px 16px;font-size:12px;letter-spacing:.1em;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all .2s;border:none}
-.nav-btn.login{background:transparent;border:.5px solid var(--border-bright);color:var(--text-dim)}
-.nav-btn.login:hover{border-color:var(--purple-light);color:var(--purple-light)}
-.nav-btn.register{background:linear-gradient(135deg,var(--gold),#a8782a);color:#1a0e00;font-weight:500}
-.nav-btn.register:hover{filter:brightness(1.1)}
-.nav-member{display:none;align-items:center;gap:10px}
-.nav-member.visible{display:flex}
-.nav-avatar{width:30px;height:30px;border-radius:50%;background:var(--lift);border:.5px solid var(--purple);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--purple-light);cursor:pointer}
-.nav-member-name{font-size:12px;color:var(--gold-light);letter-spacing:.05em}
-.nav-logout{font-size:11px;color:var(--text-faint);cursor:pointer;letter-spacing:.05em;background:none;border:none;transition:color .2s;font-family:'Noto Sans TC',sans-serif}
-.nav-logout:hover{color:var(--text-dim)}
-@media(max-width:768px){.nav-links{display:none}}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 1.8rem;height:56px;background:rgba(8,6,18,.93);backdrop-filter:blur(22px);border-bottom:.5px solid var(--border)}
+.nlogo{font-family:'Cinzel Decorative',serif;font-size:15px;font-weight:700;background:linear-gradient(135deg,var(--gold),var(--purple-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-decoration:none;white-space:nowrap;flex-shrink:0}
+.nlinks{display:flex;list-style:none}
+.nlinks a{display:block;padding:6px 9px;font-size:11px;color:var(--text-dim);text-decoration:none;letter-spacing:.07em;transition:color .2s;white-space:nowrap}
+.nlinks a:hover{color:var(--gold-light)}
+.nright{display:flex;align-items:center;gap:7px;flex-shrink:0}
+.nbtn{padding:5px 12px;font-size:11px;letter-spacing:.09em;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all .2s;border:none;white-space:nowrap}
+.nbtn.login{background:transparent;border:.5px solid var(--border-bright);color:var(--text-dim)}
+.nbtn.login:hover{border-color:var(--purple-light);color:var(--purple-light)}
+.nbtn.reg{background:linear-gradient(135deg,var(--gold),#a8782a);color:#1a0e00;font-weight:500}
+.nmem{display:none;align-items:center;gap:7px}.nmem.on{display:flex}
+.nav-av{width:26px;height:26px;border-radius:50%;background:var(--lift);border:.5px solid var(--purple);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--purple-light);cursor:pointer}
+.nav-nm{font-size:10px;color:var(--gold-light);max-width:70px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nav-lo{font-size:10px;color:var(--text-faint);cursor:pointer;background:none;border:none;font-family:'Noto Sans TC',sans-serif;transition:color .2s}
+.nav-lo:hover{color:var(--text-dim)}
+/* Hamburger */
+.hbg{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:5px;background:none;border:none}
+.hbg span{display:block;width:18px;height:1.5px;background:var(--text-dim);transition:all .3s}
+@media(max-width:900px){.nlinks{display:none}.hbg{display:flex}}
+.mmenu{display:none;position:fixed;top:56px;left:0;right:0;background:rgba(8,6,18,.97);border-bottom:.5px solid var(--border);z-index:190;padding:.6rem 0}
+.mmenu.open{display:block}
+.mmenu a{display:block;padding:9px 1.8rem;font-size:13px;color:var(--text-dim);text-decoration:none;letter-spacing:.07em;border-bottom:.5px solid var(--border);transition:all .2s}
+.mmenu a:hover{color:var(--gold-light);background:var(--surface)}
 
-/* ── MEMBER BADGE ── */
-.member-badge{display:inline-flex;align-items:center;gap:5px;background:var(--gold-dim);border:.5px solid var(--gold);color:var(--gold-light);font-size:10px;padding:3px 10px;letter-spacing:.12em}
-.member-badge.vip{background:rgba(155,111,212,.2);border-color:var(--purple);color:var(--purple-light)}
+/* DATE TICKER */
+#dticker{position:relative;z-index:10;background:var(--deep);border-bottom:.5px solid var(--border);padding:7px 1.8rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-top:56px}
+.dt-date{font-size:11px;color:var(--gold);letter-spacing:.1em;white-space:nowrap;display:flex;align-items:center;gap:.5rem;flex-shrink:0}
+.dt-scroll{flex:1;overflow:hidden;min-width:150px}
+.dt-inner{display:flex;gap:2.5rem;white-space:nowrap;animation:tick 35s linear infinite}
+.dt-inner:hover{animation-play-state:paused}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.dt-item{font-size:10px;color:var(--text-dim);letter-spacing:.05em;flex-shrink:0}
+.dt-item strong{color:var(--purple-light)}
+.dt-ref{font-size:9px;color:var(--text-faint);border:.5px solid var(--border);padding:2px 9px;background:none;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all .2s;white-space:nowrap;flex-shrink:0}
+.dt-ref:hover{color:var(--gold);border-color:var(--gold)}
 
-/* ── HERO ── */
-#hero{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 2rem 4rem}
-.hero-symbol{font-size:68px;line-height:1;margin-bottom:1.8rem;animation:float 4s ease-in-out infinite;filter:drop-shadow(0 0 30px rgba(155,111,212,.6))}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-.hero-title{font-family:'Cinzel Decorative',serif;font-size:clamp(2.2rem,6vw,4.2rem);font-weight:700;background:linear-gradient(135deg,var(--gold-light),var(--purple-light) 50%,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:.05em;margin-bottom:.5rem;line-height:1.2}
-.hero-sub{font-family:'Noto Serif TC',serif;font-size:clamp(1rem,2.5vw,1.5rem);color:var(--gold-light);letter-spacing:.3em;margin-bottom:1.2rem}
-.hero-divider{display:flex;align-items:center;gap:1rem;margin-bottom:1.8rem;width:280px}
-.hero-divider span{flex:1;height:.5px;background:linear-gradient(90deg,transparent,var(--gold-dim),transparent)}
-.hero-divider em{font-style:normal;color:var(--gold);font-size:14px}
-.hero-tagline{font-size:14px;color:var(--text-dim);letter-spacing:.1em;margin-bottom:2.5rem;max-width:440px;line-height:1.9}
-.hero-cta{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
-.btn-gold{display:inline-block;padding:12px 30px;background:linear-gradient(135deg,var(--gold),#b8862a);color:#1a0e00;font-size:13px;font-weight:500;letter-spacing:.12em;text-decoration:none;border:none;cursor:pointer;transition:all .3s;clip-path:polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);font-family:'Noto Sans TC',sans-serif}
-.btn-gold:hover{filter:brightness(1.15);transform:translateY(-2px)}
-.btn-outline{display:inline-block;padding:11px 30px;background:transparent;color:var(--purple-light);font-size:13px;letter-spacing:.12em;text-decoration:none;border:.5px solid var(--purple);cursor:pointer;transition:all .3s;font-family:'Noto Sans TC',sans-serif}
-.btn-outline:hover{background:var(--purple-glow);border-color:var(--purple-light);transform:translateY(-2px)}
+/* SPONSOR */
+#sptop{position:relative;z-index:9;background:rgba(13,10,31,.85);border-bottom:.5px solid var(--border);padding:7px 1.8rem;display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap}
+.spl{font-size:9px;letter-spacing:.22em;color:var(--text-faint);flex-shrink:0}
+.spslot{display:flex;align-items:center;gap:6px;background:var(--surface);border:.5px solid var(--border);padding:4px 12px;font-size:10px;color:var(--text-dim);cursor:pointer;transition:all .2s}
+.spslot:hover{border-color:var(--gold-dim);color:var(--gold)}
+.spdot{width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0}
 
-/* ── SECTION BASE ── */
-section{position:relative;z-index:1;padding:5.5rem 2rem}
-.container{max-width:1080px;margin:0 auto}
-.section-header{text-align:center;margin-bottom:3rem}
-.section-eyebrow{display:inline-block;font-size:10px;letter-spacing:.3em;color:var(--gold);margin-bottom:.8rem;text-transform:uppercase}
-.section-title{font-family:'Noto Serif TC',serif;font-size:clamp(1.5rem,3vw,2rem);font-weight:600;color:var(--text);margin-bottom:.8rem;letter-spacing:.05em}
-.section-desc{font-size:13px;color:var(--text-dim);max-width:480px;margin:0 auto;line-height:1.9;letter-spacing:.05em}
-.ornament{display:flex;align-items:center;justify-content:center;gap:.8rem;margin-bottom:.8rem}
-.ornament span{width:36px;height:.5px;background:var(--gold-dim)}
-.ornament em{font-style:normal;color:var(--gold);font-size:13px}
+/* HERO */
+#hero{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 2rem 5rem}
+.h-sym{font-size:60px;line-height:1;margin-bottom:1.5rem;animation:float 4s ease-in-out infinite;filter:drop-shadow(0 0 28px rgba(155,111,212,.65))}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-13px)}}
+.h-title{font-family:'Cinzel Decorative',serif;font-size:clamp(1.9rem,6vw,4rem);font-weight:700;background:linear-gradient(135deg,var(--gold-light),var(--purple-light) 50%,var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:.05em;margin-bottom:.4rem;line-height:1.2}
+.h-sub{font-family:'Noto Serif TC',serif;font-size:clamp(.9rem,2.5vw,1.4rem);color:var(--gold-light);letter-spacing:.3em;margin-bottom:1rem}
+.h-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(155,111,212,.12);border:.5px solid var(--border-bright);padding:5px 16px;margin-bottom:1.5rem;font-size:11px;color:var(--purple-light);letter-spacing:.1em}
+.h-div{display:flex;align-items:center;gap:.8rem;margin-bottom:1.5rem;width:240px}
+.h-div span{flex:1;height:.5px;background:linear-gradient(90deg,transparent,var(--gold-dim),transparent)}
+.h-div em{font-style:normal;color:var(--gold);font-size:13px}
+.h-tag{font-size:12px;color:var(--text-dim);letter-spacing:.1em;margin-bottom:.5rem;max-width:400px;line-height:2}
+.h-moon{font-size:10px;color:var(--text-faint);letter-spacing:.15em;margin-bottom:2rem}
+.h-cta{display:flex;gap:.8rem;flex-wrap:wrap;justify-content:center}
+.btn-g{display:inline-block;padding:11px 26px;background:linear-gradient(135deg,var(--gold),#b8862a);color:#1a0e00;font-size:12px;font-weight:500;letter-spacing:.12em;text-decoration:none;border:none;cursor:pointer;transition:all .3s;clip-path:polygon(6px 0%,100% 0%,calc(100% - 6px) 100%,0% 100%);font-family:'Noto Sans TC',sans-serif}
+.btn-g:hover{filter:brightness(1.15);transform:translateY(-2px)}
+.btn-o{display:inline-block;padding:10px 26px;background:transparent;color:var(--purple-light);font-size:12px;letter-spacing:.12em;text-decoration:none;border:.5px solid var(--purple);cursor:pointer;transition:all .3s;font-family:'Noto Sans TC',sans-serif}
+.btn-o:hover{background:var(--purple-glow);transform:translateY(-2px)}
 
-/* ── SPONSOR BANNER ── */
-#sponsor-top{position:relative;z-index:10;background:var(--deep);border-bottom:.5px solid var(--border);padding:10px 2rem;display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-top:60px}
-.sponsor-label{font-size:10px;letter-spacing:.2em;color:var(--text-faint)}
-.sponsor-slot{display:flex;align-items:center;gap:8px;background:var(--surface);border:.5px solid var(--border);padding:6px 16px;font-size:12px;color:var(--text-dim);letter-spacing:.08em;cursor:pointer;transition:all .2s}
-.sponsor-slot:hover{border-color:var(--gold-dim);color:var(--gold)}
-.sponsor-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block;flex-shrink:0}
+/* SECTION */
+section{position:relative;z-index:1;padding:4.5rem 2rem}
+.con{max-width:1080px;margin:0 auto}
+.sh{text-align:center;margin-bottom:2.5rem}
+.sey{display:inline-block;font-size:9px;letter-spacing:.28em;color:var(--gold);margin-bottom:.6rem;text-transform:uppercase}
+.st{font-family:'Noto Serif TC',serif;font-size:clamp(1.3rem,3vw,1.85rem);font-weight:600;color:var(--text);margin-bottom:.6rem;letter-spacing:.05em}
+.sd{font-size:12px;color:var(--text-dim);max-width:440px;margin:0 auto;line-height:1.9;letter-spacing:.04em}
+.orn{display:flex;align-items:center;justify-content:center;gap:.6rem;margin-bottom:.6rem}
+.orn span{width:28px;height:.5px;background:var(--gold-dim)}
+.orn em{font-style:normal;color:var(--gold);font-size:11px}
+.fi2{opacity:0;transform:translateY(14px);transition:opacity .65s ease,transform .65s ease}
+.fi2.vis{opacity:1;transform:translateY(0)}
 
-/* ── FEATURE GRID ── */
+/* TODAY STRIP */
+#tstrip{position:relative;z-index:1;background:var(--deep);border-top:.5px solid var(--border);border-bottom:.5px solid var(--border)}
+.ts-in{max-width:1080px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border)}
+@media(max-width:700px){.ts-in{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:420px){.ts-in{grid-template-columns:repeat(2,1fr)}}
+.ts-card{background:var(--surface);padding:1rem .8rem;text-align:center;cursor:pointer;transition:background .2s}
+.ts-card:hover{background:var(--panel)}
+.ts-icon{font-size:22px;display:block;margin-bottom:.4rem}
+.ts-lbl{font-size:9px;letter-spacing:.13em;color:var(--text-faint);margin-bottom:.3rem}
+.ts-val{font-family:'Noto Serif TC',serif;font-size:12px;color:var(--gold-light);font-weight:600;letter-spacing:.06em;line-height:1.4}
+
+/* FEATURES */
 #features{background:var(--deep)}
-.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5px;background:var(--border)}
-.feature-card{background:var(--surface);padding:2.2rem 1.8rem;text-align:center;transition:background .3s;cursor:pointer;text-decoration:none;display:block}
-.feature-card:hover{background:var(--panel)}
-.feature-icon{font-size:42px;margin-bottom:1rem;display:block;filter:drop-shadow(0 0 12px rgba(155,111,212,.5))}
-.feature-name{font-family:'Noto Serif TC',serif;font-size:1.1rem;font-weight:600;color:var(--gold-light);margin-bottom:.4rem;letter-spacing:.1em}
-.feature-desc{font-size:12px;color:var(--text-dim);line-height:1.8;letter-spacing:.04em}
-.feature-arrow{display:inline-block;margin-top:1rem;font-size:10px;letter-spacing:.2em;color:var(--purple);transition:color .2s,letter-spacing .2s}
-.feature-card:hover .feature-arrow{color:var(--purple-light);letter-spacing:.3em}
-.feature-badge{display:inline-block;font-size:9px;letter-spacing:.12em;padding:2px 8px;margin-bottom:.5rem;border:.5px solid var(--gold);color:var(--gold);background:rgba(212,168,67,.08)}
+.fg2{display:grid;grid-template-columns:repeat(auto-fit,minmax(185px,1fr));gap:1.5px;background:var(--border)}
+.fc{background:var(--surface);padding:1.8rem 1.4rem;text-align:center;transition:background .3s;cursor:pointer;text-decoration:none;display:block;position:relative;overflow:hidden}
+.fc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity .3s}
+.fc:hover{background:var(--panel)}.fc:hover::after{opacity:1}
+.fc-icon{font-size:34px;margin-bottom:.8rem;display:block;filter:drop-shadow(0 0 9px rgba(155,111,212,.45));transition:transform .3s}
+.fc:hover .fc-icon{transform:scale(1.12)}
+.fc-name{font-family:'Noto Serif TC',serif;font-size:.95rem;font-weight:600;color:var(--gold-light);margin-bottom:.3rem;letter-spacing:.09em}
+.fc-desc{font-size:11px;color:var(--text-dim);line-height:1.75;letter-spacing:.04em}
+.fc-arr{display:inline-block;margin-top:.8rem;font-size:9px;letter-spacing:.18em;color:var(--purple);transition:all .2s}
+.fc:hover .fc-arr{color:var(--purple-light);letter-spacing:.28em}
+.fc-badge{display:inline-block;font-size:8px;letter-spacing:.1em;padding:2px 7px;margin-bottom:.3rem;border:.5px solid var(--gold);color:var(--gold);background:rgba(212,168,67,.08)}
 
-/* ── DAILY FORTUNE ── */
+/* DAILY */
 #daily{background:var(--void)}
-.daily-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-@media(max-width:700px){.daily-grid{grid-template-columns:1fr}}
-.daily-card{background:var(--panel);border:.5px solid var(--border)}
-.daily-card-head{padding:1.2rem 1.5rem;border-bottom:.5px solid var(--border);display:flex;align-items:center;gap:.8rem}
-.daily-card-icon{font-size:22px}
-.daily-card-title{font-family:'Noto Serif TC',serif;font-size:14px;font-weight:600;color:var(--gold-light);letter-spacing:.1em}
-.daily-card-body{padding:1.5rem}
-.daily-score-row{display:flex;align-items:center;gap:.8rem;margin-bottom:10px}
-.daily-score-label{width:50px;font-size:11px;color:var(--text-dim);letter-spacing:.05em}
-.daily-score-track{flex:1;height:3px;background:rgba(255,255,255,.06);position:relative}
-.daily-score-fill{height:100%;background:linear-gradient(90deg,var(--purple),var(--gold));transition:width .8s ease}
-.daily-score-num{width:28px;text-align:right;font-size:11px;color:var(--gold)}
-.daily-text{font-size:13px;color:var(--text-dim);line-height:1.9;letter-spacing:.04em;font-family:'Noto Serif TC',serif;margin-top:1rem;padding-top:1rem;border-top:.5px solid var(--border)}
-.daily-lucky{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem}
-.lucky-tag{font-size:10px;letter-spacing:.1em;padding:3px 10px;background:var(--lift);border:.5px solid var(--border-bright);color:var(--purple-light)}
-.daily-zodiac-sel{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:2rem}
-.dz-item{background:var(--surface);border:.5px solid var(--border);padding:.7rem .3rem;text-align:center;cursor:pointer;transition:all .2s;font-size:10px;color:var(--text-dim);letter-spacing:.04em}
-.dz-item:hover,.dz-item.active{background:var(--lift);border-color:var(--gold);color:var(--gold-light)}
-.dz-sym{font-size:20px;display:block;margin-bottom:3px}
-.member-only-blur{position:relative;overflow:hidden}
-.member-only-blur::after{content:'';position:absolute;inset:0;backdrop-filter:blur(5px);background:rgba(8,6,18,.4)}
-.member-only-badge{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;text-align:center;pointer-events:none}
-.member-only-badge p{font-size:12px;color:var(--gold-light);letter-spacing:.1em;margin-bottom:.5rem;font-family:'Noto Serif TC',serif}
-.unlock-btn{background:var(--gold-dim);border:.5px solid var(--gold);color:var(--gold-light);font-size:11px;padding:6px 18px;letter-spacing:.12em;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all .2s;pointer-events:all}
-.unlock-btn:hover{background:rgba(212,168,67,.5)}
+.dh{text-align:center;margin-bottom:1.8rem}
+.dh-date{font-family:'Noto Serif TC',serif;font-size:1rem;color:var(--gold-light);letter-spacing:.14em;margin-bottom:.2rem}
+.dh-lunar{font-size:10px;color:var(--text-dim);letter-spacing:.1em}
+.dspec{background:var(--panel);border:.5px solid var(--gold-dim);padding:1rem 1.3rem;margin-bottom:1.5rem;display:none}
+.dspec.on{display:block}
+.dspec-t{font-size:9px;letter-spacing:.2em;color:var(--gold);margin-bottom:.5rem}
+.dspec-b{font-family:'Noto Serif TC',serif;font-size:12px;color:var(--text-dim);line-height:1.9;letter-spacing:.04em}
+.dzsel{display:grid;grid-template-columns:repeat(6,1fr);gap:7px;margin-bottom:1.5rem}
+@media(max-width:480px){.dzsel{grid-template-columns:repeat(4,1fr)}}
+.dz{background:var(--surface);border:.5px solid var(--border);padding:.6rem .2rem;text-align:center;cursor:pointer;transition:all .22s;font-size:9px;color:var(--text-dim);letter-spacing:.04em}
+.dz:hover,.dz.on{background:var(--lift);border-color:var(--gold);color:var(--gold-light)}
+.dz-s{font-size:18px;display:block;margin-bottom:2px}
+.dgrid{display:none;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:680px){.dgrid{grid-template-columns:1fr}}
+.dcard{background:var(--panel);border:.5px solid var(--border);transition:border-color .2s}
+.dcard:hover{border-color:var(--border-bright)}
+.dch{padding:.9rem 1.2rem;border-bottom:.5px solid var(--border);display:flex;align-items:center;gap:.6rem}
+.dci{font-size:18px}
+.dct{font-family:'Noto Serif TC',serif;font-size:12px;font-weight:600;color:var(--gold-light);letter-spacing:.09em}
+.dcb{padding:1.1rem 1.2rem}
+.dsr{display:flex;align-items:center;gap:.6rem;margin-bottom:8px}
+.dsl{width:42px;font-size:9px;color:var(--text-dim);letter-spacing:.04em}
+.dst{flex:1;height:3px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden}
+.dsf{height:100%;background:linear-gradient(90deg,var(--purple),var(--gold));transition:width 1s cubic-bezier(.4,0,.2,1);border-radius:2px}
+.dsn{width:24px;text-align:right;font-size:10px;color:var(--gold)}
+.dtxt{font-size:11px;color:var(--text-dim);line-height:1.9;letter-spacing:.04em;font-family:'Noto Serif TC',serif;margin-top:.8rem;padding-top:.8rem;border-top:.5px solid var(--border)}
+.dlucky{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.6rem}
+.ltag{font-size:9px;letter-spacing:.07em;padding:2px 8px;background:var(--lift);border:.5px solid var(--border-bright);color:var(--purple-light)}
+.mblur{position:relative;overflow:hidden}
+.mblur::after{content:'';position:absolute;inset:0;backdrop-filter:blur(6px);background:rgba(8,6,18,.5)}
+.mbadge{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;text-align:center;width:100%;pointer-events:none}
+.mbadge p{font-size:10px;color:var(--gold-light);letter-spacing:.09em;margin-bottom:.4rem;font-family:'Noto Serif TC',serif}
+.mbtn{background:var(--gold-dim);border:.5px solid var(--gold);color:var(--gold-light);font-size:9px;padding:4px 14px;letter-spacing:.11em;cursor:pointer;font-family:'Noto Sans TC',sans-serif;pointer-events:all;transition:all .2s}
+.mbtn:hover{background:rgba(212,168,67,.5)}
+/* health tips */
+.htips{margin-top:.7rem;display:flex;flex-direction:column;gap:.35rem}
+.htip{font-size:10px;color:var(--text-faint);letter-spacing:.04em;display:flex;align-items:center;gap:.4rem}
+.htip::before{content:'✦';font-size:7px;color:var(--purple);flex-shrink:0}
 
-/* ── ZODIAC ── */
+/* ZODIAC */
 #zodiac{background:var(--deep)}
-.zodiac-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:1.5rem}
-@media(max-width:600px){.zodiac-grid{grid-template-columns:repeat(4,1fr)}}
-.zodiac-item{background:var(--surface);border:.5px solid var(--border);padding:.9rem .4rem;text-align:center;cursor:pointer;transition:all .2s}
-.zodiac-item:hover{background:var(--panel);border-color:var(--border-bright);transform:translateY(-2px)}
-.zodiac-item.active{background:var(--lift);border-color:var(--gold)}
-.zodiac-symbol{font-size:26px;display:block;margin-bottom:4px}
-.zodiac-name{font-size:11px;color:var(--text-dim);letter-spacing:.04em}
-.zodiac-item.active .zodiac-name{color:var(--gold-light)}
-.zodiac-result{background:var(--panel);border:.5px solid var(--border-bright);padding:2rem;display:none}
-.zodiac-result.show{display:block}
-.zr-head{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:.5px solid var(--border)}
-.zr-icon{font-size:38px}
-.zr-title{font-family:'Noto Serif TC',serif;font-size:1.2rem;font-weight:600;color:var(--gold-light);letter-spacing:.1em}
-.zr-date{font-size:11px;color:var(--text-dim);margin-top:4px}
-.fortune-bars{display:grid;gap:10px}
-.fortune-row{display:flex;align-items:center;gap:.8rem}
-.fortune-label{width:55px;font-size:11px;color:var(--text-dim);letter-spacing:.04em}
-.fortune-track{flex:1;height:3px;background:rgba(255,255,255,.06)}
-.fortune-fill{height:100%;background:linear-gradient(90deg,var(--purple),var(--gold));transition:width .8s ease}
-.fortune-score{width:28px;text-align:right;font-size:11px;color:var(--gold)}
-.fortune-text{margin-top:1.5rem;font-size:13px;color:var(--text-dim);line-height:1.9;letter-spacing:.04em;font-family:'Noto Serif TC',serif}
+.zgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:1.2rem}
+@media(max-width:580px){.zgrid{grid-template-columns:repeat(4,1fr)}}
+.zi{background:var(--surface);border:.5px solid var(--border);padding:.75rem .3rem;text-align:center;cursor:pointer;transition:all .22s}
+.zi:hover{background:var(--panel);border-color:var(--border-bright);transform:translateY(-2px)}
+.zi.on{background:var(--lift);border-color:var(--gold);transform:translateY(-2px)}
+.zi-s{font-size:22px;display:block;margin-bottom:3px}
+.zi-n{font-size:10px;color:var(--text-dim);letter-spacing:.04em}
+.zi.on .zi-n{color:var(--gold-light)}
+.zr{background:var(--panel);border:.5px solid var(--border-bright);padding:1.6rem;display:none}
+.zr.on{display:block;animation:fadup .4s ease}
+@keyframes fadup{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.zrh{display:flex;align-items:center;gap:.9rem;margin-bottom:1.2rem;padding-bottom:1rem;border-bottom:.5px solid var(--border)}
+.zri{font-size:32px}
+.zrt{font-family:'Noto Serif TC',serif;font-size:1.05rem;font-weight:600;color:var(--gold-light);letter-spacing:.09em}
+.zrd{font-size:10px;color:var(--text-dim);margin-top:3px}
+.fb2{display:grid;gap:8px;margin-bottom:1rem}
+.fr2{display:flex;align-items:center;gap:.6rem}
+.fl2{width:45px;font-size:10px;color:var(--text-dim);letter-spacing:.04em}
+.ft2{flex:1;height:3px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden}
+.ff2{height:100%;background:linear-gradient(90deg,var(--purple),var(--gold));transition:width .9s cubic-bezier(.4,0,.2,1);border-radius:2px}
+.fs2{width:24px;text-align:right;font-size:10px;color:var(--gold)}
+.ftxt{font-size:12px;color:var(--text-dim);line-height:1.9;letter-spacing:.04em;font-family:'Noto Serif TC',serif}
+/* week chart */
+.wf{margin-top:1.2rem;padding-top:1.1rem;border-top:.5px solid var(--border)}
+.wf-t{font-size:9px;letter-spacing:.18em;color:var(--gold);margin-bottom:.8rem}
+.wdays{display:flex;gap:5px}
+.wday{flex:1;text-align:center;background:var(--surface);padding:.5rem .2rem;border:.5px solid var(--border);cursor:pointer;transition:all .2s}
+.wday:hover,.wday.td{background:var(--lift);border-color:var(--gold)}
+.wdn{font-size:8px;color:var(--text-faint);letter-spacing:.04em;margin-bottom:2px}
+.wds{font-size:13px;display:block}
+.wdv{font-size:9px;color:var(--gold)}
 
-/* ── TAROT ── */
+/* TAROT */
 #tarot{background:var(--void)}
-.tarot-area{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
-@media(max-width:700px){.tarot-area{grid-template-columns:1fr;text-align:center}}
-.tarot-deck{display:flex;flex-direction:column;align-items:center;gap:1.2rem}
-.tarot-card-wrap{perspective:1000px;width:170px;height:290px}
-.tarot-card{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.4,0,.2,1);cursor:pointer}
-.tarot-card.flipped{transform:rotateY(180deg)}
-.tarot-front,.tarot-back{position:absolute;inset:0;backface-visibility:hidden;border:.5px solid var(--border-bright)}
-.tarot-back{background:var(--panel);display:flex;align-items:center;justify-content:center;font-size:52px;background-image:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(155,111,212,.05) 10px,rgba(155,111,212,.05) 20px)}
-.tarot-front{background:var(--surface);transform:rotateY(180deg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.2rem;text-align:center}
-.tarot-front-icon{font-size:50px;margin-bottom:.7rem}
-.tarot-front-name{font-family:'Noto Serif TC',serif;font-size:14px;font-weight:600;color:var(--gold-light);letter-spacing:.1em;margin-bottom:.4rem}
-.tarot-front-num{font-size:10px;color:var(--purple-light);letter-spacing:.2em}
-.tarot-btn{background:transparent;border:.5px solid var(--gold);color:var(--gold);padding:10px 26px;font-size:12px;letter-spacing:.15em;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all .2s}
-.tarot-btn:hover{background:var(--gold-dim)}
-.tarot-info h3{font-family:'Noto Serif TC',serif;font-size:15px;font-weight:600;color:var(--gold-light);margin-bottom:.8rem;letter-spacing:.1em}
-.tarot-placeholder{font-size:13px;color:var(--text-faint);line-height:1.9;letter-spacing:.04em;font-family:'Noto Serif TC',serif}
-.tarot-meaning{font-size:13px;color:var(--text-dim);line-height:1.9;letter-spacing:.04em;margin-bottom:1.2rem;font-family:'Noto Serif TC',serif;display:none}
-.tarot-meaning.show{display:block}
-.tarot-keywords{display:none;flex-wrap:wrap;gap:7px}
-.tarot-keywords.show{display:flex}
-.keyword-tag{background:var(--lift);border:.5px solid var(--border-bright);color:var(--purple-light);font-size:10px;padding:3px 10px;letter-spacing:.08em}
+.tarea{display:grid;grid-template-columns:1fr 1.4fr;gap:2.2rem;align-items:start}
+@media(max-width:680px){.tarea{grid-template-columns:1fr;text-align:center}}
+.tdeck{display:flex;flex-direction:column;align-items:center;gap:.9rem}
+.tcw{perspective:1200px;width:155px;height:265px}
+.tcard{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .85s cubic-bezier(.4,0,.2,1);cursor:pointer}
+.tcard.flip{transform:rotateY(180deg)}
+.tfront,.tback{position:absolute;inset:0;backface-visibility:hidden;border:.5px solid var(--border-bright)}
+.tback{background:var(--panel);display:flex;align-items:center;justify-content:center;font-size:44px;
+  background-image:repeating-linear-gradient(45deg,transparent,transparent 8px,rgba(155,111,212,.06) 8px,rgba(155,111,212,.06) 16px),
+  repeating-linear-gradient(-45deg,transparent,transparent 8px,rgba(212,168,67,.03) 8px,rgba(212,168,67,.03) 16px)}
+.tfront{background:var(--surface);transform:rotateY(180deg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1rem;text-align:center}
+.tfi{font-size:44px;margin-bottom:.6rem}
+.tfn{font-family:'Noto Serif TC',serif;font-size:13px;font-weight:600;color:var(--gold-light);letter-spacing:.09em;margin-bottom:.3rem}
+.tfu{font-size:9px;color:var(--purple-light);letter-spacing:.18em}
+.tbtn{background:transparent;border:.5px solid var(--gold);color:var(--gold);padding:8px 22px;font-size:10px;letter-spacing:.14em;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all .2s}
+.tbtn:hover{background:var(--gold-dim)}
+.tbtn2{border-color:var(--purple);color:var(--purple-light)}
+.tbtn2:hover{background:var(--purple-glow)}
+.ti h3{font-family:'Noto Serif TC',serif;font-size:13px;font-weight:600;color:var(--gold-light);margin-bottom:.6rem;letter-spacing:.09em}
+.tph{font-size:11px;color:var(--text-faint);line-height:2;letter-spacing:.04em;font-family:'Noto Serif TC',serif}
+.tmean{font-size:11px;color:var(--text-dim);line-height:2;letter-spacing:.04em;margin-bottom:.9rem;font-family:'Noto Serif TC',serif;display:none}
+.tmean.on{display:block;animation:fadup .4s ease}
+.tkws{display:none;flex-wrap:wrap;gap:5px;margin-bottom:.9rem}
+.tkws.on{display:flex}
+.kw{background:var(--lift);border:.5px solid var(--border-bright);color:var(--purple-light);font-size:9px;padding:2px 8px;letter-spacing:.07em}
+/* 三牌陣 */
+.tspread{margin-top:1rem;padding-top:1rem;border-top:.5px solid var(--border);display:none}
+.tspread.on{display:block}
+.tsp-t{font-size:9px;letter-spacing:.18em;color:var(--gold);margin-bottom:.7rem}
+.spcards{display:flex;gap:7px}
+.spc{flex:1;background:var(--surface);border:.5px solid var(--border);padding:.7rem .4rem;text-align:center}
+.spp{font-size:8px;color:var(--text-faint);letter-spacing:.08em;margin-bottom:.3rem}
+.spi{font-size:20px;display:block;margin-bottom:.3rem}
+.spn{font-size:10px;color:var(--gold-light);font-family:'Noto Serif TC',serif;font-weight:600;letter-spacing:.05em;margin-bottom:.3rem}
+.spm{font-size:9px;color:var(--text-dim);line-height:1.6;letter-spacing:.03em}
 
-/* ── ZIWEI ── */
+/* ZIWEI */
 #ziwei{background:var(--deep)}
-.ziwei-form{max-width:580px;margin:0 auto;background:var(--panel);border:.5px solid var(--border);padding:2.2rem}
-.ziwei-result{max-width:580px;margin:2rem auto 0;display:none}
-.ziwei-result.show{display:block}
-.ziwei-palace-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border);margin-bottom:1.5rem}
-.palace-cell{background:var(--surface);padding:.7rem;min-height:78px;font-size:11px;color:var(--text-dim)}
-.palace-cell.center{background:var(--panel);display:flex;align-items:center;justify-content:center;font-family:'Noto Serif TC',serif;font-size:13px;color:var(--gold-light);letter-spacing:.15em}
-.palace-name{font-size:10px;color:var(--gold);letter-spacing:.08em;margin-bottom:3px}
-.palace-star{font-size:12px;color:var(--purple-light);font-family:'Noto Serif TC',serif;font-weight:600}
-.palace-minor{font-size:9px;color:var(--text-faint);margin-top:2px}
-.ziwei-desc{background:var(--surface);border:.5px solid var(--border);padding:1.3rem;font-size:13px;color:var(--text-dim);line-height:1.9;font-family:'Noto Serif TC',serif;letter-spacing:.04em}
+.ziform{background:var(--panel);border:.5px solid var(--border);padding:1.8rem;max-width:560px;margin:0 auto}
+.formrow{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
+@media(max-width:500px){.formrow{grid-template-columns:1fr}}
+.fg3{margin-bottom:.9rem;display:flex;flex-direction:column;gap:5px}
+.fl3{font-size:9px;letter-spacing:.15em;color:var(--text-dim);text-transform:uppercase}
+.fi3,.fs3{background:var(--surface);border:.5px solid var(--border);color:var(--text);padding:9px 11px;font-size:12px;font-family:'Noto Sans TC',sans-serif;outline:none;transition:border-color .2s;-webkit-appearance:none;width:100%}
+.fi3:focus,.fs3:focus{border-color:var(--purple)}
+.fs3 option{background:var(--deep)}
+.fsub{width:100%;padding:11px;background:linear-gradient(135deg,rgba(155,111,212,.3),rgba(212,168,67,.18));border:.5px solid var(--purple);color:var(--purple-light);font-size:11px;letter-spacing:.16em;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all .3s;margin-top:.4rem}
+.fsub:hover{background:linear-gradient(135deg,rgba(155,111,212,.5),rgba(212,168,67,.28));border-color:var(--purple-light)}
+.zires{max-width:560px;margin:1.3rem auto 0;display:none}
+.zires.on{display:block}
+.zpg{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border);margin-bottom:1.1rem}
+.pc{background:var(--surface);padding:.6rem;min-height:68px}
+.pc.cen{background:var(--panel);display:flex;align-items:center;justify-content:center;font-family:'Noto Serif TC',serif;font-size:11px;color:var(--gold-light);letter-spacing:.13em}
+.pn{font-size:9px;color:var(--gold);letter-spacing:.07em;margin-bottom:2px}
+.ps{font-size:11px;color:var(--purple-light);font-family:'Noto Serif TC',serif;font-weight:600}
+.pm{font-size:8px;color:var(--text-faint);margin-top:1px}
+.rdesc{background:var(--surface);border:.5px solid var(--border);padding:1.1rem;font-size:11px;color:var(--text-dim);line-height:1.9;font-family:'Noto Serif TC',serif;letter-spacing:.04em}
 
-/* ── CHART ── */
+/* CHART */
 #chart-section{background:var(--void)}
-.chart-form{max-width:600px;margin:0 auto;background:var(--panel);border:.5px solid var(--border);padding:2.2rem}
-.chart-result{max-width:600px;margin:2rem auto 0;display:none}
-.chart-result.show{display:block}
-.planet-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1.2rem}
-@media(max-width:500px){.planet-grid{grid-template-columns:repeat(2,1fr)}}
-.planet-card{background:var(--surface);border:.5px solid var(--border);padding:.9rem;text-align:center}
-.planet-icon{font-size:22px;margin-bottom:5px;display:block}
-.planet-name{font-size:10px;color:var(--text-dim);letter-spacing:.08em;margin-bottom:3px}
-.planet-sign{font-size:13px;color:var(--purple-light);font-family:'Noto Serif TC',serif;font-weight:600}
-.chart-summary{background:var(--surface);border:.5px solid var(--border);padding:1.3rem;font-size:13px;color:var(--text-dim);line-height:1.9;font-family:'Noto Serif TC',serif;letter-spacing:.04em}
+.cform{background:var(--panel);border:.5px solid var(--border);padding:1.8rem;max-width:580px;margin:0 auto}
+.cres{max-width:580px;margin:1.3rem auto 0;display:none}
+.cres.on{display:block}
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:1rem}
+@media(max-width:480px){.pgrid{grid-template-columns:repeat(2,1fr)}}
+.pcard{background:var(--surface);border:.5px solid var(--border);padding:.75rem;text-align:center;transition:border-color .2s}
+.pcard:hover{border-color:var(--border-bright)}
+.pi{font-size:18px;margin-bottom:3px;display:block}
+.pn2{font-size:9px;color:var(--text-dim);letter-spacing:.07em;margin-bottom:2px}
+.ps2{font-size:11px;color:var(--purple-light);font-family:'Noto Serif TC',serif;font-weight:600}
 
-/* ── MEMBERSHIP PLANS ── */
+/* ASTRO CALENDAR */
+#astrocal{background:var(--deep)}
+.cnav{display:flex;align-items:center;justify-content:space-between;margin-bottom:.9rem}
+.cnbtn{background:none;border:.5px solid var(--border);color:var(--text-dim);padding:5px 12px;cursor:pointer;font-family:'Noto Sans TC',sans-serif;font-size:11px;transition:all .2s}
+.cnbtn:hover{border-color:var(--purple);color:var(--purple-light)}
+.cmt{font-family:'Noto Serif TC',serif;font-size:13px;color:var(--gold-light);letter-spacing:.1em}
+.cgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+.ch{text-align:center;font-size:9px;letter-spacing:.09em;color:var(--text-faint);padding:.35rem 0}
+.cday{background:var(--surface);border:.5px solid var(--border);padding:.45rem .2rem;text-align:center;min-height:50px;cursor:pointer;transition:all .2s;position:relative}
+.cday:hover{background:var(--panel)}
+.cday.td{border-color:var(--gold);background:var(--lift)}
+.cday.om{opacity:.3}
+.cdnum{font-size:11px;font-weight:500;margin-bottom:1px}
+.cday.td .cdnum{color:var(--gold)}
+.cdlun{font-size:7px;color:var(--text-faint);margin-bottom:1px}
+.cdev{font-size:7px;color:var(--purple-light);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cddot{position:absolute;top:3px;right:3px;width:3px;height:3px;border-radius:50%;background:var(--gold)}
+.evlist{display:grid;gap:7px;margin-top:1.4rem}
+.evitem{background:var(--panel);border:.5px solid var(--border);padding:.8rem 1rem;display:flex;align-items:flex-start;gap:.9rem}
+.evdb{background:var(--lift);border:.5px solid var(--border-bright);padding:.35rem .55rem;text-align:center;flex-shrink:0;min-width:40px}
+.evdm{font-size:8px;color:var(--text-dim);letter-spacing:.07em}
+.evdd{font-size:16px;font-weight:600;color:var(--gold-light);line-height:1;font-family:'Cinzel Decorative',serif}
+.evt{font-size:12px;font-weight:500;color:var(--text);letter-spacing:.05em;margin-bottom:.2rem;font-family:'Noto Serif TC',serif}
+.evd{font-size:10px;color:var(--text-dim);letter-spacing:.04em;line-height:1.6}
+.evtag{display:inline-block;font-size:8px;padding:2px 7px;border:.5px solid;letter-spacing:.09em;margin-top:.3rem}
+.evtag.planet{color:var(--purple-light);border-color:var(--purple)}
+.evtag.moon{color:var(--gold);border-color:var(--gold)}
+.evtag.special{color:#ff9090;border-color:#ff9090}
+
+/* LUCKY DRAW */
+#luckydraw{background:var(--void)}
+.lw{display:flex;flex-direction:column;align-items:center;gap:1.3rem}
+.lbtn{background:linear-gradient(135deg,rgba(155,111,212,.2),rgba(212,168,67,.1));border:.5px solid var(--purple-light);color:var(--purple-light);padding:12px 34px;font-size:11px;letter-spacing:.19em;cursor:pointer;font-family:'Noto Serif TC',serif;transition:all .3s;position:relative;overflow:hidden}
+.lbtn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(155,111,212,.25),transparent);opacity:0;transition:opacity .3s}
+.lbtn:hover::before{opacity:1}
+.lbtn:hover{transform:translateY(-2px);border-color:var(--gold)}
+.lrgrid{display:none;grid-template-columns:repeat(2,1fr);gap:.9rem;width:100%;max-width:460px}
+.lrgrid.on{display:grid}
+.litem{background:var(--panel);border:.5px solid var(--border);padding:1rem;text-align:center;transition:border-color .2s}
+.litem:hover{border-color:var(--border-bright)}
+.litem.wide{grid-column:span 2}
+.lii{font-size:28px;display:block;margin-bottom:.4rem}
+.lil{font-size:9px;letter-spacing:.13em;color:var(--text-faint);margin-bottom:.25rem}
+.liv{font-family:'Noto Serif TC',serif;font-size:13px;color:var(--gold-light);font-weight:600;letter-spacing:.07em}
+.lid{font-size:10px;color:var(--text-dim);margin-top:.35rem;line-height:1.7;letter-spacing:.04em}
+.spin{animation:spinIn .55s cubic-bezier(.4,0,.2,1)}
+@keyframes spinIn{0%{opacity:0;transform:scale(.85) rotate(-4deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
+
+/* MEDITATION */
+#meditation{background:var(--deep)}
+.medc{background:var(--panel);border:.5px solid var(--border-bright);max-width:660px;margin:0 auto;overflow:hidden}
+.medv{height:190px;background:linear-gradient(135deg,var(--surface),var(--panel));display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.medorb{width:92px;height:92px;border-radius:50%;background:radial-gradient(circle,rgba(155,111,212,.4),rgba(8,6,18,.8));border:.5px solid var(--purple);animation:breathe 4s ease-in-out infinite;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:30px}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.15);opacity:1}}
+.medr{position:absolute;border-radius:50%;border:.5px solid rgba(155,111,212,.18);animation:rip 4s ease-in-out infinite}
+.medr:nth-child(1){width:120px;height:120px}
+.medr:nth-child(2){width:152px;height:152px;animation-delay:.5s}
+.medr:nth-child(3){width:185px;height:185px;animation-delay:1s}
+@keyframes rip{0%,100%{transform:scale(.95);opacity:.5}50%{transform:scale(1.05);opacity:.2}}
+.medb{padding:1.5rem}
+.medt{font-family:'Noto Serif TC',serif;font-size:14px;font-weight:600;color:var(--gold-light);letter-spacing:.1em;margin-bottom:.5rem;text-align:center}
+.medq{font-family:'Noto Serif TC',serif;font-size:12px;color:var(--text-dim);line-height:2;letter-spacing:.05em;text-align:center;margin-bottom:1rem;font-style:italic}
+.medsteps{display:grid;gap:.5rem;margin-bottom:1rem}
+.medstep{display:flex;align-items:center;gap:.7rem;font-size:11px;color:var(--text-dim);letter-spacing:.04em}
+.msn{width:18px;height:18px;border-radius:50%;background:var(--lift);border:.5px solid var(--border-bright);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--purple-light);flex-shrink:0}
+.btimer{text-align:center;padding-top:1rem;border-top:.5px solid var(--border)}
+.btl{font-size:9px;color:var(--text-faint);letter-spacing:.14em;margin-bottom:.3rem}
+.btc{font-family:'Cinzel Decorative',serif;font-size:26px;color:var(--purple-light)}
+.btp{font-size:9px;color:var(--text-dim);letter-spacing:.13em;margin-top:.2rem}
+.btbtn{margin-top:.6rem;background:none;border:.5px solid var(--border-bright);color:var(--text-dim);padding:5px 18px;font-size:10px;letter-spacing:.13em;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all .2s}
+.btbtn:hover{border-color:var(--purple-light);color:var(--purple-light)}
+
+/* COMPATIBILITY */
+#compat{background:var(--void)}
+.cpform{background:var(--panel);border:.5px solid var(--border);padding:1.8rem;max-width:540px;margin:0 auto}
+.cpres{max-width:540px;margin:1.3rem auto 0;display:none}
+.cpres.on{display:block}
+.cpbar{background:var(--surface);border:.5px solid var(--border);padding:1.3rem}
+.cpnames{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;font-family:'Noto Serif TC',serif;font-size:15px;color:var(--gold-light);letter-spacing:.08em}
+.cpnames em{font-style:normal;font-size:20px}
+.cpscore{text-align:center;margin-bottom:1rem}
+.cpsval{font-family:'Cinzel Decorative',serif;font-size:3rem;color:var(--gold-light);line-height:1}
+.cpslbl{font-size:10px;color:var(--text-faint);letter-spacing:.15em;margin-top:.3rem}
+.cpdims{display:grid;gap:.7rem}
+.cpdr{display:flex;align-items:center;gap:.7rem}
+.cpdl{width:50px;font-size:10px;color:var(--text-dim);letter-spacing:.04em}
+.cpdt{flex:1;height:3px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden}
+.cpdf{height:100%;background:linear-gradient(90deg,var(--purple),var(--gold));transition:width 1s cubic-bezier(.4,0,.2,1);border-radius:2px}
+.cpdn{width:24px;text-align:right;font-size:10px;color:var(--gold)}
+.cpadv{margin-top:1rem;padding-top:1rem;border-top:.5px solid var(--border);font-size:11px;color:var(--text-dim);line-height:1.9;font-family:'Noto Serif TC',serif;letter-spacing:.04em}
+
+/* MEMBERSHIP */
 #membership{background:var(--deep)}
-.plans-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5px;background:var(--border)}
-.plan-card{background:var(--surface);padding:2.5rem 2rem;text-align:center;position:relative}
-.plan-card.featured{background:var(--panel);outline:.5px solid var(--gold)}
-.plan-badge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--gold);color:#1a0e00;font-size:10px;font-weight:500;padding:3px 14px;letter-spacing:.15em;white-space:nowrap}
-.plan-name{font-family:'Noto Serif TC',serif;font-size:1.1rem;font-weight:600;color:var(--gold-light);letter-spacing:.1em;margin-bottom:.5rem}
-.plan-price{font-size:2.2rem;font-weight:700;color:var(--text);line-height:1;margin-bottom:.3rem;font-family:'Cinzel Decorative',serif}
-.plan-price span{font-size:14px;font-weight:300;font-family:'Noto Sans TC',sans-serif;color:var(--text-dim)}
-.plan-period{font-size:11px;color:var(--text-faint);letter-spacing:.1em;margin-bottom:1.8rem}
-.plan-features{list-style:none;text-align:left;margin-bottom:2rem}
-.plan-features li{font-size:13px;color:var(--text-dim);padding:7px 0;border-bottom:.5px solid var(--border);letter-spacing:.04em;display:flex;align-items:center;gap:.6rem}
-.plan-features li:last-child{border-bottom:none}
-.plan-features li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0}
-.plan-features li.off{color:var(--text-faint)}
-.plan-features li.off::before{background:var(--text-faint)}
-.plan-btn{width:100%;padding:11px;border:none;font-size:13px;letter-spacing:.12em;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all .2s}
-.plan-btn.free{background:transparent;border:.5px solid var(--border-bright);color:var(--text-dim)}
-.plan-btn.free:hover{border-color:var(--purple);color:var(--purple-light)}
-.plan-btn.pro{background:linear-gradient(135deg,var(--gold),#a8782a);color:#1a0e00;font-weight:500}
-.plan-btn.pro:hover{filter:brightness(1.1)}
-.plan-btn.vip{background:linear-gradient(135deg,var(--purple),#3d2080);color:var(--text)}
-.plan-btn.vip:hover{filter:brightness(1.2)}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.5px;background:var(--border)}
+.planc{background:var(--surface);padding:2rem 1.6rem;text-align:center;position:relative}
+.planc.feat{background:var(--panel);outline:.5px solid var(--gold)}
+.planbadge{position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--gold);color:#1a0e00;font-size:9px;font-weight:500;padding:2px 11px;letter-spacing:.14em;white-space:nowrap}
+.planname{font-family:'Noto Serif TC',serif;font-size:.95rem;font-weight:600;color:var(--gold-light);letter-spacing:.09em;margin-bottom:.35rem}
+.planprice{font-size:1.9rem;font-weight:700;color:var(--text);line-height:1;margin-bottom:.25rem;font-family:'Cinzel Decorative',serif}
+.planprice span{font-size:12px;font-weight:300;font-family:'Noto Sans TC',sans-serif;color:var(--text-dim)}
+.planper{font-size:9px;color:var(--text-faint);letter-spacing:.1em;margin-bottom:1.4rem}
+.planf{list-style:none;text-align:left;margin-bottom:1.6rem}
+.planf li{font-size:11px;color:var(--text-dim);padding:5px 0;border-bottom:.5px solid var(--border);letter-spacing:.04em;display:flex;align-items:center;gap:.45rem;line-height:1.5}
+.planf li:last-child{border-bottom:none}
+.planf li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.planf li.off{color:var(--text-faint)}.planf li.off::before{background:var(--text-faint)}
+.planbtn{width:100%;padding:9px;border:none;font-size:11px;letter-spacing:.11em;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all .2s}
+.planbtn.free{background:transparent;border:.5px solid var(--border-bright);color:var(--text-dim)}
+.planbtn.free:hover{border-color:var(--purple);color:var(--purple-light)}
+.planbtn.pro{background:linear-gradient(135deg,var(--gold),#a8782a);color:#1a0e00;font-weight:500}
+.planbtn.vip{background:linear-gradient(135deg,var(--purple),#3d2080);color:var(--text)}
 
-/* ── CONTACT ── */
+/* CONTACT */
 #contact{background:var(--void)}
-.contact-grid{display:grid;grid-template-columns:1fr 1.6fr;gap:3rem;align-items:start}
-@media(max-width:700px){.contact-grid{grid-template-columns:1fr}}
-.contact-info{}
-.contact-item{display:flex;gap:1rem;margin-bottom:1.8rem;align-items:flex-start}
-.contact-icon{font-size:22px;flex-shrink:0;margin-top:2px}
-.contact-item-title{font-size:13px;font-weight:500;color:var(--gold-light);letter-spacing:.08em;margin-bottom:4px}
-.contact-item-val{font-size:13px;color:var(--text-dim);letter-spacing:.04em;line-height:1.7}
-.contact-social{display:flex;gap:.6rem;margin-top:2rem;flex-wrap:wrap}
-.social-btn{padding:8px 16px;border:.5px solid var(--border-bright);font-size:12px;color:var(--text-dim);letter-spacing:.08em;cursor:pointer;background:transparent;font-family:'Noto Sans TC',sans-serif;transition:all .2s}
-.social-btn:hover{border-color:var(--purple-light);color:var(--purple-light)}
-.contact-form-box{background:var(--panel);border:.5px solid var(--border);padding:2.2rem}
+.cgrid2{display:grid;grid-template-columns:1fr 1.6fr;gap:2.2rem;align-items:start}
+@media(max-width:680px){.cgrid2{grid-template-columns:1fr}}
+.citem{display:flex;gap:.8rem;margin-bottom:1.4rem;align-items:flex-start}
+.cico{font-size:18px;flex-shrink:0;margin-top:2px}
+.ctit{font-size:11px;font-weight:500;color:var(--gold-light);letter-spacing:.07em;margin-bottom:3px}
+.cval{font-size:11px;color:var(--text-dim);letter-spacing:.04em;line-height:1.7}
+.csoc{display:flex;gap:.5rem;margin-top:1.3rem;flex-wrap:wrap}
+.sbtn{padding:6px 12px;border:.5px solid var(--border-bright);font-size:10px;color:var(--text-dim);letter-spacing:.07em;cursor:pointer;background:transparent;font-family:'Noto Sans TC',sans-serif;transition:all .2s}
+.sbtn:hover{border-color:var(--purple-light);color:var(--purple-light)}
+.cfbox{background:var(--panel);border:.5px solid var(--border);padding:1.8rem}
 
-/* ── SPONSOR ── */
+/* SPONSOR */
 #sponsor{background:var(--deep)}
-.sponsor-intro{max-width:700px;margin:0 auto 3rem;text-align:center}
-.sponsor-tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5px;background:var(--border);margin-bottom:3rem}
-.sponsor-tier{background:var(--surface);padding:2rem 1.8rem}
-.sponsor-tier-name{font-family:'Noto Serif TC',serif;font-size:14px;font-weight:600;color:var(--gold-light);letter-spacing:.12em;margin-bottom:.3rem}
-.sponsor-tier-price{font-size:1.5rem;font-weight:700;color:var(--text);margin-bottom:.3rem;font-family:'Cinzel Decorative',serif}
-.sponsor-tier-period{font-size:10px;color:var(--text-faint);letter-spacing:.12em;margin-bottom:1.2rem}
-.sponsor-perks{list-style:none;margin-bottom:1.5rem}
-.sponsor-perks li{font-size:12px;color:var(--text-dim);padding:6px 0;border-bottom:.5px solid var(--border);letter-spacing:.04em;display:flex;align-items:center;gap:.5rem}
-.sponsor-perks li::before{content:'✦';font-size:8px;color:var(--gold);flex-shrink:0}
-.sponsor-form-box{max-width:640px;margin:0 auto;background:var(--panel);border:.5px solid var(--border);padding:2.2rem}
+.sptiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.5px;background:var(--border);margin-bottom:2.2rem}
+.sptier{background:var(--surface);padding:1.6rem 1.4rem}
+.sptname{font-family:'Noto Serif TC',serif;font-size:12px;font-weight:600;color:var(--gold-light);letter-spacing:.11em;margin-bottom:.25rem}
+.sptprice{font-size:1.3rem;font-weight:700;color:var(--text);margin-bottom:.25rem;font-family:'Cinzel Decorative',serif}
+.sptper{font-size:9px;color:var(--text-faint);letter-spacing:.11em;margin-bottom:.9rem}
+.spperks{list-style:none;margin-bottom:1.2rem}
+.spperks li{font-size:11px;color:var(--text-dim);padding:5px 0;border-bottom:.5px solid var(--border);letter-spacing:.04em;display:flex;align-items:center;gap:.4rem}
+.spperks li::before{content:'✦';font-size:7px;color:var(--gold);flex-shrink:0}
+.spfbox{background:var(--panel);border:.5px solid var(--border);padding:1.8rem}
 
-/* ── FOOTER ── */
-footer{position:relative;z-index:1;background:var(--void);border-top:.5px solid var(--border);padding:3rem 2rem 2rem}
-.footer-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2.5rem}
-@media(max-width:700px){.footer-inner{grid-template-columns:1fr 1fr}}
-.footer-brand .footer-logo{font-family:'Cinzel Decorative',serif;font-size:18px;font-weight:700;background:linear-gradient(135deg,var(--gold),var(--purple-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.5rem}
-.footer-brand p{font-size:12px;color:var(--text-faint);letter-spacing:.08em;line-height:1.8;margin-top:.5rem}
-.footer-col-title{font-size:11px;letter-spacing:.2em;color:var(--gold);margin-bottom:.8rem;text-transform:uppercase}
-.footer-col a{display:block;font-size:12px;color:var(--text-dim);text-decoration:none;letter-spacing:.06em;margin-bottom:.5rem;transition:color .2s}
-.footer-col a:hover{color:var(--gold-light)}
-.footer-bottom{border-top:.5px solid var(--border);padding-top:1.5rem;text-align:center;font-size:11px;color:var(--text-faint);letter-spacing:.1em;max-width:1080px;margin:0 auto}
+/* FOOTER */
+footer{position:relative;z-index:1;background:var(--void);border-top:.5px solid var(--border);padding:2.5rem 2rem 1.8rem}
+.fin{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:1.8rem;margin-bottom:1.8rem}
+@media(max-width:680px){.fin{grid-template-columns:1fr 1fr}}
+.fbrand .flogo{font-family:'Cinzel Decorative',serif;font-size:16px;font-weight:700;background:linear-gradient(135deg,var(--gold),var(--purple-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.35rem}
+.fbrand p{font-size:10px;color:var(--text-faint);letter-spacing:.07em;line-height:1.8;margin-top:.35rem}
+.fcolt{font-size:9px;letter-spacing:.18em;color:var(--gold);margin-bottom:.65rem;text-transform:uppercase}
+.fcol a{display:block;font-size:10px;color:var(--text-dim);text-decoration:none;letter-spacing:.05em;margin-bottom:.4rem;transition:color .2s;cursor:pointer}
+.fcol a:hover{color:var(--gold-light)}
+.fbot{border-top:.5px solid var(--border);padding-top:1.2rem;text-align:center;font-size:9px;color:var(--text-faint);letter-spacing:.09em;max-width:1080px;margin:0 auto}
 
-/* ── UTILS ── */
-.fade-in{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
-.fade-in.visible{opacity:1;transform:translateY(0)}
-.form-submit{width:100%;padding:13px;background:linear-gradient(135deg,rgba(155,111,212,.3),rgba(212,168,67,.18));border:.5px solid var(--purple);color:var(--purple-light);font-size:13px;letter-spacing:.18em;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all .3s;margin-top:.5rem}
-.form-submit:hover{background:linear-gradient(135deg,rgba(155,111,212,.5),rgba(212,168,67,.28));border-color:var(--purple-light)}
-.form-input,.form-select{width:100%;background:var(--surface);border:.5px solid var(--border);color:var(--text);padding:10px 13px;font-size:13px;font-family:'Noto Sans TC',sans-serif;outline:none;transition:border-color .2s;-webkit-appearance:none;margin-top:0}
-.form-input:focus,.form-select:focus{border-color:var(--purple)}
-.form-select option{background:var(--deep)}
-.form-label{display:block;font-size:11px;letter-spacing:.15em;color:var(--text-dim);margin-bottom:6px;text-transform:uppercase}
-.form-group{margin-bottom:1.1rem}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-@media(max-width:520px){.form-row{grid-template-columns:1fr}}
+/* PWA */
+#pwabanner{position:fixed;bottom:0;left:0;right:0;z-index:300;background:rgba(13,10,31,.97);border-top:.5px solid rgba(200,160,255,.4);padding:12px 16px;display:flex;align-items:center;gap:11px;transform:translateY(100%);transition:transform .4s cubic-bezier(.4,0,.2,1);backdrop-filter:blur(20px)}
+#pwabanner.on{transform:translateY(0)}
 </style>
 </head>
 <body>
 
-<!-- ══ PWA 安裝橫幅 ══ -->
-<div id="pwa-install-banner" style="
-  position:fixed;bottom:0;left:0;right:0;z-index:300;
-  background:rgba(13,10,31,0.97);border-top:0.5px solid rgba(200,160,255,.4);
-  padding:16px 20px;display:flex;align-items:center;gap:14px;
-  transform:translateY(100%);transition:transform .4s cubic-bezier(.4,0,.2,1);
-  backdrop-filter:blur(20px);">
-  <span style="font-size:30px;flex-shrink:0">✦</span>
-  <div style="flex:1">
-    <p style="font-family:'Noto Serif TC',serif;font-size:14px;color:#f0c96a;font-weight:600;margin:0 0 3px;letter-spacing:.05em">安裝古錐星命閣 APP</p>
-    <p style="font-size:12px;color:rgba(232,224,248,.6);margin:0;letter-spacing:.04em">加入主畫面，隨時查看星座運勢・完全免費</p>
-  </div>
-  <button id="pwa-install-btn" style="
-    background:linear-gradient(135deg,#d4a843,#a8782a);color:#1a0e00;
-    border:none;padding:9px 18px;font-size:12px;font-weight:500;
-    letter-spacing:.1em;cursor:pointer;font-family:'Noto Sans TC',sans-serif;
-    white-space:nowrap;flex-shrink:0">立即安裝</button>
-  <button id="pwa-install-close" style="
-    background:none;border:none;color:rgba(232,224,248,.4);
-    font-size:20px;cursor:pointer;padding:4px 6px;flex-shrink:0;line-height:1">✕</button>
-</div>
-<style>
-#pwa-install-banner.show { transform: translateY(0); }
-</style>
+<!-- Shooting stars -->
+<div class="s-star" style="top:10%;left:-5px;animation-duration:4.2s;animation-delay:1s"></div>
+<div class="s-star" style="top:28%;left:-5px;animation-duration:5.1s;animation-delay:3.5s"></div>
+<div class="s-star" style="top:55%;left:-5px;animation-duration:3.8s;animation-delay:6s"></div>
 
-<!-- ══ MEMBER / LOGIN MODAL ══ -->
+<!-- PWA Banner -->
+<div id="pwabanner">
+  <span style="font-size:24px;flex-shrink:0">✦</span>
+  <div style="flex:1">
+    <p style="font-family:'Noto Serif TC',serif;font-size:12px;color:#f0c96a;font-weight:600;margin:0 0 2px;letter-spacing:.05em">安裝古錐星命閣 APP</p>
+    <p style="font-size:10px;color:rgba(232,224,248,.55);margin:0;letter-spacing:.04em">加入主畫面，每日查看最新星座運勢</p>
+  </div>
+  <button id="pwa-install-btn" style="background:linear-gradient(135deg,#d4a843,#a8782a);color:#1a0e00;border:none;padding:7px 14px;font-size:10px;font-weight:500;letter-spacing:.1em;cursor:pointer;font-family:'Noto Sans TC',sans-serif;flex-shrink:0">立即安裝</button>
+  <button id="pwa-close-btn" style="background:none;border:none;color:rgba(232,224,248,.35);font-size:17px;cursor:pointer;padding:4px;flex-shrink:0;line-height:1">✕</button>
+</div>
+
+<!-- AUTH MODAL -->
 <div class="modal-overlay" id="authModal">
   <div class="modal-box">
-    <div class="modal-header">
-      <span class="modal-title" id="authModalTitle">會員登入</span>
-      <button class="modal-close" onclick="closeModal('authModal')">✕</button>
-    </div>
-    <div class="modal-body">
-      <div class="modal-tabs">
-        <div class="modal-tab active" onclick="switchTab('login')">登入</div>
-        <div class="modal-tab" onclick="switchTab('register')">免費註冊</div>
+    <div class="mh"><span class="mh-title" id="authTitle">會員登入</span><button class="mh-close" onclick="closeModal('authModal')">✕</button></div>
+    <div class="mb">
+      <div class="m-tabs">
+        <div class="m-tab active" onclick="switchTab('login')">登入</div>
+        <div class="m-tab" onclick="switchTab('register')">免費加入</div>
       </div>
-
-      <!-- LOGIN PANE -->
-      <div class="modal-pane active" id="pane-login">
-        <div class="f-success" id="login-success">✦ 登入成功！歡迎回來，古錐星命閣為您守候。</div>
-        <div class="f-error" id="login-error">帳號或密碼錯誤，請再試一次。</div>
-        <div class="f-group">
-          <label class="f-label">電子郵件</label>
-          <input class="f-input" type="email" id="login-email" placeholder="your@email.com">
-        </div>
-        <div class="f-group">
-          <label class="f-label">密碼</label>
-          <input class="f-input" type="password" id="login-pw" placeholder="••••••••">
-        </div>
-        <div style="text-align:right;margin-bottom:.8rem">
-          <a class="f-link" onclick="switchTab('forgot')">忘記密碼？</a>
-        </div>
-        <button class="f-btn gold" onclick="doLogin()">✦ 登入</button>
-        <div class="f-divider"><span></span>還沒有帳號？<span></span></div>
-        <button class="f-btn" onclick="switchTab('register')">免費加入古錐星命閣</button>
+      <div class="m-pane active" id="pane-login">
+        <div class="fsuc" id="login-ok">✦ 登入成功！歡迎回來。</div>
+        <div class="ferr" id="login-err"></div>
+        <div class="fg"><label class="fl">電子郵件</label><input class="fi" type="email" id="le" placeholder="your@email.com"></div>
+        <div class="fg"><label class="fl">密碼</label><input class="fi" type="password" id="lp" placeholder="••••••••"></div>
+        <div style="text-align:right;margin-bottom:.7rem"><a class="flink" onclick="switchTab('forgot')">忘記密碼？</a></div>
+        <button class="fb gold" onclick="doLogin()">✦ 登入</button>
+        <div class="fdiv"><span></span>還沒有帳號？<span></span></div>
+        <button class="fb" onclick="switchTab('register')">免費加入古錐星命閣</button>
       </div>
-
-      <!-- REGISTER PANE -->
-      <div class="modal-pane" id="pane-register">
-        <div class="f-success" id="reg-success">✦ 註冊成功！您已獲得「星塵會員」資格，開始探索命運之旅。</div>
-        <div class="f-error" id="reg-error">請填寫所有必填欄位。</div>
-        <div class="f-row">
-          <div class="f-group">
-            <label class="f-label">姓名</label>
-            <input class="f-input" type="text" id="reg-name" placeholder="您的名字">
-          </div>
-          <div class="f-group">
-            <label class="f-label">暱稱</label>
-            <input class="f-input" type="text" id="reg-nick" placeholder="星空旅人">
-          </div>
-        </div>
-        <div class="f-group">
-          <label class="f-label">電子郵件</label>
-          <input class="f-input" type="email" id="reg-email" placeholder="your@email.com">
-        </div>
-        <div class="f-row">
-          <div class="f-group">
-            <label class="f-label">密碼</label>
-            <input class="f-input" type="password" id="reg-pw" placeholder="至少8個字元">
-          </div>
-          <div class="f-group">
-            <label class="f-label">確認密碼</label>
-            <input class="f-input" type="password" id="reg-pw2" placeholder="再輸入一次">
-          </div>
-        </div>
-        <div class="f-group">
-          <label class="f-label">出生日期（用於個人運勢）</label>
-          <input class="f-input" type="date" id="reg-birth">
-        </div>
-        <div class="f-group">
-          <label class="f-label">星座</label>
-          <select class="f-select" id="reg-sign">
-            <option value="">選擇您的星座</option>
-            <option>牡羊座</option><option>金牛座</option><option>雙子座</option>
-            <option>巨蟹座</option><option>獅子座</option><option>處女座</option>
-            <option>天秤座</option><option>天蠍座</option><option>射手座</option>
-            <option>摩羯座</option><option>水瓶座</option><option>雙魚座</option>
-          </select>
-        </div>
-        <div class="checkbox-row">
-          <input type="checkbox" id="reg-agree">
-          <label for="reg-agree">我已閱讀並同意<a class="f-link">服務條款</a>及<a class="f-link">隱私政策</a>，並了解本站內容僅供娛樂參考。</label>
-        </div>
-        <div class="checkbox-row">
-          <input type="checkbox" id="reg-news" checked>
-          <label for="reg-news">訂閱每日星座運勢電子報（可隨時取消）</label>
-        </div>
-        <button class="f-btn gold" onclick="doRegister()">✦ 立即免費加入</button>
+      <div class="m-pane" id="pane-register">
+        <div class="fsuc" id="reg-ok">✦ 歡迎加入！您已獲得「星塵會員」資格。</div>
+        <div class="ferr" id="reg-err"></div>
+        <div class="fr"><div class="fg"><label class="fl">姓名</label><input class="fi" type="text" id="rn" placeholder="您的名字"></div><div class="fg"><label class="fl">暱稱</label><input class="fi" type="text" id="rk" placeholder="星空旅人"></div></div>
+        <div class="fg"><label class="fl">電子郵件</label><input class="fi" type="email" id="re" placeholder="your@email.com"></div>
+        <div class="fr"><div class="fg"><label class="fl">密碼</label><input class="fi" type="password" id="rp" placeholder="至少8字元"></div><div class="fg"><label class="fl">確認密碼</label><input class="fi" type="password" id="rp2" placeholder="再輸入一次"></div></div>
+        <div class="fr"><div class="fg"><label class="fl">出生日期</label><input class="fi" type="date" id="rb"></div>
+        <div class="fg"><label class="fl">星座</label><select class="fi" id="rs"><option value="">選擇星座</option><option>牡羊座</option><option>金牛座</option><option>雙子座</option><option>巨蟹座</option><option>獅子座</option><option>處女座</option><option>天秤座</option><option>天蠍座</option><option>射手座</option><option>摩羯座</option><option>水瓶座</option><option>雙魚座</option></select></div></div>
+        <div class="cbr"><input type="checkbox" id="ra"><label for="ra">我同意<a class="flink">服務條款</a>及<a class="flink">隱私政策</a></label></div>
+        <div class="cbr"><input type="checkbox" id="rn2" checked><label for="rn2">訂閱每日星座電子報</label></div>
+        <button class="fb gold" onclick="doRegister()">✦ 立即免費加入</button>
       </div>
-
-      <!-- FORGOT PANE -->
-      <div class="modal-pane" id="pane-forgot">
-        <p style="font-size:13px;color:var(--text-dim);margin-bottom:1.2rem;line-height:1.8;letter-spacing:.04em">請輸入您的電子郵件，我們將發送重設密碼連結。</p>
-        <div class="f-success" id="forgot-success">✦ 已發送重設信件，請查看您的信箱。</div>
-        <div class="f-group">
-          <label class="f-label">電子郵件</label>
-          <input class="f-input" type="email" id="forgot-email" placeholder="your@email.com">
-        </div>
-        <button class="f-btn" onclick="doForgot()">發送重設連結</button>
-        <div style="text-align:center;margin-top:1rem">
-          <a class="f-link" onclick="switchTab('login')">← 返回登入</a>
-        </div>
+      <div class="m-pane" id="pane-forgot">
+        <div class="fsuc" id="forgot-ok">✦ 已發送重設連結，請查看信箱。</div>
+        <div class="fg"><label class="fl">電子郵件</label><input class="fi" type="email" id="fe" placeholder="your@email.com"></div>
+        <button class="fb" onclick="doForgot()">發送重設連結</button>
+        <div style="text-align:center;margin-top:.8rem"><a class="flink" onclick="switchTab('login')">← 返回登入</a></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ══ CONTACT MODAL (quick) ══ -->
+<!-- CONTACT MODAL -->
 <div class="modal-overlay" id="contactModal">
   <div class="modal-box">
-    <div class="modal-header">
-      <span class="modal-title">聯絡我們</span>
-      <button class="modal-close" onclick="closeModal('contactModal')">✕</button>
-    </div>
-    <div class="modal-body">
-      <div class="f-success" id="contact-modal-success">✦ 訊息已送出！我們將在 2 個工作天內回覆您。</div>
-      <div class="f-row">
-        <div class="f-group"><label class="f-label">姓名</label><input class="f-input" id="cm-name" type="text" placeholder="您的名字"></div>
-        <div class="f-group"><label class="f-label">電子郵件</label><input class="f-input" id="cm-email" type="email" placeholder="your@email.com"></div>
-      </div>
-      <div class="f-group"><label class="f-label">主題</label>
-        <select class="f-select" id="cm-topic">
-          <option>一般詢問</option><option>帳號問題</option><option>功能建議</option><option>廠商合作</option><option>其他</option>
-        </select>
-      </div>
-      <div class="f-group"><label class="f-label">訊息內容</label><textarea class="f-textarea" id="cm-msg" placeholder="請輸入您的訊息…"></textarea></div>
-      <button class="f-btn" onclick="sendContactModal()">✦ 送出訊息</button>
+    <div class="mh"><span class="mh-title">聯絡我們</span><button class="mh-close" onclick="closeModal('contactModal')">✕</button></div>
+    <div class="mb">
+      <div class="fsuc" id="cm-ok">✦ 訊息已送出！將在 2 個工作天內回覆。</div>
+      <div class="fr"><div class="fg"><label class="fl">姓名</label><input class="fi" id="cmn" type="text" placeholder="您的名字"></div><div class="fg"><label class="fl">電子郵件</label><input class="fi" id="cme" type="email" placeholder="your@email.com"></div></div>
+      <div class="fg"><label class="fl">主題</label><select class="fi" id="cmt2"><option>一般詢問</option><option>帳號問題</option><option>功能建議</option><option>廠商合作</option><option>其他</option></select></div>
+      <div class="fg"><label class="fl">訊息</label><textarea class="ft" id="cmm" placeholder="請輸入您的訊息…"></textarea></div>
+      <button class="fb" onclick="sendCM()">✦ 送出訊息</button>
     </div>
   </div>
 </div>
 
-<!-- ══ NAV ══ -->
+<!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-logo">古錐星命閣</a>
-  <ul class="nav-links">
+  <a href="#hero" class="nlogo">古錐星命閣</a>
+  <ul class="nlinks">
     <li><a href="#daily">每日運勢</a></li>
     <li><a href="#zodiac">星座</a></li>
     <li><a href="#tarot">塔羅</a></li>
     <li><a href="#ziwei">紫微</a></li>
     <li><a href="#chart-section">命盤</a></li>
+    <li><a href="#astrocal">占星曆</a></li>
+    <li><a href="#luckydraw">幸運籤</a></li>
+    <li><a href="#compat">合盤</a></li>
+    <li><a href="#meditation">冥想</a></li>
     <li><a href="#membership">會員</a></li>
-    <li><a href="#sponsor">贊助</a></li>
     <li><a href="#contact">聯絡</a></li>
   </ul>
-  <div class="nav-right">
-    <div id="nav-guest" style="display:flex;gap:8px">
-      <button class="nav-btn login" onclick="openModal('authModal','login')">登入</button>
-      <button class="nav-btn register" onclick="openModal('authModal','register')">免費加入</button>
+  <div class="nright">
+    <div id="nav-guest" style="display:flex;gap:6px">
+      <button class="nbtn login" onclick="openModal('authModal','login')">登入</button>
+      <button class="nbtn reg" onclick="openModal('authModal','register')">免費加入</button>
     </div>
-    <div class="nav-member" id="nav-member">
-      <div class="nav-avatar" id="nav-avatar">✦</div>
-      <span class="nav-member-name" id="nav-member-name">會員</span>
-      <button class="nav-logout" onclick="doLogout()">登出</button>
+    <div class="nmem" id="nav-mem">
+      <div class="nav-av" id="nav-av">✦</div>
+      <span class="nav-nm" id="nav-nm"></span>
+      <button class="nav-lo" onclick="doLogout()">登出</button>
     </div>
+    <button class="hbg" onclick="toggleMM()" aria-label="選單"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
-<!-- ══ SPONSOR BANNER TOP ══ -->
-<div id="sponsor-top">
-  <span class="sponsor-label">✦ 贊助商 ✦</span>
-  <div class="sponsor-slot" onclick="openModal('contactModal')"><span class="sponsor-dot"></span>贊助廠商A — 點此了解合作</div>
-  <div class="sponsor-slot" onclick="openModal('contactModal')"><span class="sponsor-dot"></span>贊助廠商B — 點此了解合作</div>
-  <div class="sponsor-slot" onclick="openModal('contactModal')"><span class="sponsor-dot"></span>贊助廠商C — 點此了解合作</div>
+<!-- MOBILE MENU -->
+<div class="mmenu" id="mmenu">
+  <a href="#daily" onclick="closeMM()">📅 每日運勢</a>
+  <a href="#zodiac" onclick="closeMM()">♈ 星座運勢</a>
+  <a href="#tarot" onclick="closeMM()">🃏 塔羅占卜</a>
+  <a href="#ziwei" onclick="closeMM()">☯ 紫微斗數</a>
+  <a href="#chart-section" onclick="closeMM()">🌌 西洋命盤</a>
+  <a href="#astrocal" onclick="closeMM()">📆 占星日曆</a>
+  <a href="#luckydraw" onclick="closeMM()">🎴 今日幸運籤</a>
+  <a href="#compat" onclick="closeMM()">💑 星座合盤</a>
+  <a href="#meditation" onclick="closeMM()">🧘 靜心冥想</a>
+  <a href="#membership" onclick="closeMM()">👑 會員方案</a>
+  <a href="#sponsor" onclick="closeMM()">💼 廠商合作</a>
+  <a href="#contact" onclick="closeMM()">✉ 聯絡我們</a>
 </div>
 
-<!-- ══ HERO ══ -->
-<section id="hero">
-  <div class="hero-symbol">✦</div>
-  <h1 class="hero-title">古錐星命閣</h1>
-  <p class="hero-sub">星座・塔羅・紫微・命盤</p>
-  <div class="hero-divider"><span></span><em>☽</em><span></span></div>
-  <p class="hero-tagline">穿越星空的指引，探尋命運的密語<br>讓宇宙的智慧為您照亮前行之路</p>
-  <div class="hero-cta">
-    <a href="#daily" class="btn-gold">查看今日運勢</a>
-    <button class="btn-outline" onclick="openModal('authModal','register')">免費加入會員</button>
+<!-- DATE TICKER -->
+<div id="dticker">
+  <span class="dt-date" id="dt-date">✦ ─── ✦</span>
+  <div class="dt-scroll"><div class="dt-inner" id="dt-inner"></div></div>
+  <button class="dt-ref" onclick="refreshAll()">↻ 今日更新</button>
+</div>
+
+<!-- SPONSOR TOP -->
+<div id="sptop">
+  <span class="spl">✦ 贊助商 ✦</span>
+  <div class="spslot" onclick="openModal('contactModal')"><span class="spdot"></span>贊助廠商A — 點此了解合作</div>
+  <div class="spslot" onclick="openModal('contactModal')"><span class="spdot"></span>贊助廠商B — 點此了解合作</div>
+  <div class="spslot" onclick="openModal('contactModal')"><span class="spdot"></span>贊助廠商C — 點此了解合作</div>
+</div>
+
+<!-- HERO -->
+<section id="hero" style="padding-top:60px">
+  <div class="h-sym">✦</div>
+  <h1 class="h-title">古錐星命閣</h1>
+  <p class="h-sub">星座・塔羅・紫微・命盤</p>
+  <div class="h-badge" id="h-badge">✦ 載入今日日期中...</div>
+  <div class="h-div"><span></span><em>☽</em><span></span></div>
+  <p class="h-tag">穿越星空的指引，探尋命運的密語<br>讓宇宙的智慧為您照亮前行之路</p>
+  <p class="h-moon" id="h-moon">月相：載入中...</p>
+  <div class="h-cta">
+    <a href="#daily" class="btn-g">查看今日運勢</a>
+    <button class="btn-o" onclick="openModal('authModal','register')">免費加入會員</button>
   </div>
 </section>
 
-<!-- ══ FEATURES ══ -->
+<!-- TODAY STRIP -->
+<div id="tstrip">
+  <div class="ts-in">
+    <div class="ts-card" onclick="scrollTo2('daily')"><span class="ts-icon">⭐</span><div class="ts-lbl">今日最旺星座</div><div class="ts-val" id="ts1">─</div></div>
+    <div class="ts-card" onclick="scrollTo2('tarot')"><span class="ts-icon">🃏</span><div class="ts-lbl">今日塔羅主題</div><div class="ts-val" id="ts2">─</div></div>
+    <div class="ts-card"><span class="ts-icon">🌙</span><div class="ts-lbl">今日月相</div><div class="ts-val" id="ts3">─</div></div>
+    <div class="ts-card"><span class="ts-icon">🔢</span><div class="ts-lbl">今日數字能量</div><div class="ts-val" id="ts4">─</div></div>
+    <div class="ts-card" onclick="scrollTo2('luckydraw')"><span class="ts-icon">🎯</span><div class="ts-lbl">今日幸運色</div><div class="ts-val" id="ts5">─</div></div>
+  </div>
+</div>
+
+<!-- FEATURES -->
 <section id="features">
-  <div class="container">
-    <div class="section-header fade-in">
-      <div class="ornament"><span></span><em>✦</em><span></span></div>
-      <p class="section-eyebrow">Six Mystical Tools</p>
-      <h2 class="section-title">六大神秘功能</h2>
+  <div class="con">
+    <div class="sh fi2">
+      <div class="orn"><span></span><em>✦</em><span></span></div>
+      <p class="sey">Nine Mystical Tools</p>
+      <h2 class="st">九大神秘功能</h2>
     </div>
-    <div class="feature-grid fade-in">
-      <a href="#daily" class="feature-card">
-        <span class="feature-icon">📅</span>
-        <p class="feature-name">每日運勢</p>
-        <p class="feature-desc">每日更新，愛情・事業・財運・健康全方位深度分析</p>
-        <span class="feature-arrow">VIEW →</span>
-      </a>
-      <a href="#zodiac" class="feature-card">
-        <span class="feature-icon">♈</span>
-        <p class="feature-name">西洋星座</p>
-        <p class="feature-desc">十二星座運勢與詳細解析，了解今日宇宙訊息</p>
-        <span class="feature-arrow">EXPLORE →</span>
-      </a>
-      <a href="#tarot" class="feature-card">
-        <span class="feature-icon">🃏</span>
-        <p class="feature-name">塔羅占卜</p>
-        <p class="feature-desc">78張神秘塔羅牌，每日一牌揭示潛意識的訊息</p>
-        <span class="feature-arrow">DRAW →</span>
-      </a>
-      <a href="#ziwei" class="feature-card">
-        <span class="feature-icon">☯</span>
-        <p class="feature-name">紫微斗數</p>
-        <div class="feature-badge">東方命學</div>
-        <p class="feature-desc">依生辰排列命宮，以東方星象解析命運格局</p>
-        <span class="feature-arrow">CHART →</span>
-      </a>
-      <a href="#chart-section" class="feature-card">
-        <span class="feature-icon">🌌</span>
-        <p class="feature-name">西洋命盤</p>
-        <p class="feature-desc">輸入出生時地，精算行星位置，解讀靈魂藍圖</p>
-        <span class="feature-arrow">CAST →</span>
-      </a>
-      <a href="#membership" class="feature-card">
-        <span class="feature-icon">👑</span>
-        <p class="feature-name">尊榮會員</p>
-        <div class="feature-badge">VIP 專屬</div>
-        <p class="feature-desc">解鎖深度解析、個人化運勢、專屬諮詢服務</p>
-        <span class="feature-arrow">JOIN →</span>
-      </a>
+    <div class="fg2 fi2">
+      <a href="#daily" class="fc"><span class="fc-icon">📅</span><p class="fc-name">每日運勢</p><p class="fc-desc">每日自動更新，四大面向深度分析</p><span class="fc-arr">VIEW →</span></a>
+      <a href="#zodiac" class="fc"><span class="fc-icon">♈</span><p class="fc-name">西洋星座</p><p class="fc-desc">十二星座今日運勢 + 本週預測</p><span class="fc-arr">EXPLORE →</span></a>
+      <a href="#tarot" class="fc"><span class="fc-icon">🃏</span><p class="fc-name">塔羅占卜</p><div class="fc-badge">含三牌陣</div><p class="fc-desc">每日一牌 + 過去現在未來三牌陣</p><span class="fc-arr">DRAW →</span></a>
+      <a href="#ziwei" class="fc"><span class="fc-icon">☯</span><p class="fc-name">紫微斗數</p><p class="fc-desc">生辰排列十二宮位完整命盤</p><span class="fc-arr">CHART →</span></a>
+      <a href="#chart-section" class="fc"><span class="fc-icon">🌌</span><p class="fc-name">西洋命盤</p><p class="fc-desc">行星位置精算，靈魂藍圖解讀</p><span class="fc-arr">CAST →</span></a>
+      <a href="#astrocal" class="fc"><span class="fc-icon">📆</span><p class="fc-name">占星日曆</p><div class="fc-badge">NEW</div><p class="fc-desc">月相週期・行星逆行・重要天象</p><span class="fc-arr">PLAN →</span></a>
+      <a href="#luckydraw" class="fc"><span class="fc-icon">🎴</span><p class="fc-name">今日幸運籤</p><div class="fc-badge">每日更新</div><p class="fc-desc">幸運色・數字・方位・食物・行動</p><span class="fc-arr">DRAW →</span></a>
+      <a href="#compat" class="fc"><span class="fc-icon">💑</span><p class="fc-name">星座合盤</p><div class="fc-badge">NEW</div><p class="fc-desc">愛情・友情・事業合作相容度分析</p><span class="fc-arr">MATCH →</span></a>
+      <a href="#meditation" class="fc"><span class="fc-icon">🧘</span><p class="fc-name">靜心冥想</p><div class="fc-badge">每日主題</div><p class="fc-desc">每日冥想主題・呼吸計時・能量充電</p><span class="fc-arr">BREATHE →</span></a>
     </div>
   </div>
 </section>
 
-<!-- ══ DAILY FORTUNE ══ -->
+<!-- DAILY FORTUNE -->
 <section id="daily">
-  <div class="container">
-    <div class="section-header fade-in">
-      <div class="ornament"><span></span><em>📅</em><span></span></div>
-      <p class="section-eyebrow">Daily Fortune</p>
-      <h2 class="section-title">每日星座運勢分析</h2>
-      <p class="section-desc">選擇您的星座，獲取今日全方位深度運勢解析</p>
+  <div class="con">
+    <div class="sh fi2">
+      <div class="orn"><span></span><em>📅</em><span></span></div>
+      <p class="sey">Daily Fortune · Auto Update Every Day</p>
+      <h2 class="st">每日星座運勢</h2>
+      <div class="dh">
+        <div class="dh-date" id="dh-date">─</div>
+        <div class="dh-lunar" id="dh-lunar">農曆 載入中...</div>
+      </div>
     </div>
-    <div class="daily-zodiac-sel fade-in" id="dailyZodiacSel"></div>
-    <div class="daily-grid fade-in" id="dailyGrid" style="display:none"></div>
+    <div class="dspec fi2" id="dspec"><div class="dspec-t">✦ 今日宇宙訊息 ✦</div><div class="dspec-b" id="dspec-b"></div></div>
+    <div class="dzsel fi2" id="dzsel"></div>
+    <div class="dgrid fi2" id="dgrid"></div>
   </div>
 </section>
 
-<!-- ══ ZODIAC ══ -->
+<!-- ZODIAC -->
 <section id="zodiac">
-  <div class="container">
-    <div class="section-header fade-in">
-      <div class="ornament"><span></span><em>♈</em><span></span></div>
-      <p class="section-eyebrow">Western Astrology</p>
-      <h2 class="section-title">十二星座運勢</h2>
-      <p class="section-desc">點選您的星座，探索今日的宇宙訊息</p>
+  <div class="con">
+    <div class="sh fi2">
+      <div class="orn"><span></span><em>♈</em><span></span></div>
+      <p class="sey">Western Astrology</p>
+      <h2 class="st">十二星座運勢</h2>
+      <p class="sd">點選您的星座，探索今日宇宙訊息與本週預測</p>
     </div>
-    <div class="zodiac-grid fade-in" id="zodiacGrid"></div>
-    <div class="zodiac-result fade-in" id="zodiacResult"></div>
+    <div class="zgrid fi2" id="zgrid"></div>
+    <div class="zr fi2" id="zr"></div>
   </div>
 </section>
 
-<!-- ══ TAROT ══ -->
+<!-- TAROT -->
 <section id="tarot">
-  <div class="container">
-    <div class="section-header fade-in">
-      <div class="ornament"><span></span><em>🃏</em><span></span></div>
-      <p class="section-eyebrow">Tarot Reading</p>
-      <h2 class="section-title">塔羅每日一牌</h2>
-      <p class="section-desc">靜心冥想，點擊牌背，揭示今日的塔羅啟示</p>
+  <div class="con">
+    <div class="sh fi2">
+      <div class="orn"><span></span><em>🃏</em><span></span></div>
+      <p class="sey">Tarot Reading</p>
+      <h2 class="st">塔羅占卜</h2>
+      <p class="sd">靜心冥想，點擊牌背揭示今日啟示；或抽三牌陣探索完整命運訊息</p>
     </div>
-    <div class="tarot-area fade-in">
-      <div class="tarot-deck">
-        <div class="tarot-card-wrap">
-          <div class="tarot-card" id="tarotCard">
-            <div class="tarot-back">✦</div>
-            <div class="tarot-front">
-              <span class="tarot-front-icon" id="tarotIcon">✦</span>
-              <p class="tarot-front-name" id="tarotName">—</p>
-              <p class="tarot-front-num" id="tarotNum">—</p>
-            </div>
-          </div>
-        </div>
-        <button class="tarot-btn" onclick="drawTarot()">✦ 抽取今日牌 ✦</button>
+    <div class="tarea fi2">
+      <div class="tdeck">
+        <div class="tcw"><div class="tcard" id="tcard" onclick="drawTarot()"><div class="tback">✦</div><div class="tfront"><span class="tfi" id="tfi">✦</span><p class="tfn" id="tfn">—</p><p class="tfu" id="tfu">—</p></div></div></div>
+        <button class="tbtn" onclick="drawTarot()">✦ 抽取今日牌 ✦</button>
+        <button class="tbtn tbtn2" style="margin-top:.4rem" onclick="draw3()">✦ 三牌陣占卜 ✦</button>
       </div>
-      <div class="tarot-info">
+      <div class="ti">
         <h3>牌意解讀</h3>
-        <p class="tarot-placeholder" id="tarotPlaceholder">請先靜心片刻，將您的問題放在心中，然後點擊左側的「抽取今日牌」按鈕，讓塔羅為您揭示宇宙的訊息。</p>
-        <p class="tarot-meaning" id="tarotMeaning"></p>
-        <div class="tarot-keywords" id="tarotKeywords"></div>
+        <p class="tph" id="tph">請先靜心片刻，將您的問題放在心中，點擊牌背或選擇占卜方式，讓塔羅為您揭示宇宙的訊息。</p>
+        <p class="tmean" id="tmean"></p>
+        <div class="tkws" id="tkws"></div>
+        <div class="tspread" id="tspread"><div class="tsp-t">✦ 三牌陣：過去・現在・未來</div><div class="spcards" id="spcards"></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ ZIWEI ══ -->
+<!-- ZIWEI -->
 <section id="ziwei">
-  <div class="container">
-    <div class="section-header fade-in">
-      <div class="ornament"><span></span><em>☯</em><span></span></div>
-      <p class="section-eyebrow">Purple Star Astrology</p>
-      <h2 class="section-title">紫微斗數命盤</h2>
-      <p class="section-desc">輸入您的農曆生辰，系統將為您排列專屬命宮</p>
+  <div class="con">
+    <div class="sh fi2">
+      <div class="orn"><span></span><em>☯</em><span></span></div>
+      <p class="sey">Purple Star Astrology</p>
+      <h2 class="st">紫微斗數命盤</h2>
+      <p class="sd">輸入農曆生辰，自動排列十二宮位專屬命盤</p>
     </div>
-    <div class="ziwei-form fade-in">
-      <div class="form-row">
-        <div class="form-group"><label class="form-label">出生年份（民國）</label><input type="number" class="form-input" id="ziweiYear" placeholder="例：75" min="1" max="120"></div>
-        <div class="form-group"><label class="form-label">出生月份（農曆）</label>
-          <select class="form-select" id="ziweiMonth"><option value="">選擇月份</option><option value="1">正月</option><option value="2">二月</option><option value="3">三月</option><option value="4">四月</option><option value="5">五月</option><option value="6">六月</option><option value="7">七月</option><option value="8">八月</option><option value="9">九月</option><option value="10">十月</option><option value="11">十一月</option><option value="12">十二月</option></select>
-        </div>
+    <div class="ziform fi2">
+      <div class="formrow">
+        <div class="fg3"><label class="fl3">出生年份（民國）</label><input type="number" class="fi3" id="zyr" placeholder="例：75" min="1" max="120"></div>
+        <div class="fg3"><label class="fl3">出生月份（農曆）</label><select class="fs3" id="zmo"><option value="">選擇月份</option><option value="1">正月</option><option value="2">二月</option><option value="3">三月</option><option value="4">四月</option><option value="5">五月</option><option value="6">六月</option><option value="7">七月</option><option value="8">八月</option><option value="9">九月</option><option value="10">十月</option><option value="11">十一月</option><option value="12">十二月</option></select></div>
       </div>
-      <div class="form-row">
-        <div class="form-group"><label class="form-label">出生日期（農曆）</label>
-          <select class="form-select" id="ziweiDay"><option value="">選擇日期</option></select>
-        </div>
-        <div class="form-group"><label class="form-label">出生時辰</label>
-          <select class="form-select" id="ziweiHour"><option value="">選擇時辰</option><option value="0">子時（23-01時）</option><option value="1">丑時（01-03時）</option><option value="2">寅時（03-05時）</option><option value="3">卯時（05-07時）</option><option value="4">辰時（07-09時）</option><option value="5">巳時（09-11時）</option><option value="6">午時（11-13時）</option><option value="7">未時（13-15時）</option><option value="8">申時（15-17時）</option><option value="9">酉時（17-19時）</option><option value="10">戌時（19-21時）</option><option value="11">亥時（21-23時）</option></select>
-        </div>
+      <div class="formrow">
+        <div class="fg3"><label class="fl3">出生日期（農曆）</label><select class="fs3" id="zday"><option value="">選擇日期</option></select></div>
+        <div class="fg3"><label class="fl3">出生時辰</label><select class="fs3" id="zhr"><option value="">選擇時辰</option><option value="0">子時（23-01時）</option><option value="1">丑時（01-03時）</option><option value="2">寅時（03-05時）</option><option value="3">卯時（05-07時）</option><option value="4">辰時（07-09時）</option><option value="5">巳時（09-11時）</option><option value="6">午時（11-13時）</option><option value="7">未時（13-15時）</option><option value="8">申時（15-17時）</option><option value="9">酉時（17-19時）</option><option value="10">戌時（19-21時）</option><option value="11">亥時（21-23時）</option></select></div>
       </div>
-      <div class="form-group"><label class="form-label">性別</label><select class="form-select" id="ziweiGender"><option value="">選擇性別</option><option value="m">男命</option><option value="f">女命</option></select></div>
-      <button class="form-submit" onclick="generateZiwei()">✦ 排列紫微命盤 ✦</button>
+      <div class="fg3"><label class="fl3">性別</label><select class="fs3" id="zgen"><option value="">選擇性別</option><option value="m">男命</option><option value="f">女命</option></select></div>
+      <button class="fsub" onclick="genZiwei()">✦ 排列紫微命盤 ✦</button>
     </div>
-    <div class="ziwei-result" id="ziweiResult"></div>
+    <div class="zires" id="zires"></div>
   </div>
 </section>
 
-<!-- ══ WESTERN CHART ══ -->
+<!-- WESTERN CHART -->
 <section id="chart-section">
-  <div class="container">
-    <div class="section-header fade-in">
-      <div class="ornament"><span></span><em>🌌</em><span></span></div>
-      <p class="section-eyebrow">Natal Chart</p>
-      <h2 class="section-title">西洋占星命盤</h2>
-      <p class="section-desc">輸入精確的出生時間與地點，解讀您的靈魂藍圖</p>
+  <div class="con">
+    <div class="sh fi2">
+      <div class="orn"><span></span><em>🌌</em><span></span></div>
+      <p class="sey">Natal Chart</p>
+      <h2 class="st">西洋占星命盤</h2>
+      <p class="sd">輸入精確的出生時間與地點，解讀您的靈魂藍圖</p>
     </div>
-    <div class="chart-form fade-in">
-      <div class="form-row">
-        <div class="form-group"><label class="form-label">出生日期</label><input type="date" class="form-input" id="chartDate"></div>
-        <div class="form-group"><label class="form-label">出生時間</label><input type="time" class="form-input" id="chartTime"></div>
+    <div class="cform fi2">
+      <div class="formrow">
+        <div class="fg3"><label class="fl3">出生日期</label><input type="date" class="fi3" id="cdate"></div>
+        <div class="fg3"><label class="fl3">出生時間</label><input type="time" class="fi3" id="ctime"></div>
       </div>
-      <div class="form-group"><label class="form-label">出生城市</label><input type="text" class="form-input" id="chartCity" placeholder="例：台北市、高雄市、台中市"></div>
-      <button class="form-submit" onclick="generateChart()">✦ 計算西洋命盤 ✦</button>
+      <div class="fg3"><label class="fl3">出生城市</label><input type="text" class="fi3" id="ccity" placeholder="例：台北市、高雄市、台中市"></div>
+      <button class="fsub" onclick="genChart()">✦ 計算西洋命盤 ✦</button>
     </div>
-    <div class="chart-result" id="chartResult"></div>
+    <div class="cres" id="cres"></div>
   </div>
 </section>
 
-<!-- ══ MEMBERSHIP ══ -->
+<!-- ASTRO CALENDAR -->
+<section id="astrocal">
+  <div class="con">
+    <div class="sh fi2">
+      <div class="orn"><span></span><em>📆</em><span></span></div>
+      <p class="sey">Astro Calendar</p>
+      <h2 class="st">占星日曆</h2>
+      <p class="sd">月相週期・重要天象・行星逆行，掌握宇宙的節律</p>
+    </div>
+    <div class="fi2" style="max-width:760px;margin:0 auto">
+      <div class="cnav">
+        <button class="cnbtn" onclick="calMove(-1)">← 上個月</button>
+        <span class="cmt" id="cal-title">─</span>
+        <button class="cnbtn" onclick="calMove(1)">下個月 →</button>
+      </div>
+      <div class="cgrid" id="calgrid">
+        <div class="ch">日</div><div class="ch">一</div><div class="ch">二</div>
+        <div class="ch">三</div><div class="ch">四</div><div class="ch">五</div><div class="ch">六</div>
+      </div>
+      <div class="evlist" id="evlist" style="margin-top:1.5rem"></div>
+    </div>
+  </div>
+</section>
+
+<!-- LUCKY DRAW -->
+<section id="luckydraw">
+  <div class="con">
+    <div class="sh fi2">
+      <div class="orn"><span></span><em>🎴</em><span></span></div>
+      <p class="sey">Daily Lucky Draw · Auto Update</p>
+      <h2 class="st">今日幸運籤</h2>
+      <p class="sd">每日自動更新，讓宇宙能量為您指引今日最佳行動</p>
+    </div>
+    <div class="lw fi2">
+      <button class="lbtn" onclick="drawLucky()">✦ 抽取今日幸運籤 ✦</button>
+      <div class="lrgrid" id="lrgrid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPATIBILITY -->
+<section id="compat">
+  <div class="con">
+    <div class="sh fi2">
+      <div class="orn"><span></span><em>💑</em><span></span></div>
+      <p class="sey">Compatibility Analysis</p>
+      <h2 class="st">星座合盤分析</h2>
+      <p class="sd">選擇兩個星座，深度分析愛情・友情・事業相容度</p>
+    </div>
+    <div class="cpform fi2">
+      <div class="formrow">
+        <div class="fg3"><label class="fl3">第一個星座</label><select class="fs3" id="cp1"><option value="">選擇星座</option></select></div>
+        <div class="fg3"><label class="fl3">第二個星座</label><select class="fs3" id="cp2"><option value="">選擇星座</option></select></div>
+      </div>
+      <div class="fg3" style="margin-top:.3rem"><label class="fl3">分析類型</label>
+        <select class="fs3" id="cpt"><option value="love">愛情合盤</option><option value="friend">友情合盤</option><option value="work">事業合盤</option></select>
+      </div>
+      <button class="fsub" onclick="genCompat()">✦ 分析星座相容度 ✦</button>
+    </div>
+    <div class="cpres" id="cpres"></div>
+  </div>
+</section>
+
+<!-- MEDITATION -->
+<section id="meditation">
+  <div class="con">
+    <div class="sh fi2">
+      <div class="orn"><span></span><em>🧘</em><span></span></div>
+      <p class="sey">Daily Meditation · Auto Update</p>
+      <h2 class="st">今日靜心冥想</h2>
+      <p class="sd">每日不同主題，配合星座能量帶領您深度放鬆充電</p>
+    </div>
+    <div class="medc fi2">
+      <div class="medv">
+        <div class="medr"></div><div class="medr"></div><div class="medr"></div>
+        <div class="medorb" id="medorb" onclick="toggleBreath()">🌙</div>
+      </div>
+      <div class="medb">
+        <div class="medt" id="medt">今日冥想主題</div>
+        <div class="medq" id="medq">載入今日冥想引導...</div>
+        <div class="medsteps" id="medsteps"></div>
+        <div class="btimer">
+          <div class="btl">✦ 呼吸計時器 ✦</div>
+          <div class="btc" id="btc">4</div>
+          <div class="btp" id="btp">點擊月亮或按鈕開始</div>
+          <button class="btbtn" id="btbtn" onclick="toggleBreath()">開始呼吸練習</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERSHIP -->
 <section id="membership">
-  <div class="container">
-    <div class="section-header fade-in">
-      <div class="ornament"><span></span><em>👑</em><span></span></div>
-      <p class="section-eyebrow">Membership Plans</p>
-      <h2 class="section-title">選擇您的會員方案</h2>
-      <p class="section-desc">加入古錐星命閣，解鎖更深層的命運洞察與專屬服務</p>
+  <div class="con">
+    <div class="sh fi2">
+      <div class="orn"><span></span><em>👑</em><span></span></div>
+      <p class="sey">Membership Plans</p>
+      <h2 class="st">選擇您的會員方案</h2>
+      <p class="sd">加入古錐星命閣，解鎖更深層的命運洞察與專屬服務</p>
     </div>
-    <div class="plans-grid fade-in">
-      <div class="plan-card">
-        <p class="plan-name">✦ 星塵會員</p>
-        <p class="plan-price">免費<span></span></p>
-        <p class="plan-period">FOREVER FREE</p>
-        <ul class="plan-features">
-          <li>十二星座每日運勢</li>
-          <li>塔羅每日一牌</li>
-          <li>紫微命盤基本版</li>
-          <li>西洋命盤基本版</li>
-          <li class="off">深度每日分析報告</li>
-          <li class="off">個人化運勢預測</li>
-          <li class="off">專屬諮詢服務</li>
-        </ul>
-        <button class="plan-btn free" onclick="openModal('authModal','register')">免費加入</button>
+    <div class="plans fi2">
+      <div class="planc"><p class="planname">✦ 星塵會員</p><p class="planprice">免費<span></span></p><p class="planper">FOREVER FREE</p>
+        <ul class="planf"><li>十二星座每日運勢</li><li>塔羅每日一牌</li><li>占星日曆查看</li><li>今日幸運籤</li><li>靜心冥想引導</li><li>星座合盤分析</li><li class="off">深度每日分析報告</li><li class="off">健康養生建議</li></ul>
+        <button class="planbtn free" onclick="openModal('authModal','register')">免費加入</button>
       </div>
-      <div class="plan-card featured">
-        <div class="plan-badge">最受歡迎</div>
-        <p class="plan-name">⭐ 星光VIP會員</p>
-        <p class="plan-price">NT$99<span>/月</span></p>
-        <p class="plan-period">PRO MEMBER</p>
-        <ul class="plan-features">
-          <li>所有免費功能</li>
-          <li>深度每日分析報告</li>
-          <li>愛情・事業・財運詳解</li>
-          <li>每週運勢預測</li>
-          <li>命盤深度解析</li>
-          <li>無廣告體驗</li>
-          <li class="off">專屬一對一諮詢</li>
-        </ul>
-        <button class="plan-btn pro" onclick="openModal('authModal','register')">立即升級</button>
+      <div class="planc feat"><div class="planbadge">最受歡迎</div><p class="planname">⭐ 星光VIP會員</p><p class="planprice">NT$99<span>/月</span></p><p class="planper">PRO MEMBER</p>
+        <ul class="planf"><li>所有免費功能</li><li>深度每日分析報告</li><li>事業・愛情・財運詳解</li><li>健康養生建議</li><li>每週運勢預測</li><li>命盤深度解析</li><li>無廣告純淨體驗</li><li class="off">專屬一對一諮詢</li></ul>
+        <button class="planbtn pro" onclick="openModal('authModal','register')">立即升級</button>
       </div>
-      <div class="plan-card">
-        <p class="plan-name">💎 星命貴賓</p>
-        <p class="plan-price">NT$299<span>/月</span></p>
-        <p class="plan-period">VIP MEMBER</p>
-        <ul class="plan-features">
-          <li>所有星光功能</li>
-          <li>每月運勢預測報告</li>
-          <li>專屬一對一諮詢</li>
-          <li>流年大運詳細解析</li>
-          <li>感情合盤分析</li>
-          <li>命名・擇日服務</li>
-          <li>優先客服支援</li>
-        </ul>
-        <button class="plan-btn vip" onclick="openModal('authModal','register')">成為貴賓</button>
+      <div class="planc"><p class="planname">💎 星命貴賓</p><p class="planprice">NT$299<span>/月</span></p><p class="planper">VIP MEMBER</p>
+        <ul class="planf"><li>所有星光功能</li><li>每月運勢預測報告</li><li>專屬一對一諮詢</li><li>流年大運解析</li><li>感情合盤分析</li><li>命名・擇日服務</li><li>優先客服支援</li></ul>
+        <button class="planbtn vip" onclick="openModal('authModal','register')">成為貴賓</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ CONTACT ══ -->
+<!-- CONTACT -->
 <section id="contact">
-  <div class="container">
-    <div class="section-header fade-in">
-      <div class="ornament"><span></span><em>✉</em><span></span></div>
-      <p class="section-eyebrow">Contact Us</p>
-      <h2 class="section-title">聯絡我們</h2>
-      <p class="section-desc">有任何問題或合作邀約，歡迎隨時與我們聯繫</p>
+  <div class="con">
+    <div class="sh fi2">
+      <div class="orn"><span></span><em>✉</em><span></span></div>
+      <p class="sey">Contact Us</p>
+      <h2 class="st">聯絡我們</h2>
     </div>
-    <div class="contact-grid fade-in">
-      <div class="contact-info">
-        <div class="contact-item">
-          <span class="contact-icon">✉</span>
-          <div>
-            <p class="contact-item-title">電子郵件</p>
-            <p class="contact-item-val">vn710707@gmail.com<br><span style="font-size:11px;color:var(--text-faint)">一般詢問・帳號問題</span></p>
-          </div>
-        </div>
-        <div class="contact-item">
-          <span class="contact-icon">💼</span>
-          <div>
-            <p class="contact-item-title">商業合作</p>
-            <p class="contact-item-val">vn710707@gmail.com<br><span style="font-size:11px;color:var(--text-faint)">廠商贊助・廣告刊登</span></p>
-          </div>
-        </div>
-        <div class="contact-item">
-          <span class="contact-icon">⏰</span>
-          <div>
-            <p class="contact-item-title">回覆時間</p>
-            <p class="contact-item-val">週一至週五 10:00–18:00<br><span style="font-size:11px;color:var(--text-faint)">通常在 2 個工作天內回覆</span></p>
-          </div>
-        </div>
-        <div class="contact-social">
-          <button class="social-btn">Facebook</button>
-          <button class="social-btn">Instagram</button>
-          <button class="social-btn">LINE 官方</button>
-        </div>
+    <div class="cgrid2 fi2">
+      <div>
+        <div class="citem"><span class="cico">✉</span><div><p class="ctit">電子郵件</p><p class="cval">vn710707@gmail.com</p></div></div>
+        <div class="citem"><span class="cico">💼</span><div><p class="ctit">商業合作</p><p class="cval">vn710707@gmail.com<br><span style="font-size:9px;color:var(--text-faint)">廠商贊助・廣告刊登</span></p></div></div>
+        <div class="citem"><span class="cico">⏰</span><div><p class="ctit">回覆時間</p><p class="cval">週一至週五 10:00–18:00</p></div></div>
+        <div class="csoc"><button class="sbtn">Facebook</button><button class="sbtn">Instagram</button><button class="sbtn">LINE 官方</button></div>
       </div>
-      <div class="contact-form-box">
-        <div class="f-success" id="contact-success">✦ 訊息已送出！我們將在 2 個工作天內回覆您，感謝您的來信。</div>
-        <div class="f-row">
-          <div class="f-group"><label class="f-label">姓名</label><input class="f-input" id="c-name" type="text" placeholder="您的名字"></div>
-          <div class="f-group"><label class="f-label">電子郵件</label><input class="f-input" id="c-email" type="email" placeholder="your@email.com"></div>
-        </div>
-        <div class="f-group"><label class="f-label">主題</label>
-          <select class="f-select" id="c-topic">
-            <option>一般詢問</option><option>帳號問題</option><option>功能建議</option><option>廠商合作</option><option>媒體採訪</option><option>其他</option>
-          </select>
-        </div>
-        <div class="f-group"><label class="f-label">訊息內容</label><textarea class="f-textarea" id="c-msg" placeholder="請輸入您的訊息…"></textarea></div>
-        <button class="f-btn" onclick="sendContact()">✦ 送出訊息</button>
+      <div class="cfbox">
+        <div class="fsuc" id="c-ok">✦ 訊息已送出！感謝您的來信。</div>
+        <div class="fr"><div class="fg"><label class="fl">姓名</label><input class="fi" id="cn" type="text" placeholder="您的名字"></div><div class="fg"><label class="fl">電子郵件</label><input class="fi" id="ce" type="email" placeholder="your@email.com"></div></div>
+        <div class="fg"><label class="fl">主題</label><select class="fi" id="ct"><option>一般詢問</option><option>帳號問題</option><option>功能建議</option><option>廠商合作</option><option>媒體採訪</option><option>其他</option></select></div>
+        <div class="fg"><label class="fl">訊息</label><textarea class="ft" id="cm" placeholder="請輸入您的訊息…"></textarea></div>
+        <button class="fb" onclick="sendC()">✦ 送出訊息</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ SPONSOR ══ -->
+<!-- SPONSOR -->
 <section id="sponsor">
-  <div class="container">
-    <div class="section-header fade-in">
-      <div class="ornament"><span></span><em>💼</em><span></span></div>
-      <p class="section-eyebrow">Sponsorship</p>
-      <h2 class="section-title">廠商贊助合作</h2>
-      <p class="section-desc">加入古錐星命閣贊助計畫，觸及對命理占卜充滿熱情的精準受眾</p>
+  <div class="con">
+    <div class="sh fi2">
+      <div class="orn"><span></span><em>💼</em><span></span></div>
+      <p class="sey">Sponsorship</p>
+      <h2 class="st">廠商贊助合作</h2>
+      <p class="sd">觸及對命理占卜充滿熱情的精準受眾，歡迎洽談合作</p>
     </div>
-    <div class="sponsor-intro fade-in">
-      <p style="font-size:13px;color:var(--text-dim);line-height:1.9;letter-spacing:.05em">古錐星命閣每月服務數萬名對命理、星座、塔羅有高度興趣的用戶，受眾以 25–45 歲女性為主，涵蓋身心靈、美容保養、珠寶飾品、旅遊、金融等品類的潛在消費族群。我們提供多元廣告版位與深度合作方案，協助您的品牌精準觸達目標客群。</p>
+    <div class="sptiers fi2">
+      <div class="sptier"><p class="sptname">✦ 星塵贊助</p><p class="sptprice">NT$500</p><p class="sptper">每月</p><ul class="spperks"><li>Banner 廣告一個版位</li><li>品牌 Logo 展示</li><li>月報流量數據</li><li>社群媒體一次提及</li></ul><button class="planbtn free" onclick="openModal('contactModal')">詢問方案</button></div>
+      <div class="sptier" style="background:var(--panel);outline:.5px solid var(--gold)"><p class="sptname">⭐ 星光贊助</p><p class="sptprice">NT$1,500</p><p class="sptper">每月</p><ul class="spperks"><li>首頁頂部 Banner</li><li>品牌故事專文</li><li>電子報曝光每月</li><li>社群每週提及</li><li>深度數據報告</li></ul><button class="planbtn pro" onclick="openModal('contactModal')">詢問方案</button></div>
+      <div class="sptier"><p class="sptname">💎 星命合作夥伴</p><p class="sptprice">NT$3,000</p><p class="sptper">每月</p><ul class="spperks"><li>全站獨家贊助標示</li><li>品牌聯名內容創作</li><li>電子報每週曝光</li><li>LINE 官方推播</li><li>活動聯名機會</li><li>即時數據後台</li></ul><button class="planbtn vip" onclick="openModal('contactModal')">詢問方案</button></div>
     </div>
-    <div class="sponsor-tiers fade-in">
-      <div class="sponsor-tier">
-        <p class="sponsor-tier-name">✦ 星塵贊助</p>
-        <p class="sponsor-tier-price">NT$500</p>
-        <p class="sponsor-tier-period">每月</p>
-        <ul class="sponsor-perks">
-          <li>Banner 廣告一個版位</li>
-          <li>品牌 Logo 展示於贊助區</li>
-          <li>月報流量數據報告</li>
-          <li>社群媒體一次提及</li>
-        </ul>
-        <button class="plan-btn free" onclick="openModal('contactModal')">詢問方案</button>
-      </div>
-      <div class="sponsor-tier" style="background:var(--panel);outline:.5px solid var(--gold)">
-        <p class="sponsor-tier-name">⭐ 星光贊助</p>
-        <p class="sponsor-tier-price">NT$1,500</p>
-        <p class="sponsor-tier-period">每月</p>
-        <ul class="sponsor-perks">
-          <li>首頁頂部 Banner 廣告</li>
-          <li>品牌故事專文介紹</li>
-          <li>電子報曝光（每月一次）</li>
-          <li>社群媒體每週提及</li>
-          <li>每月深度數據報告</li>
-        </ul>
-        <button class="plan-btn pro" onclick="openModal('contactModal')">詢問方案</button>
-      </div>
-      <div class="sponsor-tier">
-        <p class="sponsor-tier-name">💎 星命合作夥伴</p>
-        <p class="sponsor-tier-price">NT$3,000</p>
-        <p class="sponsor-tier-period">每月</p>
-        <ul class="sponsor-perks">
-          <li>全站獨家贊助商標示</li>
-          <li>品牌聯名內容創作</li>
-          <li>電子報每週曝光</li>
-          <li>LINE 官方帳號推播</li>
-          <li>活動聯名舉辦機會</li>
-          <li>即時數據後台存取</li>
-        </ul>
-        <button class="plan-btn vip" onclick="openModal('contactModal')">詢問方案</button>
-      </div>
-    </div>
-    <div class="sponsor-form-box fade-in">
-      <p style="font-family:'Noto Serif TC',serif;font-size:15px;color:var(--gold-light);letter-spacing:.1em;margin-bottom:1.5rem;text-align:center">✦ 贊助洽談表單</p>
-      <div class="f-success" id="sponsor-success">✦ 已收到您的贊助詢問！我們的商務專員將在 1 個工作天內與您聯繫。</div>
-      <div class="f-row">
-        <div class="f-group"><label class="f-label">公司名稱</label><input class="f-input" id="sp-company" type="text" placeholder="貴公司名稱"></div>
-        <div class="f-group"><label class="f-label">聯絡人姓名</label><input class="f-input" id="sp-name" type="text" placeholder="負責人姓名"></div>
-      </div>
-      <div class="f-row">
-        <div class="f-group"><label class="f-label">聯絡電話</label><input class="f-input" id="sp-tel" type="tel" placeholder="0912-345-678"></div>
-        <div class="f-group"><label class="f-label">電子郵件</label><input class="f-input" id="sp-email" type="email" placeholder="biz@company.com"></div>
-      </div>
-      <div class="f-row">
-        <div class="f-group"><label class="f-label">感興趣的方案</label>
-          <select class="f-select" id="sp-plan">
-            <option>星塵贊助（NT$500/月）</option>
-            <option>星光贊助（NT$1,500/月）</option>
-            <option>星命合作夥伴（NT$3,000/月）</option>
-            <option>客製化方案</option>
-          </select>
-        </div>
-        <div class="f-group"><label class="f-label">品牌/產品類別</label>
-          <select class="f-select" id="sp-cat">
-            <option>美容保養</option><option>珠寶飾品</option><option>身心靈</option><option>旅遊</option><option>金融理財</option><option>書籍出版</option><option>其他</option>
-          </select>
-        </div>
-      </div>
-      <div class="f-group"><label class="f-label">合作需求說明</label><textarea class="f-textarea" id="sp-msg" placeholder="請簡述您的品牌、目標受眾、希望達到的效果或其他需求…"></textarea></div>
-      <button class="f-btn gold" onclick="sendSponsor()">✦ 送出贊助詢問</button>
+    <div class="spfbox fi2">
+      <p style="font-family:'Noto Serif TC',serif;font-size:13px;color:var(--gold-light);letter-spacing:.09em;margin-bottom:1.2rem;text-align:center">✦ 贊助洽談表單</p>
+      <div class="fsuc" id="sp-ok">✦ 已收到！商務專員將在 1 個工作天內聯繫您。</div>
+      <div class="fr"><div class="fg"><label class="fl">公司名稱</label><input class="fi" id="spc" type="text" placeholder="貴公司名稱"></div><div class="fg"><label class="fl">聯絡人</label><input class="fi" id="spn" type="text" placeholder="負責人姓名"></div></div>
+      <div class="fr"><div class="fg"><label class="fl">電話</label><input class="fi" id="spt" type="tel" placeholder="0912-345-678"></div><div class="fg"><label class="fl">電子郵件</label><input class="fi" id="spe" type="email" placeholder="biz@company.com"></div></div>
+      <div class="fr"><div class="fg"><label class="fl">感興趣方案</label><select class="fi" id="spp"><option>星塵贊助（NT$500/月）</option><option>星光贊助（NT$1,500/月）</option><option>星命合作夥伴（NT$3,000/月）</option><option>客製化方案</option></select></div><div class="fg"><label class="fl">品牌類別</label><select class="fi" id="spcat"><option>美容保養</option><option>珠寶飾品</option><option>身心靈</option><option>旅遊</option><option>金融理財</option><option>書籍出版</option><option>其他</option></select></div></div>
+      <div class="fg"><label class="fl">合作需求說明</label><textarea class="ft" id="spm" placeholder="請簡述您的品牌與希望達到的效果…"></textarea></div>
+      <button class="fb gold" onclick="sendSP()">✦ 送出贊助詢問</button>
     </div>
   </div>
 </section>
 
-<!-- ══ FOOTER ══ -->
+<!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <div class="footer-logo">古錐星命閣</div>
-      <span style="font-size:10px;letter-spacing:.2em;color:var(--text-faint)">STARS · TAROT · DESTINY</span>
-      <p>穿越星空的指引<br>探尋命運的密語</p>
-    </div>
-    <div class="footer-col">
-      <p class="footer-col-title">功能</p>
-      <a href="#daily">每日運勢</a>
-      <a href="#zodiac">星座運勢</a>
-      <a href="#tarot">塔羅占卜</a>
-      <a href="#ziwei">紫微斗數</a>
-      <a href="#chart-section">西洋命盤</a>
-    </div>
-    <div class="footer-col">
-      <p class="footer-col-title">會員</p>
-      <a href="#membership">方案介紹</a>
-      <a onclick="openModal('authModal','register')">免費加入</a>
-      <a onclick="openModal('authModal','login')">會員登入</a>
-      <a href="#sponsor">廠商合作</a>
-    </div>
-    <div class="footer-col">
-      <p class="footer-col-title">關於</p>
-      <a href="#contact">聯絡我們</a>
-      <a href="#">服務條款</a>
-      <a href="#">隱私政策</a>
-      <a href="#">常見問題</a>
-    </div>
+  <div class="fin">
+    <div class="fbrand"><div class="flogo">古錐星命閣</div><span style="font-size:9px;letter-spacing:.18em;color:var(--text-faint)">STARS · TAROT · DESTINY</span><p>穿越星空的指引<br>探尋命運的密語<br>每日自動更新</p></div>
+    <div class="fcol"><p class="fcolt">功能</p><a href="#daily">每日運勢</a><a href="#zodiac">星座運勢</a><a href="#tarot">塔羅占卜</a><a href="#ziwei">紫微斗數</a><a href="#chart-section">西洋命盤</a><a href="#astrocal">占星日曆</a><a href="#luckydraw">今日幸運籤</a><a href="#compat">星座合盤</a><a href="#meditation">靜心冥想</a></div>
+    <div class="fcol"><p class="fcolt">會員</p><a href="#membership">方案介紹</a><a onclick="openModal('authModal','register')">免費加入</a><a onclick="openModal('authModal','login')">會員登入</a><a href="#sponsor">廠商合作</a></div>
+    <div class="fcol"><p class="fcolt">關於</p><a href="#contact">聯絡我們</a><a>服務條款</a><a>隱私政策</a><a>常見問題</a></div>
   </div>
-  <div class="footer-bottom">
-    © 2025 古錐星命閣 · 本站內容僅供娛樂參考，不構成任何建議
-  </div>
+  <div class="fbot">© 2025 古錐星命閣 · 本站內容每日自動更新，僅供娛樂參考，不構成任何建議</div>
 </footer>
 
 <script>
-// ══ STATE ══════════════════════════════════════════════
-let currentUser = null;
+// ══════════════════════════════════════════════
+// ✦ 每日自動更新核心引擎
+// 根據日期生成種子 → 同一天內容一致 → 隔天自動換新
+// ══════════════════════════════════════════════
+const T=new Date(),YR=T.getFullYear(),MO=T.getMonth()+1,DY=T.getDate(),DOW=T.getDay();
+const SEED=YR*10000+MO*100+DY; // 今日唯一種子
 
-// ══ MODAL ══════════════════════════════════════════════
-function openModal(id, tab) {
-  document.getElementById(id).classList.add('open');
-  if (tab) switchTab(tab);
-}
-function closeModal(id) {
-  document.getElementById(id).classList.remove('open');
-}
-document.querySelectorAll('.modal-overlay').forEach(el => {
-  el.addEventListener('click', e => { if (e.target === el) el.classList.remove('open'); });
-});
+function sr(seed,idx=0){let s=(seed*9301+49297*(idx+1))%233280;return s/233280;}
+function si(seed,idx,min,max){return Math.floor(sr(seed,idx)*(max-min+1))+min;}
+function sp(seed,idx,arr){return arr[Math.floor(sr(seed,idx)*arr.length)];}
 
-function switchTab(tab) {
-  document.querySelectorAll('.modal-tab').forEach((t,i) => {
-    const tabs = ['login','register','forgot'];
-    t.classList.toggle('active', tabs[i] === tab);
-  });
-  document.querySelectorAll('.modal-pane').forEach(p => p.classList.remove('active'));
-  const pane = document.getElementById('pane-' + tab);
-  if (pane) pane.classList.add('active');
-  document.getElementById('authModalTitle').textContent =
-    tab === 'login' ? '會員登入' : tab === 'register' ? '免費加入古錐星命閣' : '重設密碼';
-}
+// ── 日期農曆顯示 ──────────────────────────────
+const WN=['日','一','二','三','四','五','六'];
+const LM=['正月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一月','十二月'];
+const LD=['初一','初二','初三','初四','初五','初六','初七','初八','初九','初十','十一','十二','十三','十四','十五','十六','十七','十八','十九','二十','廿一','廿二','廿三','廿四','廿五','廿六','廿七','廿八','廿九','三十'];
+const HS=['甲','乙','丙','丁','戊','己','庚','辛','壬','癸'];
+const EB=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+const ZA=['鼠','牛','虎','兔','龍','蛇','馬','羊','猴','雞','狗','豬'];
 
-// ══ AUTH ═══════════════════════════════════════════════
-function doLogin() {
-  const email = document.getElementById('login-email').value.trim();
-  const pw = document.getElementById('login-pw').value;
-  hideMsg(['login-success','login-error']);
-  if (!email || !pw) { showMsg('login-error', '請填寫電子郵件與密碼。'); return; }
-  // Simulate: save to localStorage as demo
-  const stored = localStorage.getItem('xmg_user_' + email);
-  if (!stored) { showMsg('login-error', '找不到此帳號，請先註冊。'); return; }
-  currentUser = JSON.parse(stored);
-  showMsg('login-success');
-  setTimeout(() => { closeModal('authModal'); updateNavUser(); }, 1200);
+function getLunar(){
+  const base=new Date(1900,0,31);
+  const diff=Math.floor((T-base)/86400000);
+  const lday=(diff%30+30)%30, lmon=(Math.floor(diff/30)%12+12)%12;
+  const stemI=(YR-1864)%10, branchI=(YR-1900)%12;
+  return{month:LM[lmon],day:LD[lday],stem:HS[stemI],branch:EB[branchI],animal:ZA[branchI%12]};
 }
 
-function doRegister() {
-  const name = document.getElementById('reg-name').value.trim();
-  const email = document.getElementById('reg-email').value.trim();
-  const pw = document.getElementById('reg-pw').value;
-  const pw2 = document.getElementById('reg-pw2').value;
-  const sign = document.getElementById('reg-sign').value;
-  const agree = document.getElementById('reg-agree').checked;
-  hideMsg(['reg-success','reg-error']);
-  if (!name || !email || !pw || !sign) { showMsg('reg-error', '請填寫所有必填欄位（姓名・信箱・密碼・星座）。'); return; }
-  if (pw !== pw2) { showMsg('reg-error', '兩次密碼輸入不一致，請重新輸入。'); return; }
-  if (!agree) { showMsg('reg-error', '請閱讀並同意服務條款才能加入。'); return; }
-  currentUser = { name, email, sign, nick: document.getElementById('reg-nick').value || name, birth: document.getElementById('reg-birth').value };
-  localStorage.setItem('xmg_user_' + email, JSON.stringify(currentUser));
-  showMsg('reg-success');
-  setTimeout(() => { closeModal('authModal'); updateNavUser(); }, 1400);
+function getMoonPhase(){
+  const phases=['🌑新月','🌒眉月','🌓上弦月','🌔盈凸月','🌕滿月','🌖虧凸月','🌗下弦月','🌘殘月'];
+  return phases[Math.floor((SEED%30)/30*8)%8];
 }
 
-function doLogout() {
-  currentUser = null;
-  document.getElementById('nav-guest').style.display = 'flex';
-  document.getElementById('nav-member').classList.remove('visible');
+function initDate(){
+  const lun=getLunar(),moon=getMoonPhase();
+  const ds=`${YR}年${MO}月${DY}日　星期${WN[DOW]}`;
+  const ls=`農曆 ${lun.stem}${lun.branch}${lun.animal}年 ${lun.month}${lun.day}　${moon}`;
+  const set=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v;};
+  const setH=(id,v)=>{const e=document.getElementById(id);if(e)e.innerHTML=v;};
+  set('h-badge',`✦ ${MO}月${DY}日 星期${WN[DOW]} · ${moon}`);
+  set('h-moon',ls);
+  setH('dt-date',`✦ <strong style="color:var(--gold-light)">${MO}月${DY}日</strong> 星期${WN[DOW]}`);
+  set('dh-date',ds);
+  set('dh-lunar',ls);
 }
 
-function doForgot() {
-  const email = document.getElementById('forgot-email').value.trim();
-  hideMsg(['forgot-success']);
-  if (!email) return;
-  showMsg('forgot-success');
+// ── 跑馬燈（每日不同）────────────────────────
+const TICKER_POOL=[
+  ['今日最旺星座',()=>SIGNS[si(SEED,0,0,11)]+'座 ✦'],
+  ['今日月相',getMoonPhase],
+  ['水星能量','溝通・表達・思維'],
+  ['今日吉時',['清晨5-7點','上午9-11點','下午1-3點','下午3-5點','傍晚5-7點','晚上9-11點'][si(SEED,7,0,5)]],
+  ['今日冥想主題',()=>MEDDATA[SEED%MEDDATA.length].title],
+  ['木星祝福','機遇・成長・樂觀'],
+  ['今日數字能量',()=>((DY+MO+YR%100)%9+1)+' — 充滿正能量'],
+  ['今日行星提示',['金星助愛情','火星助行動','土星助穩定','木星助機遇','水星助溝通'][si(SEED,8,0,4)]],
+];
+function initTicker(){
+  const msgs=[...TICKER_POOL,...TICKER_POOL];
+  const el=document.getElementById('dt-inner');
+  if(el)el.innerHTML=msgs.map(m=>`<span class="dt-item"><strong>${m[0]}</strong>：${typeof m[1]==='function'?m[1]():m[1]}</span>`).join('');
 }
 
-function updateNavUser() {
-  if (!currentUser) return;
-  document.getElementById('nav-guest').style.display = 'none';
-  document.getElementById('nav-member').classList.add('visible');
-  document.getElementById('nav-member-name').textContent = currentUser.nick || currentUser.name;
-  document.getElementById('nav-avatar').textContent = (currentUser.nick || currentUser.name)[0];
+// ── 今日資訊條 ────────────────────────────────
+const SIGNS=['牡羊','金牛','雙子','巨蟹','獅子','處女','天秤','天蠍','射手','摩羯','水瓶','雙魚'];
+const TAROT_THEMES=['新的開始','深思熟慮','愛的流動','豐盛顯化','蛻變轉化','智慧引導','命運轉機','平靜之心','勇氣前行','希望之光'];
+const MOON_PERIODS=['新月期 — 播種心願','眉月期 — 設定意圖','上弦月 — 採取行動','盈凸月 — 精煉計畫','滿月期 — 豐收感謝','虧凸月 — 分享智慧','下弦月 — 釋放清理','殘月期 — 靜心休息'];
+const LUCKY_COLORS=['深紫色','翡翠綠','金色','玫瑰粉','寶石藍','珊瑚橙','銀白色','深棕色','薰衣草','極光藍'];
+function initStrip(){
+  const set=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v;};
+  const numE=((DY+MO+YR%100)%9+1);
+  const numMean=['領導','合作','創意','穩定','自由','責任','智慧','力量','完成'][numE-1];
+  set('ts1',SIGNS[si(SEED,0,0,11)]+'座 ✦');
+  set('ts2',TAROT_THEMES[si(SEED,1,0,TAROT_THEMES.length-1)]);
+  set('ts3',MOON_PERIODS[Math.floor((SEED%30)/30*8)%8]);
+  set('ts4',numE+' — '+numMean);
+  set('ts5',sp(SEED,10,LUCKY_COLORS));
 }
 
-function showMsg(id, text) {
-  const el = document.getElementById(id);
-  if (text) el.textContent = text;
-  el.classList.add('show');
-}
-function hideMsg(ids) { ids.forEach(id => document.getElementById(id).classList.remove('show')); }
-
-// ══ CONTACT FORMS ══════════════════════════════════════
-function sendContact() {
-  const name = document.getElementById('c-name').value.trim();
-  const email = document.getElementById('c-email').value.trim();
-  if (!name || !email) { alert('請填寫姓名與電子郵件'); return; }
-  showMsg('contact-success');
-  ['c-name','c-email','c-msg'].forEach(id => document.getElementById(id).value = '');
-}
-
-function sendContactModal() {
-  const name = document.getElementById('cm-name').value.trim();
-  const email = document.getElementById('cm-email').value.trim();
-  if (!name || !email) { alert('請填寫姓名與電子郵件'); return; }
-  showMsg('contact-modal-success');
+// ── 今日宇宙訊息（12條，每日輪換）────────────
+const COSMIC=[
+  '今日宇宙能量傾向「啟動」，是採取行動的絕佳時機。那個計畫了很久的事，今天就去做第一步！',
+  '水星的影響讓今日溝通能量特別強，適合說出心裡話，也適合傾聽他人的聲音。真誠，是今天最好的魔法。',
+  '今日滿月能量達到高峰，情緒容易波動。記得深呼吸，讓感受流動而不執著，這份敏感是您的天賦。',
+  '金星帶來美好的愛情頻率，今日特別適合表達感謝和愛意，無論是對家人、朋友還是自己。',
+  '土星的紀律能量今日特別強，適合處理需要耐心和細心的事務。穩紮穩打，就是最好的策略。',
+  '木星的祝福今日如陽光般灑落，相信自己的直覺，那個「感覺對了」的機會值得把握。',
+  '今日火星能量充沛，適合運動、挑戰或突破舒適圈。身體的律動能帶來心靈的清晰。',
+  '海王星的神秘能量讓今日直覺特別準確，多相信第一感覺，那往往是宇宙給您的提示。',
+  '冥王星帶來深層轉化的能量，今日適合反思並放下那些不再服務於您的信念或習慣。',
+  '天王星的革新能量讓今日充滿驚喜，保持開放的心，意想不到的事往往是最美好的禮物。',
+  '今日新月帶來重新開始的能量，寫下三個希望在接下來這個月實現的心願，讓宇宙聽見您的渴望。',
+  '今日是思考未來的好日子。閉上眼睛想像五年後最理想的自己，那個畫面就是前進的方向。',
+];
+function initDspec(){
+  const el=document.getElementById('dspec'),bt=document.getElementById('dspec-b');
+  if(el&&bt){bt.textContent=COSMIC[SEED%COSMIC.length];el.classList.add('on');}
 }
 
-function sendSponsor() {
-  const company = document.getElementById('sp-company').value.trim();
-  const email = document.getElementById('sp-email').value.trim();
-  if (!company || !email) { alert('請填寫公司名稱與電子郵件'); return; }
-  showMsg('sponsor-success');
-  ['sp-company','sp-name','sp-tel','sp-email','sp-msg'].forEach(id => document.getElementById(id).value = '');
-}
-
-// ══ ZODIAC DATA ════════════════════════════════════════
-const zodiacs = [
-  { sym:'♈', name:'牡羊', date:'3/21–4/19', love:88, money:72, health:92, career:85, lucky:'火焰紅・星期二・幸運數字 3',
-    text:'🔥 火星今日強勢助陣，您體內那股「說做就做」的能量正在沸騰！這不是衝動，是命運給您的起跑號令。抓住今日的氣勢，有什麼一直拖著的事，現在就去做！',
-    career_detail:'今日您身上散發著一種讓人想追隨的領袖氣場，連平時不太認同您的同事也會悄悄點頭。適合主動提案、爭取資源或向上司展現成果。小心別因為太過自信而忽略他人感受，傾聽也是今日的功課。',
-    love_detail:'愛情場上，您今日就像一顆充滿能量的磁鐵，讓人難以抗拒。單身牡羊請大膽邁出第一步，那個讓您心跳加速的人，此刻正等著您開口。有伴侶者，今晚準備一個小驚喜，讓對方感受到被珍視的幸福。',
-    money_detail:'財運穩中有升，但今日的強烈行動慾也會讓您手癢想消費！建議先把「想買」的東西放進購物車冷靜24小時，真正需要的明天再結帳。有一筆意想不到的小進帳可能在下午悄悄出現。' },
-  { sym:'♉', name:'金牛', date:'4/20–5/20', love:78, money:93, health:72, career:87, lucky:'翡翠綠・星期五・幸運數字 6',
-    text:'💰 金星今日親吻您的錢包，財氣四溢、好運連連！您一向不愛衝動、腳踏實地，但今日宇宙要您相信自己的判斷，那個猶豫已久的機會，或許就是您命中注定的轉捩點。',
-    career_detail:'您今日散發著一種沉穩卻充滿魅力的專業感，讓合作對象打從心底信任您。適合洽談合約、爭取加薪或展現長期規劃能力。一件積壓已久的工作，今日處理會出奇順利，動手吧！',
-    love_detail:'感情世界中，您今日特別懂得用「行動」表達愛意。一頓親手下廚的料理、一句久違的「我想你」，都能讓另一半的心融化。單身金牛，那個在您身邊默默付出的人，或許值得您再多看一眼。',
-    money_detail:'今日財星高照，可能出現久違的財運，例如意外收入、退稅或朋友還款。適合整理個人財務、評估定存或基金配置，打下更穩固的財富基礎。避免在情緒高漲時做出衝動的大額決定。' },
-  { sym:'♊', name:'雙子', date:'5/21–6/21', love:82, money:68, health:76, career:93, lucky:'晴空黃・星期三・幸運數字 5',
-    text:'💬 水星今日讓您的嘴巴和大腦都開了掛！您的思路敏銳如刀，言辭犀利又有溫度，任何複雜的問題在您口中都能化繁為簡。今日是您大放異彩的舞台，別藏著掖著！',
-    career_detail:'您今日的表達力與說服力簡直無懈可擊，適合進行重要簡報、客戶提案或跨部門溝通。同事和主管都在認真聽您說話，把握這份難得的專注力！唯一要注意的是，別因為說得太起勁而忘了給對方回應的空間。',
-    love_detail:'您今日的話語能精準打動人心，但也容易在無意間說出傷人的話。感情中多用「我感覺…」來表達，少說「你總是…」。單身雙子，一場聰明有趣的對話，就是最好的追求方式，今日就找機會展現您的幽默吧！',
-    money_detail:'財運中等偏穩，今日不適合做大額投資決定，但很適合研究財務知識、比較各種方案。您今日的資訊搜集能力特別強，利用這個優勢為未來的財務決策做好準備。' },
-  { sym:'♋', name:'巨蟹', date:'6/22–7/22', love:93, money:78, health:83, career:72, lucky:'月光銀・星期一・幸運數字 2',
-    text:'🌙 月亮今日高掛在您的命宮上，您的直覺、情感與第六感都達到神乎其神的境界。您總是最先感受到身邊人的情緒變化，今日這份敏感是禮物，讓它帶您找到最需要您的人。',
-    career_detail:'今日您的直覺就是最精準的職場雷達，一個眼神就能判斷出會議室裡的真實氣氛。適合處理需要洞察人心的任務，如客服、諮詢或創意提案。若有重要決策，先聽聽內心的聲音，它今日比任何數據都準確。',
-    love_detail:'愛情能量在今日滿格！您溫柔細膩的特質讓身旁的人感到無比安心，自然而然散發著迷人的吸引力。有伴侶者，今日適合深度交流、分享彼此的小秘密，感情會因此更加深厚。單身者，今日的桃花就藏在您最熟悉的地方。',
-    money_detail:'財運平穩，今日您對金錢有著難得清晰的直覺。建議回顧近一個月的支出，您可能會發現某些開銷其實可以優化。適合為家人或自己設立一個小小的儲蓄目標，為未來的安全感投資。' },
-  { sym:'♌', name:'獅子', date:'7/23–8/22', love:87, money:82, health:78, career:96, lucky:'太陽金・星期日・幸運數字 1',
-    text:'☀️ 太陽，您的守護星，今日以最耀眼的姿態為您加持！整個宇宙都在替您鼓掌，貴人就在您身邊，機會就在您眼前。您天生的王者之氣今日特別閃耀，只要您願意開口，沒有什麼是得不到的！',
-    career_detail:'今日的您就像職場上的一道光，只要您出現，整個空間的氣氛都會提升。主管欣賞您、同事信服您，是爭取升遷、主導專案或建立個人品牌的絕佳時機。記得在展現自我的同時，也給團隊成員一些掌聲，共好才能走得長遠。',
-    love_detail:'您今日的魅力簡直是「自帶濾鏡」，走到哪裡都有人悄悄注視著您。單身獅子，今日大方展現自信，就是最強的戀愛攻略，不需要技巧，做自己就夠了。有伴侶者，今日適合安排一場有排場的約會，讓對方感受到您的用心與深情。',
-    money_detail:'財運強勁，可能有意外的收入或投資獲利進帳。您今日的眼光特別準，有看中的機會可以積極評估，但別被眼前的榮景沖昏頭，謹慎分析後再出手，才能讓財富穩健增長。' },
-  { sym:'♍', name:'處女', date:'8/23–9/22', love:73, money:87, health:94, career:88, lucky:'深海藍・星期三・幸運數字 4',
-    text:'🔍 水星今日賜給您一雙「透視眼」，任何問題的細節都逃不過您的法眼！您一向追求完美，今日這份精準的感知力將成為您最強大的武器。問題不是完美主義，而是把它用在對的地方。',
-    career_detail:'今日您的分析力與執行力同時在線，把那份說了很久的計畫、改了又改的報告，今日就讓它完美收尾吧！同事會因為您的細心而感謝您，主管也會注意到那些別人容易忽略的小細節正是您的拿手好戲。',
-    love_detail:'感情中，您習慣用「批評」代替「關心」，今日請嘗試把那些「你應該這樣做」改成「我很在意你，所以想跟你說…」。這一個小小的改變，可以讓關係暖化一整年。單身處女，今日可能遇到一個讓您佩服的博學型人物，值得深交。',
-    money_detail:'財運良好，今日最適合「健康投資」——購買一份好的保險、預約健康檢查，或者投資一個能提升工作效率的工具。這些看似不起眼的決定，都是在為未來的自己存款。' },
-  { sym:'♎', name:'天秤', date:'9/23–10/23', love:96, money:73, health:77, career:82, lucky:'玫瑰粉・星期五・幸運數字 7',
-    text:'🌹 金星今日親臨天秤，讓您散發出一種讓人無法抗拒的柔美魅力！不論走進哪個房間，您的出現都讓空氣變得更美好。今日的您，是宇宙特別挑選出來，讓這個世界更有美感的存在。',
-    career_detail:'您天生的協調力在今日特別發光發熱，是化解職場衝突、建立合作橋樑的最佳人選。有需要談判或溝通的場合，讓您來，一定事半功倍。唯一要注意的是，別因為太想讓所有人滿意而委屈了自己，您的感受同樣重要。',
-    love_detail:'今日愛情運爆表，是今年迄今最強的桃花日之一！單身天秤，今日隨便一個場合都可能上演浪漫偶遇，只要您願意抬起頭微笑。有伴侶者，今日用那段話說出口吧——那句藏在心裡很久的「我愛你」，對方正在等著聽。',
-    money_detail:'財運普通，但今日您的審美力和品味達到高峰，容易對美好的事物動心想消費。建議採用「等待三天法則」——三天後還想買的東西，才是真正值得的投資。' },
-  { sym:'♏', name:'天蠍', date:'10/24–11/21', love:83, money:92, health:72, career:88, lucky:'神秘紫・星期二・幸運數字 8',
-    text:'🌑 冥王星今日賦予您一種能洞穿人心的神秘力量，彷彿戴上了X光眼鏡，所有人的真實意圖都清晰可見。這份天賦是您最強的盔甲，也是您最深的智慧——今日，相信您的直覺，它不會騙您。',
-    career_detail:'今日您的判斷力和洞察力同時爆發，適合處理需要深度分析、調查或策略規劃的任務。那個讓您隱隱覺得「哪裡不對」的合作提案，今日請認真重新審視一遍，您的直覺可能正在保護您。',
-    love_detail:'您對感情的投入一向深刻而熾烈，但今日要提醒自己：愛一個人，不代表要控制一個人。試著放鬆那握得太緊的手，給彼此一點自由的呼吸空間，反而能讓感情更加深厚。單身天蠍，今日可能遇到讓您一眼就想深入了解的神秘靈魂。',
-    money_detail:'財運亨通，您那敏銳的直覺今日在財務領域特別準確。適合評估長期投資、理財保單或被動收入的可能性。有一筆意外之財可能悄悄到來，保持敏感，留意那些看似不起眼的財務機會。' },
-  { sym:'♐', name:'射手', date:'11/22–12/21', love:77, money:83, health:93, career:78, lucky:'熱情橙・星期四・幸運數字 9',
-    text:'🏹 木星今日張開雙臂歡迎您！您天生就是為了自由與冒險而生，而今日宇宙正在為您打開一扇從未見過的大門。別再問「萬一失敗怎麼辦」，問問自己：「如果成功了，我的人生會多精彩？」',
-    career_detail:'廣闊的視野和滿滿的樂觀是您今日最強的職場武器。適合提出大膽的長期規劃、開拓新客戶群或探索跨領域的合作可能。有一個讓您躍躍欲試的機會正在靠近，抓住它，它可能是改變您職涯軌跡的那一刻。',
-    love_detail:'您對感情充滿熱情，但有時容易讓伴侶感到「跟不上您的腳步」。今日試著慢下來，問問另一半最近的心情與想法，讓他/她知道您的世界裡永遠有他/她的位置。單身射手，開放自己，緣分就在下一個轉角等您。',
-    money_detail:'財運不錯，樂觀的能量吸引著好運靠近。但射手天性大方，今日可能一時豪氣而破費。建議在月底前為自己設定一個「冒險基金」，讓旅遊或學習的支出有計劃地進行，才能走得更遠更開心。' },
-  { sym:'♑', name:'摩羯', date:'12/22–1/19', love:72, money:96, health:82, career:93, lucky:'墨玉黑・星期六・幸運數字 10',
-    text:'🏔 土星今日正在為您的努力頒獎！那些別人熬不過的黑暗、您卻一步一腳印走過的漫長歲月，正在今日化為豐厚的回報。不是運氣，是實力。今日屬於從不放棄的您。',
-    career_detail:'今日的您，是職場上最值得信賴的那個人。您的穩重、專業與執行力讓主管放心把重要任務交給您，升遷的訊號可能比您想像中來得更快。如果今日有機會做出一個重要表態或決定，勇敢說出您的想法，您已經準備好了。',
-    love_detail:'您在感情中習慣用「行動」而非「語言」來表達愛，但伴侶有時需要的不只是被照顧，而是被「聽見」。今日試著說出一句平時藏在心裡的話，哪怕只是「最近辛苦你了」，也能讓關係升溫。',
-    money_detail:'今日財運達到近期高峰！您長期精心規劃的投資或儲蓄計畫，今日可能出現令人振奮的成果。適合與理財顧問討論、調整資產配置或評估下一步的財務目標。您的錢，在您手中永遠最安全。' },
-  { sym:'♒', name:'水瓶', date:'1/20–2/18', love:77, money:82, health:77, career:88, lucky:'極光藍・星期六・幸運數字 11',
-    text:'⚡ 天王星今日為您的大腦接上了宇宙級的高速網路！您的思維超前了這個時代五年，別擔心別人現在還不懂，他們很快就會追上來的。今日的靈感，是給未來的自己最珍貴的禮物。',
-    career_detail:'今日您的創新力與前瞻性讓周圍的人驚艷不已，是提出革新方案、建立新系統或組建理想團隊的好時機。如果您有一個「感覺有點瘋狂」的想法，今日就把它說出來——瘋狂，往往是改變的起點。',
-    love_detail:'感情中的您有時像一個謎，讓伴侶不確定自己在您心中的位置。今日試著放下那道「保持距離的防護罩」，讓對方看見那個真實的、也渴望被愛的您。單身水瓶，今日可能在網路社群或興趣課程中，與一個頻率相同的靈魂相遇。',
-    money_detail:'財運平穩，今日適合研究科技股、新創投資或數位資產等新興理財工具。您超前的眼光有機會讓您提早布局，但記得以您能承受的風險範圍為前提，不要把所有雞蛋放在同一個籃子裡。' },
-  { sym:'♓', name:'雙魚', date:'2/19–3/20', love:93, money:72, health:82, career:77, lucky:'夢幻藍・星期四・幸運數字 12',
-    text:'🌊 海王星今日為您打開了通往內心宇宙的大門，靈感像潮水一樣湧來，停都停不住！您天生就是這個世界的詩人，今日那些讓您怦然心動的感受，請不要壓抑，把它寫下來、畫出來，或說給那個值得聽的人。',
-    career_detail:'藝術、療癒、教育或任何需要「感同身受」的工作，今日都會讓您大放光彩。您有一種特殊的能力，能讓客戶和同事感到被理解與被照顧，這份軟實力是您今日最大的職場優勢。注意別讓白日夢佔據太多工作時間，適時把美麗的靈感落地為實際行動。',
-    love_detail:'今日您的愛情磁場強大而迷人，那份純粹的溫柔與體貼讓人久久難以忘懷。有伴侶者，今日適合來一次燭光晚餐或深夜長談，讓感情再往深處走一步。單身雙魚，您今日的氣質特別吸引人，那個一直在旁邊默默關心您的人，也許正是命中注定。',
-    money_detail:'財運中等，今日您的善心可能讓您不自覺地為他人的需要買單，請記得愛自己也是一種責任。先確保自己的財務狀況穩健，再去幫助他人。有一個小小的被動收入機會可能在今日出現，留心那些看似微不足道的機遇。' }
+// ══════════════════════════════════════════════
+// ✦ 星座資料（每日自動旋轉三組文字）
+// ══════════════════════════════════════════════
+const ZDATA=[
+  {sym:'♈',name:'牡羊',date:'3/21–4/19',el:'火象',ruler:'火星',gem:'紅寶石',
+   texts:['🔥 火星今日強勢助陣，您體內那股「說做就做」的能量正在沸騰！這不是衝動，是命運給您的起跑號令。','🚀 今日您身上有股無法忽視的衝勁，那些讓您躊躇猶豫的事，宇宙要您今天就做決定！','⚡ 牡羊的王者之氣今日全面爆發！您的行動力和決斷力會讓周圍的人刮目相看。'],
+   career:['今日適合主動提案、爭取資源或向上司展現成果，領導力特別突出。','職場上用您獨有的直接風格化解阻礙，今日的勇敢會換來明日的尊重。','今日適合開啟新專案或突破停滯的瓶頸，您的行動力是最大的職場資產。'],
+   love:['單身牡羊請大膽邁出第一步，那個讓您心跳加速的人，此刻正等著您開口。','今日感情運旺盛，有話說就說，愛情在勇敢中開花結果。','有伴侶者今晚準備一個小驚喜，讓對方感受到被珍視的幸福。'],
+   money:['財運穩中有升，有一筆意想不到的小進帳可能在今日悄悄出現。','建議先把「想買」的東西放入購物車冷靜24小時再決定。','今日適合投資自我成長的課程或設備，這是最值得的消費。'],
+   health:['今日精力充沛，建議安排至少30分鐘的有氧運動充分燃燒。','注意頭部和眼睛，避免用眼過度，定時起身走動。','今日睡前做5分鐘伸展，幫助身體釋放一天的緊繃。']},
+  {sym:'♉',name:'金牛',date:'4/20–5/20',el:'土象',ruler:'金星',gem:'翡翠',
+   texts:['💰 金星今日親吻您的錢包，財氣四溢！您一向腳踏實地，今日宇宙要您相信自己的判斷。','🌿 金牛的穩定能量今日特別迷人，您散發的安全感讓身邊的人不由自主地靠近。','🍀 今日是收穫的日子，那些您長期默默耕耘的努力，正在悄悄開花結果。'],
+   career:['適合洽談合約、爭取加薪或展現長期規劃能力，沉穩魅力讓人折服。','積壓已久的工作今日處理會出奇順利，穩紮穩打是最佳策略。','今日散發讓合作對象信任的專業感，善用這份魅力。'],
+   love:['今日特別懂得用行動表達愛意，一頓親手下廚的料理讓對方心融化。','那個在您身邊默默付出的人，或許值得今日再多看一眼。','感情穩定甜蜜，適合陪伴另一半做日常小事感受平凡的幸福。'],
+   money:['財神眷顧，今日可能出現久違的財運，例如意外收入或朋友還款。','適合整理財務、評估定存或基金配置，打下穩固基礎。','情緒高漲時，避免做出衝動的大額決定。'],
+   health:['喉嚨和頸部是今日重點，多補充維生素C，注意保暖。','今日適合慢跑或瑜伽等舒緩運動，讓身體在穩定節奏中充電。','享受美食是金牛天性，今日注意分量控制，細嚼慢嚥。']},
+  {sym:'♊',name:'雙子',date:'5/21–6/21',el:'風象',ruler:'水星',gem:'瑪瑙',
+   texts:['💬 水星今日讓您的嘴巴和大腦都開了掛！思路敏銳，言辭犀利又有溫度，今日是您大放異彩的舞台。','🌀 雙子的靈活今日達到頂峰，多線程思考讓您在各種場合都遊刃有餘。','✨ 今日您的表達力如有神助，那些平時說不清楚的想法，今天都能清晰動人地傳達出去。'],
+   career:['今日適合重要簡報、客戶提案或跨部門溝通，說服力無懈可擊。','多元任務同時處理是今日強項，展現雙子特有的靈活應變。','注意別說得太起勁而忘了給對方回應的空間，傾聽也是今日功課。'],
+   love:['今日話語能打動人心，但也容易無意間說出傷人的話，多思考再開口。','感情中多用「我感覺…」表達，少說「你總是…」。','單身雙子，一場聰明有趣的對話就是最好的追求方式。'],
+   money:['財運中等偏穩，不適合大額投資，但很適合研究財務知識。','今日資訊搜集能力特別強，利用這個優勢為未來財務決策做準備。','比較不同方案是今日財務決策的好方法，細節決定成敗。'],
+   health:['雙子掌管手臂和肺部，注意呼吸品質，避免悶熱環境。','大腦高速運轉，記得讓眼睛休息，每小時遠眺幾分鐘。','睡前做幾分鐘冥想，幫助大腦從高速模式切換到休眠。']},
+  {sym:'♋',name:'巨蟹',date:'6/22–7/22',el:'水象',ruler:'月亮',gem:'珍珠',
+   texts:['🌙 月亮今日高掛您的命宮，直覺、情感與第六感達到神乎其神的境界。這份敏感是禮物。','🌊 巨蟹的溫柔力量今日特別動人，您能讓身邊的人感到被理解、被珍愛。','💫 今日您的內心如平靜的深湖，表面看似平靜，內裡卻有著無比豐富的情感世界。'],
+   career:['今日直覺就是最精準的職場雷達，適合處理需要洞察人心的任務。','重要決策前先聽聽內心的聲音，它今日比任何數據都準確。','今日適合調解職場衝突或擔任橋樑，同理心讓團隊更凝聚。'],
+   love:['愛情能量今日滿格，適合深度交流、分享彼此的小秘密。','有伴侶者今日可能感受到前所未有的親密感，享受這份深刻連結。','單身者，今日的桃花就藏在您最熟悉的地方，留意身邊的人。'],
+   money:['財運平穩，今日對金錢有難得清晰的直覺，相信內心第一感覺。','適合回顧近一個月的支出，您可能發現可以優化的地方。','為家人或自己設立小小的儲蓄目標，為未來的安全感投資。'],
+   health:['巨蟹掌管胸部和消化系統，注意飲食，避免情緒性進食。','今日情緒波動可能較大，記得深呼吸，讓感受自然流動。','泡溫水澡或聆聽舒緩音樂，讓今晚的休息品質更好。']},
+  {sym:'♌',name:'獅子',date:'7/23–8/22',el:'火象',ruler:'太陽',gem:'黃玉',
+   texts:['☀️ 太陽今日以最耀眼的姿態為您加持！整個宇宙都在替您鼓掌，機會就在眼前！','👑 獅子的王者氣場今日全力展現，走進任何房間，您自然成為焦點。','🌟 今日您的自信與魅力達到巔峰，那些曾讓您猶豫的機會，今天請大方伸手去抓。'],
+   career:['今日是職涯發展黃金時刻，適合主動爭取機會或展示個人成果。','主管欣賞您、同事信服您，是爭取升遷或建立個人品牌的絕佳時機。','展現自我的同時也給團隊掌聲，共好才能走得長遠。'],
+   love:['今日魅力「自帶濾鏡」，走到哪裡都有人悄悄注視您。','單身獅子，大方展現自信就是最強戀愛攻略，做自己就夠了。','有伴侶者，今日適合安排有排場的約會，讓對方感受到您的深情。'],
+   money:['財運強勁，可能有意外收入或投資獲利進帳。','今日決策眼光準確，可評估中長期財務計畫。','別被眼前榮景沖昏頭，謹慎分析後再出手，財富才能穩健增長。'],
+   health:['獅子掌管心臟，注意不要讓自己過度緊張或興奮。','今日適合高強度運動，讓身體配合旺盛的能量一起燃燒。','光芒四射之餘，記得讓身體充分休息，明天才能繼續閃耀。']},
+  {sym:'♍',name:'處女',date:'8/23–9/22',el:'土象',ruler:'水星',gem:'藍寶石',
+   texts:['🔍 水星賜您一雙「透視眼」，任何問題的細節都逃不過您的法眼！把完美主義用在對的地方。','📊 處女的精準今日大放異彩，別人看到的是表面，您看到的是深層的結構與邏輯。','🌿 今日您的分析力達到高峰，那個困擾您很久的問題，今天看它絕對能找到解法。'],
+   career:['今日分析力與執行力同時在線，把說了很久的計畫今日完美收尾！','同事會因您的細心而感謝，主管也會注意到那些別人忽略的細節。','今日適合接手需要精確度的任務，您的嚴謹今天會換來眾人信賴。'],
+   love:['今日把「你應該這樣做」改成「我很在意你，所以想跟你說…」，讓關係暖化一整年。','接受伴侶的不完美，愛情就在包容與體諒中更加深厚。','單身處女，今日可能遇到讓您佩服的博學型人物，值得深交。'],
+   money:['財運良好，今日最適合健康投資——購買保險或預約健康檢查。','適合精算個人財務，找出可以節省或優化的項目。','投資方面以穩健型為主，細心分析是最好的財務防護網。'],
+   health:['處女掌管消化系統，今日注重飲食品質，細嚼慢嚥。','今日是開始新健康計畫的好時機，制定詳細的作息計畫。','今日適合走進大自然，讓綠意幫助神經系統深度放鬆。']},
+  {sym:'♎',name:'天秤',date:'9/23–10/23',el:'風象',ruler:'金星',gem:'蛋白石',
+   texts:['🌹 金星今日親臨天秤，讓您散發出一種讓人無法抗拒的柔美魅力！您的出現讓空氣變得更美好。','⚖️ 天秤的平衡之美今日特別動人，您在混亂中帶來和諧，在爭執中搭建理解的橋樑。','✨ 今日您的審美力與品味達到頂峰，無論穿著還是言談，都散發令人心曠神怡的氣質。'],
+   career:['今日協調力特別發光，是化解職場衝突、建立合作橋樑的最佳人選。','有需要談判或溝通的場合，讓您來，一定事半功倍。','別因為太想讓所有人滿意而委屈了自己，您的感受同樣重要。'],
+   love:['今日愛情運爆表，是今年最強桃花日之一！隨時都可能上演浪漫邂逅。','有伴侶者，那句藏在心裡很久的「我愛你」，今日說出口，對方正在等著聽。','您的體貼和細膩今日讓伴侶深深感受到被珍愛。'],
+   money:['財運普通，今日審美力強，容易對美好事物動心消費。','採用「等待三天法則」，三天後還想買才是真正值得的投資。','設定今日消費上限，記得設定預算後再逛街。'],
+   health:['天秤掌管腎臟和腰部，多喝水，避免久坐。','今日特別適合優雅的運動，如芭蕾基礎動作或皮拉提斯。','充足睡眠是今日最好的美容保養，補足睡眠讓美麗由內而外。']},
+  {sym:'♏',name:'天蠍',date:'10/24–11/21',el:'水象',ruler:'冥王星',gem:'黑曜石',
+   texts:['🌑 冥王星今日賦予您洞穿人心的神秘力量，所有人的真實意圖都清晰可見。相信您的直覺！','🔮 天蠍的深度今日令人折服，您能看見別人看不見的層面，這份洞察力是最強超能力。','💫 今日您的磁性氣場特別強烈，不需多說，光是存在就讓人想深入了解您。'],
+   career:['今日洞察力與判斷力同時爆發，適合處理需要深度分析的任務。','那個讓您覺得「哪裡不對」的提案，今日請認真重新審視，直覺在保護您。','今日適合策略規劃，您看問題的深度和廣度是難以比擬的優勢。'],
+   love:['愛一個人不代表要控制一個人，放鬆握得太緊的手，讓感情自由呼吸。','今日可能遇到讓您一眼就想深入了解的神秘靈魂。','深度的心靈交流比任何禮物都更能讓感情昇華。'],
+   money:['財運亨通，直覺帶領您做出正確財務決策，意外之財可能悄悄到來。','適合評估長期投資、理財保單或被動收入的可能性。','今日特別適合處理複雜的財務事宜，分析力今天特別在線。'],
+   health:['天蠍掌管生殖系統，今日注意作息規律，避免熬夜。','深度睡眠是今日最好的療癒，盡量在11點前入睡。','今日適合游泳或重量訓練，讓身體和心靈同步深潛。']},
+  {sym:'♐',name:'射手',date:'11/22–12/21',el:'火象',ruler:'木星',gem:'黃水晶',
+   texts:['🏹 木星張開雙臂歡迎您！別再問「萬一失敗怎麼辦」，問問自己：「如果成功了，我的人生會多精彩？」','🌏 射手的眼界今日如天際線一樣廣闊，您看到的可能性，比房間裡其他人加起來還要多。','✨ 今日您的樂觀能量是最強感染力，靠近您的人都不知不覺被點亮了。'],
+   career:['廣闊的視野和滿滿的樂觀是今日最強職場武器，適合提出大膽的長期規劃。','有一個讓您躍躍欲試的機會正在靠近，抓住它，可能改變職涯軌跡。','今日適合開拓新客戶群或探索跨領域合作，冒險精神是最好的業務工具。'],
+   love:['試著慢下來，問問另一半最近的心情，讓他/她知道您的世界裡永遠有位置給他/她。','單身射手，開放自己，緣分就在下一個轉角等您。','感情上的熱情今日特別旺盛，把這份能量化為浪漫的行動。'],
+   money:['財運不錯，樂觀的能量吸引好運靠近。','射手天性大方，今日注意一時豪氣而破費，設定消費上限。','適合規劃旅遊或教育方面的支出，這些投資長遠有豐厚回報。'],
+   health:['射手掌管臀部和大腿，今日適合爬山或長距離步行。','今日精力旺盛，適合戶外運動，讓身心在大自然中舒展。','注意不要運動過度，給身體足夠的恢復時間。']},
+  {sym:'♑',name:'摩羯',date:'12/22–1/19',el:'土象',ruler:'土星',gem:'石榴石',
+   texts:['🏔 土星今日為您的努力頒獎！那些別人熬不過的黑暗，您一步一腳印走過，正在化為豐厚回報。','⏳ 摩羯的堅韌今日閃閃發光，時間是您最好的盟友，今天正是成果顯現的時刻。','💎 您用時間和努力打磨出的品質，今日讓所有人看見了它的珍貴。'],
+   career:['今日的您是職場上最值得信賴的人，主管放心把重要任務交給您。','升遷的訊號可能比您想像中來得更快，今日適合做出重要表態。','有機會做出重要決定時，勇敢說出您的想法，您已經準備好了。'],
+   love:['感情中習慣用「行動」而非「語言」表達愛，但伴侶有時需要的是被「聽見」。','今日試著說出一句「最近辛苦你了」，就能讓關係升溫好幾度。','您的穩重和可靠是感情中最讓人安心的力量。'],
+   money:['今日財運達到近期高峰！長期精心規劃的投資可能出現振奮的成果。','適合與理財顧問討論、調整資產配置或評估下一步財務目標。','您的錢在您手中永遠最安全，繼續保持嚴謹的理財態度。'],
+   health:['摩羯掌管骨骼和膝蓋，今日注意避免過度負重，適當補鈣。','今日適合重量訓練或慢跑，強化您的體魄。','工作努力之餘，給自己充足的夜晚休息，是對自己的最好投資。']},
+  {sym:'♒',name:'水瓶',date:'1/20–2/18',el:'風象',ruler:'天王星',gem:'紫水晶',
+   texts:['⚡ 天王星為您的大腦接上宇宙級的高速網路！您的思維超前了這個時代，今日的靈感是給未來的禮物。','🔭 水瓶的遠見今日特別清晰，當別人還在看眼前，您已看到五年後的可能。','🌐 今日您的獨特性正是最大優勢，不要試著和別人一樣，做自己就是您最強的品牌。'],
+   career:['今日創新力與前瞻性讓周圍人驚艷，適合提出革新方案或引進新概念。','那個「感覺有點瘋狂」的想法，今日就說出來，瘋狂往往是改變的起點。','適合組建理想團隊或建立新系統，您的視野能帶領大家看見更好的可能。'],
+   love:['今日試著放下那道「保持距離的防護罩」，讓對方看見渴望被愛的您。','單身水瓶，今日可能在網路社群或興趣課程中，遇到頻率相同的靈魂。','給彼此呼吸的空間，反而能讓愛情更加健康持久。'],
+   money:['財運平穩，今日適合研究科技股、新創投資或數位資產等新興領域。','您超前的眼光有機會讓您提早布局，以可承受的風險範圍為前提。','不要把所有雞蛋放在同一個籃子裡，多元分散才是水瓶的理財哲學。'],
+   health:['水瓶掌管腳踝和循環系統，今日注意保暖，避免久坐。','今日適合嘗試新型態運動，如攀岩或桌球，讓身體和大腦同時動起來。','大腦高速運轉，記得給自己一些「數位排毒」的時間。']},
+  {sym:'♓',name:'雙魚',date:'2/19–3/20',el:'水象',ruler:'海王星',gem:'海藍寶',
+   texts:['🌊 海王星為您打開通往內心宇宙的大門，靈感像潮水湧來！把這份感受記錄下來，它有可能改變世界。','🎨 雙魚的藝術感今日達到巔峰，您對美的感知、對情感的詮釋，是任何人都無法複製的天賦。','✨ 今日您的溫柔和直覺是最強超能力，讓它帶您找到最需要您的人和最值得的事。'],
+   career:['藝術、療癒、教育或任何需要「感同身受」的工作今日特別順心。','您讓客戶和同事感到被理解的特殊能力，今日善用這份軟實力。','注意別讓白日夢佔據太多工作時間，把靈感落地為實際行動。'],
+   love:['今日愛情磁場強大迷人，那份純粹的溫柔讓人久久難以忘懷。','有伴侶者，今日適合燭光晚餐或深夜長談，讓感情再往深處走。','單身雙魚，那個一直在旁邊默默關心您的人，也許正是命中注定。'],
+   money:['財運中等，善心可能讓您不自覺地為他人買單，記得愛自己也是責任。','先確保自己的財務狀況穩健，再去幫助他人，才能長久付出。','小小的被動收入機會可能在今日出現，留心那些看似微不足道的機遇。'],
+   health:['雙魚掌管腳部和免疫系統，今日注意保持雙腳溫暖。','今日適合游泳或水中有氧，水元素讓身心同時得到療癒。','睡前冥想五分鐘，觀想白色光芒包圍身體，設定美好睡眠意圖。']},
 ];
 
-// ── DAILY SECTION ─────────────────────────────────────
-function renderDailyZodiac() {
-  const sel = document.getElementById('dailyZodiacSel');
-  sel.innerHTML = zodiacs.map((z,i) => `
-    <div class="dz-item" onclick="showDailyFortune(${i})" id="dz-${i}">
-      <span class="dz-sym">${z.sym}</span>${z.name}
-    </div>`).join('');
+function getZ(i){
+  const base=ZDATA[i],ti=SEED%3;
+  return{...base,
+    text:base.texts[ti],
+    career_detail:base.career[ti],
+    love_detail:base.love[ti],
+    money_detail:base.money[ti],
+    health_detail:base.health[ti],
+    love:si(SEED+i,0,65,98),
+    money:si(SEED+i,1,62,97),
+    health:si(SEED+i,2,63,96),
+    career:si(SEED+i,3,64,97),
+    lucky:sp(SEED+i,4,['紅色','橙色','黃色','翡翠綠','藍色','深紫色','金色','銀色','玫瑰粉','寶石藍'])+'・'+
+          ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'][DOW]+'・幸運數字 '+
+          si(SEED+i,5,1,12)
+  };
 }
 
-function showDailyFortune(i) {
-  document.querySelectorAll('.dz-item').forEach(el => el.classList.remove('active'));
-  document.getElementById(`dz-${i}`).classList.add('active');
-  const z = zodiacs[i];
-  const grid = document.getElementById('dailyGrid');
-  grid.style.display = 'grid';
-
-  const isLoggedIn = !!currentUser;
-
-  grid.innerHTML = `
-    <div class="daily-card">
-      <div class="daily-card-head"><span class="daily-card-icon">⭐</span><span class="daily-card-title">綜合運勢指數</span></div>
-      <div class="daily-card-body">
-        ${[['愛情',z.love],['事業',z.career],['財運',z.money],['健康',z.health]].map(([label,val])=>`
-        <div class="daily-score-row">
-          <span class="daily-score-label">${label}</span>
-          <div class="daily-score-track"><div class="daily-score-fill" style="width:${val}%"></div></div>
-          <span class="daily-score-num">${val}</span>
-        </div>`).join('')}
-        <div class="daily-text">✦ ${z.text}</div>
-        <div class="daily-lucky">${z.lucky.split('・').map(t=>`<span class="lucky-tag">${t}</span>`).join('')}</div>
-      </div>
-    </div>
-    <div class="daily-card">
-      <div class="daily-card-head"><span class="daily-card-icon">💼</span><span class="daily-card-title">事業運勢詳解</span></div>
-      <div class="daily-card-body ${isLoggedIn?'':'member-only-blur'}" style="position:relative">
-        <div class="daily-text">${z.career_detail}</div>
-        ${!isLoggedIn?`<div class="member-only-badge"><p>會員專屬深度解析</p><button class="unlock-btn" onclick="openModal('authModal','register')">免費加入解鎖</button></div>`:''}
-      </div>
-    </div>
-    <div class="daily-card">
-      <div class="daily-card-head"><span class="daily-card-icon">💕</span><span class="daily-card-title">愛情運勢詳解</span></div>
-      <div class="daily-card-body ${isLoggedIn?'':'member-only-blur'}" style="position:relative">
-        <div class="daily-text">${z.love_detail}</div>
-        ${!isLoggedIn?`<div class="member-only-badge"><p>會員專屬深度解析</p><button class="unlock-btn" onclick="openModal('authModal','register')">免費加入解鎖</button></div>`:''}
-      </div>
-    </div>
-    <div class="daily-card">
-      <div class="daily-card-head"><span class="daily-card-icon">💰</span><span class="daily-card-title">財運詳解</span></div>
-      <div class="daily-card-body ${isLoggedIn?'':'member-only-blur'}" style="position:relative">
-        <div class="daily-text">${z.money_detail}</div>
-        ${!isLoggedIn?`<div class="member-only-badge"><p>會員專屬深度解析</p><button class="unlock-btn" onclick="openModal('authModal','register')">免費加入解鎖</button></div>`:''}
-      </div>
-    </div>
+// ══════════════════════════════════════════════
+// ✦ 每日運勢渲染
+// ══════════════════════════════════════════════
+function renderDzSel(){
+  const el=document.getElementById('dzsel');
+  if(!el)return;
+  el.innerHTML=ZDATA.map((z,i)=>`<div class="dz" onclick="showDF(${i})" id="dz-${i}"><span class="dz-s">${z.sym}</span>${z.name}</div>`).join('');
+}
+function showDF(i){
+  document.querySelectorAll('.dz').forEach(e=>e.classList.remove('on'));
+  const dzel=document.getElementById(`dz-${i}`);
+  if(dzel)dzel.classList.add('on');
+  const z=getZ(i),grid=document.getElementById('dgrid'),logged=!!CU;
+  grid.style.display='grid';
+  grid.innerHTML=`
+    <div class="dcard"><div class="dch"><span class="dci">⭐</span><span class="dct">綜合運勢指數</span></div><div class="dcb">
+      ${[['愛情',z.love],['事業',z.career],['財運',z.money],['健康',z.health]].map(([l,v])=>`
+      <div class="dsr"><span class="dsl">${l}</span><div class="dst"><div class="dsf" style="width:0" data-w="${v}%"></div></div><span class="dsn">${v}</span></div>`).join('')}
+      <div class="dtxt">✦ ${z.text}</div>
+      <div class="dlucky">${z.lucky.split('・').map(t=>`<span class="ltag">${t}</span>`).join('')}</div>
+    </div></div>
+    <div class="dcard"><div class="dch"><span class="dci">💼</span><span class="dct">事業運勢詳解</span></div>
+      <div class="dcb ${logged?'':'mblur'}" style="position:relative"><div class="dtxt">${z.career_detail}</div>
+      ${!logged?`<div class="mbadge"><p>會員專屬深度解析</p><button class="mbtn" onclick="openModal('authModal','register')">免費加入解鎖</button></div>`:''}</div></div>
+    <div class="dcard"><div class="dch"><span class="dci">💕</span><span class="dct">愛情運勢詳解</span></div>
+      <div class="dcb ${logged?'':'mblur'}" style="position:relative"><div class="dtxt">${z.love_detail}</div>
+      ${!logged?`<div class="mbadge"><p>會員專屬深度解析</p><button class="mbtn" onclick="openModal('authModal','register')">免費加入解鎖</button></div>`:''}</div></div>
+    <div class="dcard"><div class="dch"><span class="dci">💰</span><span class="dct">財運詳解</span></div>
+      <div class="dcb ${logged?'':'mblur'}" style="position:relative"><div class="dtxt">${z.money_detail}</div>
+      ${!logged?`<div class="mbadge"><p>會員專屬深度解析</p><button class="mbtn" onclick="openModal('authModal','register')">免費加入解鎖</button></div>`:''}</div></div>
+    ${logged?`<div class="dcard"><div class="dch"><span class="dci">🌿</span><span class="dct">健康養生建議</span></div><div class="dcb"><div class="dtxt">${z.health_detail}</div>
+      <div class="htips"><div class="htip">守護部位：${z.el==='火象'?'頭部・心臟':z.el==='土象'?'消化系統・骨骼':z.el==='風象'?'神經系統・呼吸':'淋巴・免疫系統'}</div>
+      <div class="htip">適合運動：${sp(SEED+i,20,['瑜伽','慢跑','游泳','重訓','散步','跳舞','騎腳踏車','爬山'])}</div>
+      <div class="htip">今日補充：${sp(SEED+i,21,['維生素C','維生素D','Omega-3','鈣質','鐵質','鎂','鋅','B群'])}</div></div></div></div>`:''}
   `;
-  // animate bars
-  setTimeout(() => {
-    grid.querySelectorAll('.daily-score-fill').forEach(el => { const w = el.style.width; el.style.width = '0'; setTimeout(()=>el.style.width=w, 50); });
-  }, 50);
-}
-renderDailyZodiac();
-
-// ── ZODIAC SECTION ─────────────────────────────────────
-function renderZodiacGrid() {
-  document.getElementById('zodiacGrid').innerHTML = zodiacs.map((z,i) =>
-    `<div class="zodiac-item" onclick="showZodiac(${i})" id="zi-${i}">
-      <span class="zodiac-symbol">${z.sym}</span>
-      <span class="zodiac-name">${z.name}座</span>
-    </div>`).join('');
+  setTimeout(()=>{grid.querySelectorAll('[data-w]').forEach(e=>{setTimeout(()=>e.style.width=e.dataset.w,80);});},60);
 }
 
-function showZodiac(i) {
-  document.querySelectorAll('.zodiac-item').forEach(el => el.classList.remove('active'));
-  document.getElementById(`zi-${i}`).classList.add('active');
-  const z = zodiacs[i];
-  const result = document.getElementById('zodiacResult');
-  result.className = 'zodiac-result show';
-  result.innerHTML = `
-    <div class="zr-head">
-      <span class="zr-icon">${z.sym}</span>
-      <div><p class="zr-title">${z.name}座</p><p class="zr-date">${z.date}</p></div>
-    </div>
-    <div class="fortune-bars">
+// ══════════════════════════════════════════════
+// ✦ 星座區（含本週預測）
+// ══════════════════════════════════════════════
+function renderZGrid(){
+  const el=document.getElementById('zgrid');
+  if(!el)return;
+  el.innerHTML=ZDATA.map((z,i)=>`<div class="zi" onclick="showZ(${i})" id="zi-${i}"><span class="zi-s">${z.sym}</span><span class="zi-n">${z.name}座</span></div>`).join('');
+}
+function showZ(i){
+  document.querySelectorAll('.zi').forEach(e=>e.classList.remove('on'));
+  const zel=document.getElementById(`zi-${i}`);if(zel)zel.classList.add('on');
+  const z=getZ(i),el=document.getElementById('zr');
+  el.className='zr on';
+  const wk=Array.from({length:7},(_,d)=>({score:si((SEED-DOW+d)+i,6,58,99),sym:['🌑','🌒','🌓','🌔','🌕','🌖','🌗'][d%7]}));
+  el.innerHTML=`
+    <div class="zrh"><span class="zri">${z.sym}</span><div><p class="zrt">${z.name}座</p><p class="zrd">${z.date} · ${z.el} · 守護星：${z.ruler} · 幸運石：${z.gem}</p></div></div>
+    <div class="fb2">
       ${[['愛情',z.love],['財運',z.money],['健康',z.health],['事業',z.career]].map(([l,v])=>`
-      <div class="fortune-row">
-        <span class="fortune-label">${l}</span>
-        <div class="fortune-track"><div class="fortune-fill" style="width:${v}%"></div></div>
-        <span class="fortune-score">${v}</span>
-      </div>`).join('')}
+      <div class="fr2"><span class="fl2">${l}</span><div class="ft2"><div class="ff2" style="width:0" data-w="${v}%"></div></div><span class="fs2">${v}</span></div>`).join('')}
     </div>
-    <p class="fortune-text">「${z.text}」</p>
-  `;
+    <p class="ftxt">「${z.text}」</p>
+    <div class="wf"><div class="wf-t">✦ 本週每日運勢指數</div>
+      <div class="wdays">${wk.map((d,idx)=>`<div class="wday ${idx===DOW?'td':''}"><div class="wdn">${['日','一','二','三','四','五','六'][idx]}</div><span class="wds">${d.sym}</span><div class="wdv">${d.score}</div></div>`).join('')}</div>
+    </div>`;
+  setTimeout(()=>el.querySelectorAll('[data-w]').forEach(e=>setTimeout(()=>e.style.width=e.dataset.w,80)),60);
 }
-renderZodiacGrid();
 
-// ── TAROT ──────────────────────────────────────────────
-const tarotCards = [
-  { icon:'🌟', name:'愚者', num:'0 · THE FOOL', keywords:['新開始','冒險','天真','自由'],
-    meaning:'愚者象徵著新旅程的起點，帶著純真與勇氣踏入未知。今日宇宙邀請您放下恐懼，以開放的心迎接生命中的新體驗。相信自己的直覺，勇敢邁出第一步，即便前方道路不明，也要相信宇宙的指引。' },
-  { icon:'🔮', name:'魔法師', num:'I · THE MAGICIAN', keywords:['意志力','創造','掌控','技巧'],
-    meaning:'魔法師代表將願望化為現實的能力。您擁有成功所需的一切工具，現在是運用意志力付諸行動的時刻。集中專注力，相信自己的技能，任何目標都可以透過努力與智慧達成。' },
-  { icon:'🌙', name:'女祭司', num:'II · HIGH PRIESTESS', keywords:['直覺','神秘','內省','潛意識'],
-    meaning:'女祭司邀請您向內探索，傾聽潛意識的低語。今日不宜貿然行動，而是靜心冥想，讓直覺為您引路。隱藏的真相即將浮現，保持耐心與開放的心態。' },
-  { icon:'🌺', name:'女皇', num:'III · THE EMPRESS', keywords:['豐盛','創造力','母性','自然'],
-    meaning:'女皇帶來豐盛與創造的能量，今日萬物蓬勃生長。感情上充滿溫暖與滋養，事業上創意豐沛。好好照顧自己與所愛之人，享受生命的美好與豐盛。' },
-  { icon:'⚡', name:'力量', num:'VIII · STRENGTH', keywords:['勇氣','耐心','內在力量','仁慈'],
-    meaning:'力量牌提醒您，真正的強大來自內心的平靜與仁慈，而非蠻力。面對今日的挑戰，以溫柔而堅定的方式應對，您的耐心與愛心是最有力的武器。' },
-  { icon:'☀️', name:'太陽', num:'XIX · THE SUN', keywords:['喜悅','成功','活力','正能量'],
-    meaning:'太陽帶來光明與喜悅，今日萬事如意，充滿正能量。您的努力得到認可，快樂與成功如影隨形。分享您的光與熱，感染周圍的人，共同創造美好的一天。' },
-  { icon:'🌊', name:'月亮', num:'XVIII · THE MOON', keywords:['幻象','直覺','潛意識','迷霧'],
-    meaning:'月亮牌揭示了隱藏於表面之下的真實。今日可能面臨迷惑或不確定感，不要輕易相信表象。深入探索自己的情感與直覺，真相在迷霧中等待被發現。' },
-  { icon:'⭐', name:'星星', num:'XVII · THE STAR', keywords:['希望','靈感','更新','信念'],
-    meaning:'星星是希望與更新的象徵，在最黑暗的時刻仍有光芒指引。今日無論身處何種困境，請相信美好的未來正在等待您。保持信念，讓希望成為前行的動力。' },
-  { icon:'⚖️', name:'正義', num:'XI · JUSTICE', keywords:['公平','真相','因果','平衡'],
-    meaning:'正義牌提醒您，每個行動都有其因果。今日面對決定時，依照內心的真理與公平原則行事。過去的善因將在此時開花結果，誠實面對自己與他人。' },
-  { icon:'🔔', name:'命運之輪', num:'X · WHEEL OF FORTUNE', keywords:['轉機','命運','循環','機遇'],
-    meaning:'命運之輪轉動，帶來變化與轉機。今日是命運的轉折點，把握此刻的機遇，勇於迎接新的可能性。記住，所有的起落都是生命循環的一部分，保持平靜迎接改變。' },
+// ══════════════════════════════════════════════
+// ✦ 塔羅（含三牌陣）
+// ══════════════════════════════════════════════
+const TAROTD=[
+  {icon:'🌟',name:'愚者',num:'0·FOOL',kw:['新開始','冒險','天真','自由'],
+   mean:'愚者象徵新旅程的起點，帶著純真與勇氣踏入未知。今日宇宙邀請您放下恐懼，以開放的心迎接新體驗，相信自己的直覺，勇敢邁出第一步。',
+   past:'過去有一個勇敢的起點，那份天真無畏帶您來到今日。',present:'此刻站在人生十字路口，選擇相信自己，踏出那一步。',future:'新的旅程即將展開，保持開放的心，最美的際遇在前方等候。'},
+  {icon:'🔮',name:'魔法師',num:'I·MAGICIAN',kw:['意志力','創造','掌控','技巧'],
+   mean:'魔法師代表將願望化為現實的能力。您擁有成功所需的一切工具，現在是運用意志力付諸行動的時刻。',
+   past:'您曾展現非凡的能力，那份掌控感就是您最好的資產。',present:'您已有所有工具，缺的只是開始行動的那個決定。',future:'您的意志力將轉化為可見的成果，目標終將實現。'},
+  {icon:'🌙',name:'女祭司',num:'II·PRIESTESS',kw:['直覺','神秘','內省','潛意識'],
+   mean:'女祭司邀請您向內探索，傾聽潛意識的低語。今日不宜貿然行動，而是靜心冥想，讓直覺為您引路。',
+   past:'過去某個時刻，您的直覺曾正確地引導了您。',present:'最好的答案不在外界，而在您的內心深處。',future:'隱藏的真相即將浮現，耐心等待，答案會自己到來。'},
+  {icon:'🌺',name:'女皇',num:'III·EMPRESS',kw:['豐盛','創造力','母性','自然'],
+   mean:'女皇帶來豐盛與創造的能量，今日萬物蓬勃生長。感情充滿溫暖，事業創意豐沛，好好照顧自己與所愛之人。',
+   past:'曾感受過真正的豐盛，那份富足是您本來就有的。',present:'您正處於創造力爆發的時期，讓它自然流動。',future:'豐盛的能量正在向您靠近，接受它，享受它。'},
+  {icon:'👑',name:'皇帝',num:'IV·EMPEROR',kw:['權威','結構','穩定','領導'],
+   mean:'皇帝代表紀律、權威與穩固的基礎。今日以理性和結構應對挑戰，建立清晰的邊界。',
+   past:'您曾建立過穩固的基礎，那份秩序感是力量來源。',present:'此刻需要更多紀律和計畫，結構是您的盟友。',future:'您的努力將建立長久的成果，一磚一瓦都是基石。'},
+  {icon:'⚡',name:'力量',num:'VIII·STRENGTH',kw:['勇氣','耐心','內在力量','仁慈'],
+   mean:'力量牌提醒您，真正的強大來自內心的平靜與仁慈。以溫柔而堅定的方式應對挑戰。',
+   past:'您曾在困難時刻展現溫柔的力量，那才是真正的強大。',present:'此刻的挑戰需要的不是蠻力，而是耐心和愛心。',future:'您的內在力量將幫助您克服一切，柔軟而堅韌。'},
+  {icon:'☀️',name:'太陽',num:'XIX·SUN',kw:['喜悅','成功','活力','正能量'],
+   mean:'太陽帶來光明與喜悅，今日萬事如意，充滿正能量。您的努力得到認可，快樂與成功如影隨形。',
+   past:'曾有一段輝煌快樂的時光，那種光芒是您本來就有的。',present:'此刻正是人生的光明時期，盡情享受這份喜悅。',future:'美好的事物正在向您移動，陽光般燦爛的結果即將到來。'},
+  {icon:'🌊',name:'月亮',num:'XVIII·MOON',kw:['幻象','直覺','潛意識','迷霧'],
+   mean:'月亮牌揭示隱藏於表面之下的真實。今日可能面臨迷惑，不要輕易相信表象，深入探索才能找到真相。',
+   past:'過去的某些事情並非您所認識的那樣，真相比表面複雜。',present:'此刻的迷惑是暫時的，繼續深入探索，答案在迷霧中等待。',future:'迷霧將散去，真相大白之時，一切都將清晰。'},
+  {icon:'⭐',name:'星星',num:'XVII·STAR',kw:['希望','靈感','更新','信念'],
+   mean:'星星是希望與更新的象徵，在最黑暗的時刻仍有光芒指引。相信美好的未來正在等待您。',
+   past:'在最艱難的時刻，是信念和希望讓您撐了過去。',present:'此刻需要重新燃起對未來的希望，一切都還來得及。',future:'希望成真的時刻正在靠近，繼續相信，星光會帶您到達。'},
+  {icon:'⚖️',name:'正義',num:'XI·JUSTICE',kw:['公平','真相','因果','平衡'],
+   mean:'正義牌提醒每個行動都有因果。依照內心的真理與公平原則行事，過去的善因將開花結果。',
+   past:'您過去的選擇和行動今日正在帶來應有的回應。',present:'面對需要公平裁量的事情，誠實是最好的策略。',future:'公正的結果即將到來，您的善行終將得到回報。'},
+  {icon:'🔔',name:'命運之輪',num:'X·FORTUNE',kw:['轉機','命運','循環','機遇'],
+   mean:'命運之輪帶來變化與轉機，今日是命運的轉折點，把握機遇，勇於迎接新的可能性。',
+   past:'生命的輪子一直在轉動，過去的低谷已成就了今日的您。',present:'此刻輪子正在轉動，是順勢而為的最好時機。',future:'命運的轉機即將到來，準備好迎接這個重要的轉捩點。'},
 ];
 
-let tarotDrawn = false;
-function drawTarot() {
-  const card = document.getElementById('tarotCard');
-  const rc = tarotCards[Math.floor(Math.random() * tarotCards.length)];
-  if (tarotDrawn) {
-    card.classList.remove('flipped');
-    setTimeout(() => { setTarotCard(rc); card.classList.add('flipped'); }, 400);
-  } else {
-    setTarotCard(rc); card.classList.add('flipped'); tarotDrawn = true;
+let tDrawn=false;
+function drawTarot(){
+  const card=document.getElementById('tcard');
+  const rc=TAROTD[si(SEED,30,0,TAROTD.length-1)];
+  if(tDrawn){card.classList.remove('flip');setTimeout(()=>{setTC(rc);card.classList.add('flip');},450);}
+  else{setTC(rc);card.classList.add('flip');tDrawn=true;}
+  setTimeout(()=>{
+    const ph=document.getElementById('tph');if(ph)ph.style.display='none';
+    const m=document.getElementById('tmean');if(m){m.textContent=rc.mean;m.className='tmean on';}
+    const k=document.getElementById('tkws');if(k){k.innerHTML=rc.kw.map(w=>`<span class="kw">${w}</span>`).join('');k.className='tkws on';}
+    const s=document.getElementById('tspread');if(s)s.className='tspread';
+  },950);
+}
+function setTC(c){
+  const set=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v;};
+  set('tfi',c.icon);set('tfn',c.name);set('tfu',c.num);
+}
+function draw3(){
+  const ph=document.getElementById('tph');if(ph)ph.style.display='none';
+  const m=document.getElementById('tmean');if(m)m.className='tmean';
+  const k=document.getElementById('tkws');if(k)k.className='tkws';
+  const cards=[TAROTD[si(SEED,31,0,TAROTD.length-1)],TAROTD[si(SEED,32,0,TAROTD.length-1)],TAROTD[si(SEED,33,0,TAROTD.length-1)]];
+  const pos=['過去','現在','未來'],descs=[cards[0].past,cards[1].present,cards[2].future];
+  const s=document.getElementById('tspread'),sc=document.getElementById('spcards');
+  if(sc)sc.innerHTML=cards.map((c,i)=>`<div class="spc"><div class="spp">${pos[i]}</div><span class="spi">${c.icon}</span><div class="spn">${c.name}</div><div class="spm">${descs[i]}</div></div>`).join('');
+  if(s)s.className='tspread on';
+}
+
+// ══════════════════════════════════════════════
+// ✦ 紫微斗數
+// ══════════════════════════════════════════════
+const ZSTARS=['紫微','天機','太陽','武曲','天同','廉貞','天府','太陰','貪狼','巨門','天相','天梁','七殺','破軍'];
+const PNAMES=['命宮','兄弟','夫妻','子女','財帛','疾厄','遷移','僕役','官祿','田宅','福德','父母'];
+const zdEl=document.getElementById('zday');
+if(zdEl)for(let i=1;i<=30;i++){const o=document.createElement('option');o.value=i;o.textContent=i+'日';zdEl.appendChild(o);}
+
+function genZiwei(){
+  const yr=document.getElementById('zyr').value,mo=document.getElementById('zmo').value,
+        dy=document.getElementById('zday').value,hr=document.getElementById('zhr').value,
+        gen=document.getElementById('zgen').value;
+  if(!yr||!mo||!dy||!gen){alert('請填寫完整的生辰資料');return;}
+  const seed=parseInt(yr)+parseInt(mo)+parseInt(dy)+parseInt(hr||0);
+  const sh=[...ZSTARS].sort(()=>Math.sin(seed*9301+49297)-.5);
+  const mn=['文昌','文曲','左輔','右弼','天魁','天鉞','祿存','天馬','火星','鈴星'];
+  const outer=PNAMES.map((n,i)=>({name:n,star:sh[i%sh.length],minor:mn[i%mn.length]}));
+  const lay=[outer[10],outer[11],outer[0],outer[1],outer[9],null,null,outer[2],outer[8],null,null,outer[3],outer[7],outer[6],outer[5],outer[4]];
+  const gt=gen==='m'?'男命':'女命';
+  const hn=['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
+  const el=document.getElementById('zires');el.className='zires on';
+  el.innerHTML=`
+    <div class="zpg">${lay.map((c,i)=>{
+      if(c===null){if(i===5)return`<div class="pc cen" style="grid-row:span 2;grid-column:span 2"><div style="text-align:center"><div style="font-size:10px;color:var(--text-dim);margin-bottom:4px">民國${yr}年</div><div style="font-family:'Noto Serif TC';font-size:13px;color:var(--gold-light)">${gt}</div><div style="font-size:9px;color:var(--text-faint);margin-top:3px">${mo}月${dy}日${hr!==''?' '+hn[hr]+'時':''}</div></div></div>`;return'';}
+      return`<div class="pc"><p class="pn">${c.name}</p><p class="ps">${c.star}</p><p class="pm">${c.minor}</p></div>`;
+    }).join('')}</div>
+    <div class="rdesc">✦ 命宮主星「${outer[0].star}」入命，${outer[0].star==='紫微'||outer[0].star==='天府'?'貴氣逼人，具有領袖氣質，一生多得貴人相助':outer[0].star==='太陽'||outer[0].star==='廉貞'?'光明磊落，性格直爽，事業心旺盛':'深謀遠慮，智慧超群，善於分析判斷'}。財帛宮「${outer[4].star}」${outer[4].star==='武曲'||outer[4].star==='天府'?'財庫豐厚':'財來財去'}，夫妻宮「${outer[2].star}」感情${outer[2].star==='太陰'||outer[2].star==='天同'?'和諧美滿':'多有波折，需多方溝通'}，官祿宮「${outer[8].star}」事業${outer[8].star==='紫微'||outer[8].star==='太陽'||outer[8].star==='武曲'?'容易出人頭地':'以穩定為主'}。</div>`;
+}
+
+// ══════════════════════════════════════════════
+// ✦ 西洋命盤
+// ══════════════════════════════════════════════
+const PLANETS=[
+  {icon:'☀️',name:'太陽',signs:['牡羊','金牛','雙子','巨蟹','獅子','處女','天秤','天蠍','射手','摩羯','水瓶','雙魚']},
+  {icon:'🌙',name:'月亮',signs:['巨蟹','天蠍','雙魚','牡羊','金牛','雙子','獅子','處女','天秤','射手','摩羯','水瓶']},
+  {icon:'☿',name:'水星',signs:['雙子','處女','牡羊','金牛','巨蟹','獅子','天秤','天蠍','射手','摩羯','水瓶','雙魚']},
+  {icon:'♀',name:'金星',signs:['金牛','天秤','雙魚','牡羊','雙子','巨蟹','獅子','處女','天蠍','射手','摩羯','水瓶']},
+  {icon:'♂',name:'火星',signs:['牡羊','天蠍','摩羯','獅子','雙子','射手','牡羊','天蠍','摩羯','牡羊','牡羊','雙魚']},
+  {icon:'♃',name:'木星',signs:['射手','雙魚','巨蟹','牡羊','獅子','天秤','射手','射手','射手','摩羯','水瓶','雙魚']},
+  {icon:'♄',name:'土星',signs:['摩羯','水瓶','天秤','牡羊','巨蟹','處女','摩羯','摩羯','水瓶','摩羯','水瓶','雙魚']},
+  {icon:'↑',name:'上升',signs:['牡羊','金牛','雙子','巨蟹','獅子','處女','天秤','天蠍','射手','摩羯','水瓶','雙魚']},
+];
+function genChart(){
+  const d=document.getElementById('cdate').value,city=document.getElementById('ccity').value;
+  if(!d||!city){alert('請輸入出生日期與城市');return;}
+  const dt=new Date(d+'T'+(document.getElementById('ctime').value||'12:00'));
+  const m=dt.getMonth(),seed=dt.getDate()+dt.getHours();
+  const pp=PLANETS.map(p=>({...p,sign:p.signs[(m+seed)%12]}));
+  const el=document.getElementById('cres');el.className='cres on';
+  const sun=pp[0].sign,moon=pp[1].sign,asc=pp[7].sign;
+  el.innerHTML=`
+    <div class="pgrid">${pp.map(p=>`<div class="pcard"><span class="pi">${p.icon}</span><p class="pn2">${p.name}</p><p class="ps2">${p.sign}座</p></div>`).join('')}</div>
+    <div class="rdesc">✦ 太陽${sun}座（核心自我）・月亮${moon}座（情感本質）・上升${asc}座（外在形象）。${sun}座帶來${sun==='獅子'?'光芒四射的領袖魅力':sun==='處女'?'精準細膩的分析能力':sun==='天秤'?'追求和諧的美感天賦':sun==='天蠍'?'深邃透徹的洞察直覺':sun==='射手'?'自由奔放的冒險精神':sun==='摩羯'?'腳踏實地的執行力':sun==='水瓶'?'革新前衛的創造思維':sun==='雙魚'?'豐富浪漫的藝術感知':'充沛活躍的生命力'}，月亮${moon}座讓您內心深處渴望${moon==='巨蟹'||moon==='雙魚'?'溫暖與歸屬感':moon==='天蠍'?'深刻與真實':moon==='射手'?'自由與探索':'穩定與安全感'}。</div>`;
+}
+
+// ══════════════════════════════════════════════
+// ✦ 占星日曆
+// ══════════════════════════════════════════════
+let calY=YR,calM=MO-1;
+const AEVENTS=[
+  {m:MO,d:Math.max(1,DY-2),type:'moon',title:getMoonPhase()+' 今日月相',desc:'今日月相為重要能量轉換點，適合進行冥想與意圖設定。'},
+  {m:MO,d:Math.min(DY+6,28),type:'planet',title:'金星入下一宮位',desc:'愛情與藝術能量增強，感情運勢提升，適合表達心意。'},
+  {m:MO,d:Math.min(DY+13,28),type:'planet',title:'水星三分相木星',desc:'溝通與學習機會大增，適合簽約、談判或開始新課程。'},
+  {m:MO===12?1:MO+1,d:8,type:'moon',title:'下個月新月',desc:'新月能量帶來全新開始，適合設定下個月份的目標。'},
+  {m:MO===12?1:MO+1,d:15,type:'special',title:'流星雨極大期',desc:'能量最強的觀星時機，許願時在心中默想您最深的渴望。'},
+];
+const LUNAR_DAYS_CAL=['初一','初二','初三','初四','初五','初六','初七','初八','初九','初十','十一','十二','十三','十四','十五','十六','十七','十八','十九','二十','廿一','廿二','廿三','廿四','廿五','廿六','廿七','廿八','廿九','三十'];
+
+function renderCal(){
+  const tEl=document.getElementById('cal-title');if(tEl)tEl.textContent=`${calY}年${calM+1}月`;
+  const g=document.getElementById('calgrid');if(!g)return;
+  const oldDays=g.querySelectorAll('.cday');oldDays.forEach(d=>d.remove());
+  const first=new Date(calY,calM,1).getDay(),total=new Date(calY,calM+1,0).getDate(),prevD=new Date(calY,calM,0).getDate();
+  for(let i=first-1;i>=0;i--){const d=document.createElement('div');d.className='cday om';d.innerHTML=`<div class="cdnum">${prevD-i}</div>`;g.appendChild(d);}
+  for(let d=1;d<=total;d++){
+    const ev=AEVENTS.find(e=>e.m===calM+1&&e.d===d);
+    const el=document.createElement('div');
+    el.className='cday'+(d===DY&&calM===MO-1&&calY===YR?' td':'');
+    el.innerHTML=`<div class="cdnum">${d}</div><div class="cdlun">${LUNAR_DAYS_CAL[(d+15)%30]}</div>${ev?`<div class="cdev">${ev.title}</div>`:''}${ev?'<div class="cddot"></div>':''}`;
+    g.appendChild(el);
   }
-  setTimeout(() => {
-    document.getElementById('tarotPlaceholder').style.display = 'none';
-    const m = document.getElementById('tarotMeaning');
-    m.textContent = rc.meaning; m.className = 'tarot-meaning show';
-    const k = document.getElementById('tarotKeywords');
-    k.innerHTML = rc.keywords.map(kw => `<span class="keyword-tag">${kw}</span>`).join('');
-    k.className = 'tarot-keywords show';
-  }, 900);
+  const rem=(first+total)%7===0?0:7-(first+total)%7;
+  for(let i=1;i<=rem;i++){const d=document.createElement('div');d.className='cday om';d.innerHTML=`<div class="cdnum">${i}</div>`;g.appendChild(d);}
+  const evEl=document.getElementById('evlist');
+  if(evEl)evEl.innerHTML=AEVENTS.filter(e=>(e.m===calM+1&&e.d>=(calM+1===MO?DY:1))||e.m===(calM+1<12?calM+2:1)).slice(0,4).map(e=>`
+    <div class="evitem"><div class="evdb"><div class="evdm">${e.m}月</div><div class="evdd">${e.d}</div></div>
+    <div><div class="evt">${e.title}</div><div class="evd">${e.desc}</div><span class="evtag ${e.type}">${e.type==='moon'?'月相':e.type==='planet'?'行星':'特殊天象'}</span></div></div>`).join('');
 }
-function setTarotCard(card) {
-  document.getElementById('tarotIcon').textContent = card.icon;
-  document.getElementById('tarotName').textContent = card.name;
-  document.getElementById('tarotNum').textContent = card.num;
-}
+function calMove(d){calM+=d;if(calM>11){calM=0;calY++;}if(calM<0){calM=11;calY--;}renderCal();}
 
-// ── ZIWEI ──────────────────────────────────────────────
-const ziweiStars = ['紫微','天機','太陽','武曲','天同','廉貞','天府','太陰','貪狼','巨門','天相','天梁','七殺','破軍'];
-const palaceNames = ['命宮','兄弟','夫妻','子女','財帛','疾厄','遷移','僕役','官祿','田宅','福德','父母'];
-for(let i=1;i<=30;i++){const o=document.createElement('option');o.value=i;o.textContent=i+'日';document.getElementById('ziweiDay').appendChild(o)}
+// ══════════════════════════════════════════════
+// ✦ 今日幸運籤（每日自動更換）
+// ══════════════════════════════════════════════
+const LC=['深紫色 🟣','金色 🟡','玫瑰粉 🌸','翡翠綠 💚','寶石藍 🔵','橙紅色 🟠','銀白色 ⚪','珊瑚色 🪸','薰衣草 💜','極光藍 💙'];
+const LN=[3,5,7,8,9,11,13,15,18,21];
+const LDR=['東北方','正南方','西北方','正東方','東南方','正北方','西南方','正西方'];
+const LF=['堅果類','深綠蔬菜','魚類','豆腐','新鮮水果','全穀類','乳製品','根莖類','雞蛋','海藻類'];
+const LA=['靜心冥想10分鐘','與老朋友聯繫','整理生活空間','學習一個新技能','戶外散步30分鐘','寫感謝日記','嘗試新料理','聆聽喜愛的音樂','閱讀正向書籍','早起看日出'];
+const LAF=['今天，我充滿力量與智慧，宇宙支持我的每一個決定。','我值得被愛，我值得成功，我值得一切美好的事物。','每一個挑戰都是我成長的機會，我感謝今日所有的體驗。','我的直覺引導著我走向最好的結果，我信任宇宙的安排。','今天是嶄新的一天，充滿無限可能，我帶著開放的心迎接它。','我釋放一切不安與恐懼，以平靜和喜悅迎接今天的一切。','我的心充滿感恩，感謝生命中所有讓我成長的人和事。'];
 
-function generateZiwei() {
-  const year = document.getElementById('ziweiYear').value;
-  const month = document.getElementById('ziweiMonth').value;
-  const day = document.getElementById('ziweiDay').value;
-  const hour = document.getElementById('ziweiHour').value;
-  const gender = document.getElementById('ziweiGender').value;
-  if (!year || !month || !day || !gender) { alert('請填寫完整的生辰資料'); return; }
-  const seed = parseInt(year) + parseInt(month) + parseInt(day) + parseInt(hour||0);
-  const shuffled = [...ziweiStars].sort((_,__) => Math.sin(seed * 9301 + 49297) - 0.5);
-  const minorStars = ['文昌','文曲','左輔','右弼','天魁','天鉞','祿存','天馬','火星','鈴星'];
-  const outer = palaceNames.map((name,i) => ({ name, star: shuffled[i % shuffled.length], minor: minorStars[i % minorStars.length] }));
-  const layout = [outer[10],outer[11],outer[0],outer[1],outer[9],null,null,outer[2],outer[8],null,null,outer[3],outer[7],outer[6],outer[5],outer[4]];
-  const genderText = gender==='m'?'男命':'女命';
-  const hourNames = ['子','丑','寅','卯','辰','巳','午','未','申','酉','戌','亥'];
-  const result = document.getElementById('ziweiResult');
-  result.className = 'ziwei-result show';
-  result.innerHTML = `
-    <div class="ziwei-palace-grid">
-      ${layout.map((cell,i) => {
-        if (cell===null) { if(i===5) return `<div class="palace-cell center" style="grid-row:span 2;grid-column:span 2"><div style="text-align:center"><div style="font-size:12px;color:var(--text-dim);letter-spacing:.1em;margin-bottom:6px">民國 ${year} 年</div><div style="font-family:'Noto Serif TC';font-size:15px;color:var(--gold-light);letter-spacing:.15em">${genderText}</div><div style="font-size:11px;color:var(--text-faint);margin-top:5px;letter-spacing:.1em">${month}月${day}日${hour!==''?' '+hourNames[hour]+'時':''}</div></div></div>`; return ''; }
-        return `<div class="palace-cell"><p class="palace-name">${cell.name}</p><p class="palace-star">${cell.star}</p><p class="palace-minor">${cell.minor}</p></div>`;
-      }).join('')}
-    </div>
-    <div class="ziwei-desc">✦ 命宮主星「${outer[0].star}」入命，${outer[0].star==='紫微'||outer[0].star==='天府'?'貴氣逼人，具有領袖氣質，一生多得貴人相助':outer[0].star==='太陽'||outer[0].star==='廉貞'?'光明磊落，性格直爽，事業心旺盛':'深謀遠慮，智慧超群，善於分析判斷'}。財帛宮見「${outer[4].star}」，${outer[4].star==='武曲'||outer[4].star==='天府'?'財庫豐厚，理財能力強':'財來財去，需謹慎理財'}。夫妻宮「${outer[2].star}」，感情${outer[2].star==='太陰'||outer[2].star==='天同'?'和諧美滿，伴侶溫柔體貼':'多有波折，需多方溝通'}。官祿宮「${outer[8].star}」，事業上${outer[8].star==='紫微'||outer[8].star==='太陽'||outer[8].star==='武曲'?'容易出人頭地，有一定的社會地位':'較為平淡，以穩定為主'}。</div>
+function drawLucky(){
+  const grid=document.getElementById('lrgrid');if(!grid)return;
+  const c=sp(SEED,10,LC),n1=sp(SEED,11,LN),n2=sp(SEED,12,LN),
+        dir=sp(SEED,13,LDR),food=sp(SEED,14,LF),act=sp(SEED,15,LA),aff=sp(SEED,16,LAF);
+  grid.innerHTML=`
+    <div class="litem spin"><span class="lii">🎨</span><div class="lil">今日幸運色</div><div class="liv">${c}</div><div class="lid">穿著或攜帶此顏色，加強今日能量場</div></div>
+    <div class="litem spin" style="animation-delay:.1s"><span class="lii">🔢</span><div class="lil">今日幸運數字</div><div class="liv">${n1} 與 ${n2}</div><div class="lid">重要決定中選擇包含此數字的選項</div></div>
+    <div class="litem spin" style="animation-delay:.2s"><span class="lii">🧭</span><div class="lil">今日吉祥方位</div><div class="liv">${dir}</div><div class="lid">朝向此方位工作或睡眠，提升整體運勢</div></div>
+    <div class="litem spin" style="animation-delay:.3s"><span class="lii">🍽️</span><div class="lil">今日幸運食物</div><div class="liv">${food}</div><div class="lid">食用此類食物，為身體補充對應能量</div></div>
+    <div class="litem wide spin" style="animation-delay:.4s"><span class="lii">✨</span><div class="lil">今日建議行動</div><div class="liv">${act}</div><div class="lid">今日做這件事能與宇宙能量產生最佳共鳴</div></div>
+    <div class="litem wide spin" style="animation-delay:.5s;border-color:var(--gold-dim)"><span class="lii">🌟</span><div class="lil">今日肯定語</div><div class="liv" style="font-size:11px;line-height:1.6;font-family:'Noto Serif TC',serif">${aff}</div></div>
   `;
+  grid.classList.add('on');grid.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
-// ── WESTERN CHART ──────────────────────────────────────
-const planets = [
-  { icon:'☀️', name:'太陽', signs:['牡羊','金牛','雙子','巨蟹','獅子','處女','天秤','天蠍','射手','摩羯','水瓶','雙魚'] },
-  { icon:'🌙', name:'月亮', signs:['巨蟹','天蠍','雙魚','牡羊','金牛','雙子','獅子','處女','天秤','射手','摩羯','水瓶'] },
-  { icon:'☿', name:'水星', signs:['雙子','處女','牡羊','金牛','巨蟹','獅子','天秤','天蠍','射手','摩羯','水瓶','雙魚'] },
-  { icon:'♀', name:'金星', signs:['金牛','天秤','雙魚','牡羊','雙子','巨蟹','獅子','處女','天蠍','射手','摩羯','水瓶'] },
-  { icon:'♂', name:'火星', signs:['牡羊','天蠍','摩羯','獅子','雙子','射手','牡羊','天蠍','摩羯','牡羊','牡羊','雙魚'] },
-  { icon:'♃', name:'木星', signs:['射手','雙魚','巨蟹','牡羊','獅子','天秤','射手','射手','射手','摩羯','水瓶','雙魚'] },
-  { icon:'♄', name:'土星', signs:['摩羯','水瓶','天秤','牡羊','巨蟹','處女','摩羯','摩羯','水瓶','摩羯','水瓶','雙魚'] },
-  { icon:'↑', name:'上升星座', signs:['牡羊','金牛','雙子','巨蟹','獅子','處女','天秤','天蠍','射手','摩羯','水瓶','雙魚'] },
+// ══════════════════════════════════════════════
+// ✦ 星座合盤分析
+// ══════════════════════════════════════════════
+const CP_DATA={
+  love:  [95,70,85,60,90,65,88,55,82,68,78,92,// 牡羊 vs 各
+          70,95,65,85,70,90,75,88,60,92,65,80,// 金牛
+          85,65,95,75,80,70,92,65,88,72,90,68,// 雙子
+          60,85,75,95,65,82,70,96,62,88,68,90,// 巨蟹
+          90,70,80,65,95,68,85,60,92,72,82,88,// 獅子
+          65,90,70,82,68,95,65,88,72,90,78,75,// 處女
+          88,75,92,70,85,65,95,72,88,62,90,80,// 天秤
+          55,88,65,96,60,88,72,95,65,82,70,92,// 天蠍
+          82,60,88,62,92,72,88,65,95,68,88,75,// 射手
+          68,92,72,88,72,90,62,82,68,95,75,80,// 摩羯
+          78,65,90,68,82,78,90,70,88,75,95,72,// 水瓶
+          92,80,68,90,88,75,80,92,75,80,72,95] // 雙魚
+};
+
+function genCompat(){
+  const s1i=document.getElementById('cp1').value,s2i=document.getElementById('cp2').value,type=document.getElementById('cpt').value;
+  if(!s1i||!s2i){alert('請選擇兩個星座');return;}
+  const i1=parseInt(s1i),i2=parseInt(s2i);
+  const base=CP_DATA.love[i1*12+i2];
+  const lov=type==='love'?base:Math.max(40,base+si(SEED+i1+i2,40,-15,15));
+  const fri=type==='friend'?base:Math.max(40,base+si(SEED+i1+i2,41,-12,12));
+  const wk=type==='work'?base:Math.max(40,base+si(SEED+i1+i2,42,-10,10));
+  const total=Math.round((lov+fri+wk)/3);
+  const typeLabel=type==='love'?'愛情':type==='friend'?'友情':'事業';
+  const advice=[
+    `${SIGNS[i1]}座與${SIGNS[i2]}座的${typeLabel}配對相容度達 ${total} 分！兩個星座${total>=80?'天生互補，彼此間有強大的吸引力，容易建立深厚的連結。':total>=65?'有良好的基礎，只要互相理解和包容，可以建立美好的關係。':'需要更多的包容和理解，但差異往往是彼此成長的最好契機。'}`,
+    `在${typeLabel}方面，${SIGNS[i1]}座${['需要主動表達','展現穩定','保持溝通','付出情感','展現魅力','注意細節','保持平衡','深化信任'][i1%8]}，而${SIGNS[i2]}座則${['給予空間','欣賞努力','傾聽需求','感受溫暖','相互尊重','坦誠相待','共同成長','珍惜緣分'][i2%8]}，兩人若能理解彼此的差異，將會創造出美好的化學反應。`
+  ][si(SEED+i1+i2,43,0,1)];
+  const el=document.getElementById('cpres');el.className='cpres on';
+  el.innerHTML=`<div class="cpbar">
+    <div class="cpnames"><span>${SIGNS[i1]}座 ${ZDATA[i1].sym}</span><em>💕</em><span>${ZDATA[i2].sym} ${SIGNS[i2]}座</span></div>
+    <div class="cpscore"><div class="cpsval">${total}</div><div class="cpslbl">${typeLabel}相容度</div></div>
+    <div class="cpdims">
+      ${[['愛情相容',lov],['友情相容',fri],['事業相容',wk]].map(([l,v])=>`
+      <div class="cpdr"><span class="cpdl">${l}</span><div class="cpdt"><div class="cpdf" style="width:0" data-w="${v}%"></div></div><span class="cpdn">${v}</span></div>`).join('')}
+    </div>
+    <div class="cpadv">${advice}</div>
+  </div>`;
+  setTimeout(()=>el.querySelectorAll('[data-w]').forEach(e=>setTimeout(()=>e.style.width=e.dataset.w,80)),60);
+}
+
+// 填充合盤下拉選單
+['cp1','cp2'].forEach(id=>{
+  const el=document.getElementById(id);
+  if(el)SIGNS.forEach((s,i)=>el.innerHTML+=`<option value="${i}">${ZDATA[i].sym} ${s}座</option>`);
+});
+
+// ══════════════════════════════════════════════
+// ✦ 靜心冥想（每日自動更換主題）
+// ══════════════════════════════════════════════
+const MEDDATA=[
+  {title:'感恩與豐盛冥想',icon:'🌟',quote:'「感恩是將我們所擁有的轉化為足夠的門鑰。」',steps:['找舒適坐姿，閉上雙眼，完全放鬆','深吸氣，感受空氣充滿肺部，緩緩呼出','回想今日三件值得感謝的小事','感受心中升起的溫暖，讓感謝充滿全身','緩緩睜開雙眼，帶著豐盛感開始今天']},
+  {title:'放下與釋放冥想',icon:'🌊',quote:'「放下並不是失去，而是為更好的事物騰出空間。」',steps:['坐下來，感受椅子支撐著您的重量','慢慢深呼吸三次，每次呼氣更加放鬆','想像有一個讓您困擾的情緒或想法','觀察它，不評判，像看雲朵一樣飄走','對自己說：「我選擇放下，我允許自己自由」']},
+  {title:'連結宇宙能量冥想',icon:'🔮',quote:'「您不是宇宙中的塵埃，而是整個宇宙在您體內流動。」',steps:['想像雙腳或坐骨紮根於大地','深吸氣，金色光芒從頭頂進入身體','讓這道光緩緩流過身體直到腳底','呼氣時，感受緊繃和負能量隨之流出','感受自己是宇宙能量的一部分']},
+  {title:'內心平靜冥想',icon:'🌸',quote:'「平靜不是沒有噪音，而是在喧囂中仍保持平靜的能力。」',steps:['選一個安靜的地方，完全放鬆','閉上眼睛，注意力帶到呼吸上','當思緒飄走時，溫柔地帶回呼吸','想像您的心像平靜的湖面','維持這份平靜，讓它成為今天的基調']},
+  {title:'自我療癒冥想',icon:'💚',quote:'「您擁有所有需要的一切來療癒自己。」',steps:['舒適地躺下，雙手輕放在心口','感受雙手的溫暖傳遞到心口','慢慢深呼吸，每次吸入治癒的能量','每次呼氣都是釋放疲憊與傷痛','對自己說：「我值得被愛，我值得被療癒」']},
+  {title:'感受當下冥想',icon:'🍃',quote:'「此刻是您唯一真正擁有的時間，完全活在當下。」',steps:['注意您現在所在的空間，感受溫度','將注意力帶到身體感受，不評判','傾聽周圍的聲音，讓它們只是聲音','感受此刻存在的美好，不需要完美','深呼吸三次，感謝此刻的存在']},
+  {title:'清晨啟動冥想',icon:'☀️',quote:'「每一個清晨都是宇宙給您的禮物，是重新開始的機會。」',steps:['深吸一口氣，感受新一天的新鮮能量','想像太陽金色光芒照耀您的身體','設定今天的意圖：帶著什麼心情行動','想像最好的自己，就是今天的您','帶著意圖和活力，準備迎接美好的一天']},
 ];
 
-function generateChart() {
-  const date = document.getElementById('chartDate').value;
-  const time = document.getElementById('chartTime').value;
-  const city = document.getElementById('chartCity').value;
-  if (!date || !city) { alert('請輸入出生日期與城市'); return; }
-  const d = new Date(date + 'T' + (time||'12:00'));
-  const month = d.getMonth();
-  const seed = d.getDate() + d.getHours();
-  const pp = planets.map(p => ({ ...p, sign: p.signs[(month + seed) % 12] }));
-  const result = document.getElementById('chartResult');
-  result.className = 'chart-result show';
-  const sun = pp[0].sign, moon = pp[1].sign, asc = pp[7].sign;
-  result.innerHTML = `
-    <div class="planet-grid">
-      ${pp.map(p=>`<div class="planet-card"><span class="planet-icon">${p.icon}</span><p class="planet-name">${p.name}</p><p class="planet-sign">${p.sign}座</p></div>`).join('')}
-    </div>
-    <div class="chart-summary">✦ 您的太陽在${sun}座，代表您的本質與核心自我；月亮在${moon}座，反映您的情感需求與潛意識；上升星座${asc}座，則是您展現給世界的外在形象。<br><br>${sun}座的特質為您帶來${sun==='獅子'?'光芒四射的領袖魅力':sun==='處女'?'精準細膩的分析能力':sun==='天秤'?'追求和諧的美感天賦':sun==='天蠍'?'深邃透徹的洞察直覺':sun==='射手'?'自由奔放的冒險精神':sun==='摩羯'?'腳踏實地的執行力':sun==='水瓶'?'革新前衛的創造思維':sun==='雙魚'?'豐富浪漫的藝術感知':'充沛活躍的生命力'}，月亮${moon}座讓您內心深處渴望${moon==='巨蟹'||moon==='雙魚'?'溫暖與歸屬感':moon==='天蠍'?'深刻與真實':moon==='射手'?'自由與探索':'穩定與安全感'}。</div>
-  `;
+let breathOn=false,breathPh=0,breathCnt=4,breathTimer=null;
+
+function initMed(){
+  const idx=SEED%MEDDATA.length,med=MEDDATA[idx];
+  const set=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v;};
+  const orb=document.getElementById('medorb');if(orb)orb.textContent=med.icon;
+  set('medt',med.title);set('medq',med.quote);
+  const steps=document.getElementById('medsteps');
+  if(steps)steps.innerHTML=med.steps.map((s,i)=>`<div class="medstep"><div class="msn">${i+1}</div><span>${s}</span></div>`).join('');
 }
 
-// ── SCROLL FADE ─────────────────────────────────────────
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, { threshold: 0.08 });
-document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
-
-// ── PWA 安裝提示 ─────────────────────────────────────────
-let deferredPrompt = null;
-const installBanner = document.getElementById('pwa-install-banner');
-const installBtn = document.getElementById('pwa-install-btn');
-const installClose = document.getElementById('pwa-install-close');
-
-window.addEventListener('beforeinstallprompt', e => {
-  e.preventDefault();
-  deferredPrompt = e;
-  if (installBanner) {
-    setTimeout(() => installBanner.classList.add('show'), 3000);
-  }
-});
-
-if (installBtn) {
-  installBtn.addEventListener('click', async () => {
-    if (!deferredPrompt) return;
-    deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-    deferredPrompt = null;
-    installBanner.classList.remove('show');
-  });
+function toggleBreath(){
+  if(breathOn){clearTimeout(breathTimer);breathOn=false;const p=document.getElementById('btp');if(p)p.textContent='已暫停，點擊繼續';const b=document.getElementById('btbtn');if(b)b.textContent='繼續呼吸練習';}
+  else{breathOn=true;const b=document.getElementById('btbtn');if(b)b.textContent='暫停';runBreath();}
 }
-if (installClose) {
-  installClose.addEventListener('click', () => {
-    installBanner.classList.remove('show');
-  });
+function runBreath(){
+  if(!breathOn)return;
+  const phases=[{l:'吸氣...',c:4},{l:'持氣...',c:4},{l:'呼氣...',c:6},{l:'等待...',c:2}];
+  const ph=phases[breathPh];
+  const cp=document.getElementById('btc'),pp=document.getElementById('btp');
+  if(cp)cp.textContent=breathCnt;if(pp)pp.textContent=ph.l;
+  if(breathCnt>1){breathCnt--;breathTimer=setTimeout(runBreath,1000);}
+  else{breathPh=(breathPh+1)%4;breathCnt=phases[breathPh].c;breathTimer=setTimeout(runBreath,1000);}
 }
 
-window.addEventListener('appinstalled', () => {
-  if (installBanner) installBanner.classList.remove('show');
-  deferredPrompt = null;
-});
-
-// ── Service Worker 註冊 ───────────────────────────────────
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('sw.js')
-      .then(reg => console.log('SW registered:', reg.scope))
-      .catch(err => console.log('SW error:', err));
-  });
+// ══════════════════════════════════════════════
+// ✦ MODAL 系統
+// ══════════════════════════════════════════════
+let CU=null;
+function openModal(id,tab){document.getElementById(id).classList.add('open');if(tab)switchTab(tab);}
+function closeModal(id){document.getElementById(id).classList.remove('open');}
+document.querySelectorAll('.modal-overlay').forEach(el=>el.addEventListener('click',e=>{if(e.target===el)el.classList.remove('open');}));
+function switchTab(tab){
+  document.querySelectorAll('.m-tab').forEach((t,i)=>t.classList.toggle('active',['login','register','forgot'][i]===tab));
+  document.querySelectorAll('.m-pane').forEach(p=>p.classList.remove('active'));
+  const p=document.getElementById('pane-'+tab);if(p)p.classList.add('active');
+  const t=document.getElementById('authTitle');if(t)t.textContent=tab==='login'?'會員登入':tab==='register'?'免費加入古錐星命閣':'重設密碼';
 }
+function doLogin(){
+  const e=document.getElementById('le').value.trim(),p=document.getElementById('lp').value;
+  hideMsg(['login-ok','login-err']);
+  if(!e||!p){showMsg('login-err','請填寫電子郵件與密碼。');return;}
+  const s=localStorage.getItem('xmg_'+e);
+  if(!s){showMsg('login-err','找不到此帳號，請先註冊。');return;}
+  CU=JSON.parse(s);showMsg('login-ok');
+  setTimeout(()=>{closeModal('authModal');updateNav();},1200);
+}
+function doRegister(){
+  const n=document.getElementById('rn').value.trim(),e=document.getElementById('re').value.trim(),
+        p=document.getElementById('rp').value,p2=document.getElementById('rp2').value,
+        s=document.getElementById('rs').value,a=document.getElementById('ra').checked;
+  hideMsg(['reg-ok','reg-err']);
+  if(!n||!e||!p||!s){showMsg('reg-err','請填寫所有必填欄位。');return;}
+  if(p!==p2){showMsg('reg-err','兩次密碼不一致。');return;}
+  if(!a){showMsg('reg-err','請同意服務條款才能加入。');return;}
+  CU={name:n,email:e,sign:s,nick:document.getElementById('rk').value||n,birth:document.getElementById('rb').value};
+  localStorage.setItem('xmg_'+e,JSON.stringify(CU));showMsg('reg-ok');
+  setTimeout(()=>{closeModal('authModal');updateNav();},1400);
+}
+function doLogout(){CU=null;document.getElementById('nav-guest').style.display='flex';document.getElementById('nav-mem').classList.remove('on');}
+function doForgot(){if(document.getElementById('fe').value.trim())showMsg('forgot-ok');}
+function updateNav(){
+  if(!CU)return;
+  document.getElementById('nav-guest').style.display='none';
+  document.getElementById('nav-mem').classList.add('on');
+  const nm=document.getElementById('nav-nm');if(nm)nm.textContent=CU.nick||CU.name;
+  const av=document.getElementById('nav-av');if(av)av.textContent=(CU.nick||CU.name)[0];
+}
+function showMsg(id,text){const e=document.getElementById(id);if(!e)return;if(text)e.textContent=text;e.classList.add('show');}
+function hideMsg(ids){ids.forEach(id=>{const e=document.getElementById(id);if(e)e.classList.remove('show');});}
+function sendC(){const n=document.getElementById('cn').value.trim(),e=document.getElementById('ce').value.trim();if(!n||!e){alert('請填寫姓名與電子郵件');return;}showMsg('c-ok');['cn','ce','cm'].forEach(id=>document.getElementById(id).value='');}
+function sendCM(){const n=document.getElementById('cmn').value.trim(),e=document.getElementById('cme').value.trim();if(!n||!e){alert('請填寫姓名與電子郵件');return;}showMsg('cm-ok');}
+function sendSP(){const c=document.getElementById('spc').value.trim(),e=document.getElementById('spe').value.trim();if(!c||!e){alert('請填寫公司名稱與電子郵件');return;}showMsg('sp-ok');['spc','spn','spt','spe','spm'].forEach(id=>document.getElementById(id).value='');}
+
+// ══════════════════════════════════════════════
+// ✦ 手機選單 & 工具函數
+// ══════════════════════════════════════════════
+function toggleMM(){document.getElementById('mmenu').classList.toggle('open');}
+function closeMM(){document.getElementById('mmenu').classList.remove('open');}
+function scrollTo2(id){const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'});}
+function refreshAll(){initDate();initStrip();initDspec();const ad=document.querySelector('.dz.on');if(ad)showDF(parseInt(ad.id.split('-')[1]));const az=document.querySelector('.zi.on');if(az)showZ(parseInt(az.id.split('-')[1]));}
+
+// ══════════════════════════════════════════════
+// ✦ PWA
+// ══════════════════════════════════════════════
+let dp=null;
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();dp=e;setTimeout(()=>document.getElementById('pwabanner').classList.add('on'),4000);});
+document.getElementById('pwa-install-btn').addEventListener('click',async()=>{if(!dp)return;dp.prompt();await dp.userChoice;dp=null;document.getElementById('pwabanner').classList.remove('on');});
+document.getElementById('pwa-close-btn').addEventListener('click',()=>document.getElementById('pwabanner').classList.remove('on'));
+if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+
+// ══════════════════════════════════════════════
+// ✦ 滾動淡入動畫
+// ══════════════════════════════════════════════
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis');});},{threshold:.07});
+document.querySelectorAll('.fi2').forEach(el=>obs.observe(el));
+
+// ══════════════════════════════════════════════
+// ✦ 初始化所有功能
+// ══════════════════════════════════════════════
+initDate();
+initTicker();
+initStrip();
+initDspec();
+renderDzSel();
+renderZGrid();
+renderCal();
+initMed();
 </script>
 </body>
 </html>
