@@ -571,9 +571,95 @@ footer{position:relative;z-index:1;background:var(--void);border-top:.5px solid 
 .bz-xiyong-item{padding:.8rem;border:.5px solid var(--border);background:var(--panel)}
 .bz-xiyong-lbl{font-size:9px;color:var(--text-faint);letter-spacing:.1em;margin-bottom:.3rem}
 .bz-xiyong-val{font-family:'Noto Serif TC',serif;font-size:13px;font-weight:600;letter-spacing:.06em}
+
+/* ══ 星塵粒子畫布 ══ */
+#particle-canvas{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.7}
+
+/* ══ AI 個人化解讀 ══ */
+#ai-section{background:var(--void)}
+.ai-chat-box{max-width:700px;margin:0 auto;background:var(--panel);border:.5px solid var(--border-bright);overflow:hidden}
+.ai-chat-head{padding:1.1rem 1.5rem;background:linear-gradient(135deg,rgba(155,111,212,.2),rgba(212,168,67,.08));border-bottom:.5px solid var(--border);display:flex;align-items:center;gap:.8rem}
+.ai-chat-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--gold));display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;animation:pulse-ai 3s ease-in-out infinite}
+@keyframes pulse-ai{0%,100%{box-shadow:0 0 0 0 rgba(155,111,212,.4)}50%{box-shadow:0 0 0 8px rgba(155,111,212,0)}}
+.ai-chat-info{}
+.ai-chat-name{font-family:'Noto Serif TC',serif;font-size:13px;font-weight:600;color:var(--gold-light);letter-spacing:.08em}
+.ai-chat-status{font-size:9px;color:var(--text-faint);letter-spacing:.1em;display:flex;align-items:center;gap:.4rem}
+.ai-status-dot{width:6px;height:6px;border-radius:50%;background:#5db85d;animation:blink-dot 2s ease-in-out infinite}
+@keyframes blink-dot{0%,100%{opacity:1}50%{opacity:.3}}
+.ai-messages{padding:1.2rem 1.5rem;min-height:180px;max-height:380px;overflow-y:auto;display:flex;flex-direction:column;gap:.8rem}
+.ai-messages::-webkit-scrollbar{width:3px}.ai-messages::-webkit-scrollbar-thumb{background:var(--border-bright)}
+.ai-msg{display:flex;gap:.6rem;align-items:flex-start;animation:msgIn .3s ease}
+@keyframes msgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.ai-msg.user{flex-direction:row-reverse}
+.ai-msg-avatar{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;margin-top:2px}
+.ai-msg-avatar.bot{background:linear-gradient(135deg,var(--purple),#3d2080);color:var(--purple-light)}
+.ai-msg-avatar.user{background:var(--lift);border:.5px solid var(--border-bright);color:var(--gold-light)}
+.ai-bubble{padding:.7rem 1rem;font-size:12px;line-height:1.9;letter-spacing:.04em;max-width:85%;font-family:'Noto Serif TC',serif}
+.ai-bubble.bot{background:var(--surface);border:.5px solid var(--border);color:var(--text-dim);border-radius:0 8px 8px 8px}
+.ai-bubble.user{background:linear-gradient(135deg,rgba(155,111,212,.25),rgba(212,168,67,.1));border:.5px solid var(--border-bright);color:var(--text);border-radius:8px 0 8px 8px;text-align:right}
+.ai-typing{display:flex;align-items:center;gap:4px;padding:.7rem 1rem;background:var(--surface);border:.5px solid var(--border);width:fit-content}
+.ai-typing span{width:5px;height:5px;border-radius:50%;background:var(--purple-light);animation:typing .9s ease-in-out infinite}
+.ai-typing span:nth-child(2){animation-delay:.15s}
+.ai-typing span:nth-child(3){animation-delay:.3s}
+@keyframes typing{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-4px);opacity:1}}
+.ai-input-area{padding:1rem 1.5rem;border-top:.5px solid var(--border);background:var(--surface)}
+.ai-quick-btns{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.8rem}
+.ai-quick{background:var(--lift);border:.5px solid var(--border-bright);color:var(--purple-light);font-size:10px;padding:4px 10px;letter-spacing:.07em;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all .2s;white-space:nowrap}
+.ai-quick:hover{background:rgba(155,111,212,.2);border-color:var(--purple-light)}
+.ai-input-row{display:flex;gap:.6rem;align-items:flex-end}
+.ai-input{flex:1;background:var(--panel);border:.5px solid var(--border);color:var(--text);padding:9px 12px;font-size:12px;font-family:'Noto Sans TC',sans-serif;outline:none;transition:border-color .2s;resize:none;line-height:1.6;min-height:38px;max-height:100px}
+.ai-input:focus{border-color:var(--purple)}
+.ai-send{background:linear-gradient(135deg,var(--purple),#3d2080);border:none;color:var(--text);padding:9px 14px;cursor:pointer;font-size:14px;transition:all .2s;flex-shrink:0;height:38px}
+.ai-send:hover{filter:brightness(1.2)}
+.ai-topic-sel{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;margin-bottom:1rem}
+@media(max-width:480px){.ai-topic-sel{grid-template-columns:repeat(2,1fr)}}
+.ai-topic{background:var(--surface);border:.5px solid var(--border);padding:.8rem .5rem;text-align:center;cursor:pointer;transition:all .2s}
+.ai-topic:hover,.ai-topic.sel{background:var(--lift);border-color:var(--gold)}
+.ai-topic-icon{font-size:22px;display:block;margin-bottom:.3rem}
+.ai-topic-name{font-size:10px;color:var(--text-dim);letter-spacing:.06em}
+.ai-topic.sel .ai-topic-name{color:var(--gold-light)}
+.ai-error{background:rgba(220,60,60,.08);border:.5px solid rgba(220,60,60,.3);color:#ff9090;padding:.6rem 1rem;font-size:11px;margin:.5rem 0;display:none;line-height:1.7}
+.ai-error.on{display:block}
+.ai-hint{font-size:9px;color:var(--text-faint);letter-spacing:.08em;text-align:center;margin-top:.4rem;line-height:1.6}
+
+/* ══ 社群分享 ══ */
+.share-bar{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin-top:1.2rem;padding-top:1rem;border-top:.5px solid var(--border)}
+.share-label{font-size:9px;letter-spacing:.15em;color:var(--text-faint);flex-shrink:0}
+.share-btn{display:flex;align-items:center;gap:.4rem;padding:5px 12px;font-size:10px;letter-spacing:.08em;cursor:pointer;font-family:'Noto Sans TC',sans-serif;transition:all .2s;border:none;border-radius:0}
+.share-btn.fb{background:rgba(24,119,242,.15);border:.5px solid rgba(24,119,242,.3);color:#7ab3ff}
+.share-btn.fb:hover{background:rgba(24,119,242,.28)}
+.share-btn.line{background:rgba(0,185,0,.12);border:.5px solid rgba(0,185,0,.3);color:#6edd6e}
+.share-btn.line:hover{background:rgba(0,185,0,.22)}
+.share-btn.tw{background:rgba(29,161,242,.12);border:.5px solid rgba(29,161,242,.3);color:#7ac9ff}
+.share-btn.tw:hover{background:rgba(29,161,242,.22)}
+.share-btn.copy{background:var(--lift);border:.5px solid var(--border-bright);color:var(--text-dim)}
+.share-btn.copy:hover{border-color:var(--gold);color:var(--gold)}
+.share-toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);background:rgba(13,10,31,.95);border:.5px solid var(--gold);color:var(--gold-light);padding:9px 22px;font-size:12px;letter-spacing:.1em;z-index:400;opacity:0;transition:all .4s;pointer-events:none;white-space:nowrap;font-family:'Noto Serif TC',serif}
+.share-toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ══ 推播通知橫幅 ══ */
+#notif-banner{position:fixed;top:56px;left:0;right:0;z-index:190;background:rgba(13,10,31,.96);border-bottom:.5px solid rgba(155,111,212,.4);padding:10px 1.5rem;display:flex;align-items:center;gap:10px;transform:translateY(-100%);transition:transform .4s cubic-bezier(.4,0,.2,1);backdrop-filter:blur(15px)}
+#notif-banner.on{transform:translateY(0)}
 </style>
 </head>
 <body>
+
+<!-- 動態星塵粒子畫布 -->
+<canvas id="particle-canvas"></canvas>
+
+<!-- 分享成功提示 -->
+<div class="share-toast" id="shareToast">✦ 已複製到剪貼板！</div>
+
+<!-- 推播通知橫幅 -->
+<div id="notif-banner">
+  <span style="font-size:20px;flex-shrink:0">🔔</span>
+  <div style="flex:1">
+    <p style="font-size:12px;color:var(--gold-light);font-weight:500;margin:0 0 2px;letter-spacing:.05em;font-family:'Noto Serif TC',serif">開啟每日運勢推播通知</p>
+    <p style="font-size:10px;color:rgba(232,224,248,.55);margin:0;letter-spacing:.04em">每天早上8點自動推送您的星座運勢，不錯過任何宇宙訊息</p>
+  </div>
+  <button id="notif-allow" style="background:linear-gradient(135deg,var(--purple),#3d2080);color:var(--text);border:none;padding:7px 14px;font-size:10px;font-weight:500;letter-spacing:.1em;cursor:pointer;font-family:'Noto Sans TC',sans-serif;white-space:nowrap;flex-shrink:0">開啟通知</button>
+  <button id="notif-close" style="background:none;border:none;color:rgba(232,224,248,.35);font-size:17px;cursor:pointer;padding:4px;flex-shrink:0;line-height:1">✕</button>
+</div>
 
 <!-- Shooting stars -->
 <div class="s-star" style="top:10%;left:-5px;animation-duration:4.2s;animation-delay:1s"></div>
@@ -660,6 +746,7 @@ footer{position:relative;z-index:1;background:var(--void);border-top:.5px solid 
     <li><a href="#luckydraw">幸運籤</a></li>
     <li><a href="#compat">合盤</a></li>
     <li><a href="#meditation">冥想</a></li>
+    <li><a href="#ai-section" style="color:var(--gold-light)">✦ AI解讀</a></li>
     <li><a href="#membership">會員</a></li>
     <li><a href="#contact">聯絡</a></li>
   </ul>
@@ -689,6 +776,7 @@ footer{position:relative;z-index:1;background:var(--void);border-top:.5px solid 
   <a href="#luckydraw" onclick="closeMM()">🎴 今日幸運籤</a>
   <a href="#compat" onclick="closeMM()">💑 星座合盤</a>
   <a href="#meditation" onclick="closeMM()">🧘 靜心冥想</a>
+  <a href="#ai-section" onclick="closeMM()" style="color:var(--gold-light)">✦ AI 個人化解讀</a>
   <a href="#membership" onclick="closeMM()">👑 會員方案</a>
   <a href="#sponsor" onclick="closeMM()">💼 廠商合作</a>
   <a href="#contact" onclick="closeMM()">✉ 聯絡我們</a>
@@ -998,6 +1086,64 @@ footer{position:relative;z-index:1;background:var(--void);border-top:.5px solid 
           <div class="btp" id="btp">點擊月亮或按鈕開始</div>
           <button class="btbtn" id="btbtn" onclick="toggleBreath()">開始呼吸練習</button>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI 個人化星命解讀 -->
+<section id="ai-section">
+  <div class="con">
+    <div class="sh fi2">
+      <div class="orn"><span></span><em>🤖</em><span></span></div>
+      <p class="sey">AI Personalized Reading · Powered by Claude</p>
+      <h2 class="st">AI 星命師個人化解讀</h2>
+      <p class="sd">由 Claude AI 驅動，輸入您的問題，獲得專屬的星座・塔羅・八字個人化深度解析</p>
+    </div>
+    <div class="ai-chat-box fi2">
+      <div class="ai-chat-head">
+        <div class="ai-chat-avatar">✦</div>
+        <div class="ai-chat-info">
+          <div class="ai-chat-name">星命師 · 古錐 AI</div>
+          <div class="ai-chat-status"><span class="ai-status-dot"></span>隨時為您服務</div>
+        </div>
+        <div style="margin-left:auto;font-size:9px;color:var(--text-faint);letter-spacing:.08em">Powered by Claude AI</div>
+      </div>
+      <!-- 主題選擇 -->
+      <div style="padding:1rem 1.5rem .5rem;border-bottom:.5px solid var(--border)">
+        <div style="font-size:9px;letter-spacing:.18em;color:var(--gold);margin-bottom:.7rem">✦ 選擇占卜主題</div>
+        <div class="ai-topic-sel" id="aiTopicSel">
+          <div class="ai-topic sel" onclick="selectTopic(this,'星座運勢')"><span class="ai-topic-icon">♈</span><span class="ai-topic-name">星座運勢</span></div>
+          <div class="ai-topic" onclick="selectTopic(this,'塔羅解讀')"><span class="ai-topic-icon">🃏</span><span class="ai-topic-name">塔羅解讀</span></div>
+          <div class="ai-topic" onclick="selectTopic(this,'八字分析')"><span class="ai-topic-icon">🔯</span><span class="ai-topic-name">八字分析</span></div>
+          <div class="ai-topic" onclick="selectTopic(this,'感情運勢')"><span class="ai-topic-icon">💕</span><span class="ai-topic-name">感情運勢</span></div>
+          <div class="ai-topic" onclick="selectTopic(this,'事業財運')"><span class="ai-topic-icon">💼</span><span class="ai-topic-name">事業財運</span></div>
+          <div class="ai-topic" onclick="selectTopic(this,'今日指引')"><span class="ai-topic-icon">🌟</span><span class="ai-topic-name">今日指引</span></div>
+        </div>
+      </div>
+      <!-- 對話視窗 -->
+      <div class="ai-messages" id="aiMessages">
+        <div class="ai-msg">
+          <div class="ai-msg-avatar bot">✦</div>
+          <div class="ai-bubble bot">您好！我是古錐星命閣的 AI 星命師，融合東西方命理智慧，為您提供個人化的深度解讀。✨<br><br>請選擇上方的主題，或直接輸入您的問題，例如：<br>・「我是天蠍座，今天的感情運勢如何？」<br>・「請幫我解析八字木火旺的命格特質」<br>・「我最近工作很不順，塔羅想問方向」</div>
+        </div>
+      </div>
+      <!-- 錯誤提示 -->
+      <div class="ai-error" id="aiError">API 連線暫時中斷，請稍後再試。您也可以直接瀏覽上方各功能區。</div>
+      <!-- 輸入區 -->
+      <div class="ai-input-area">
+        <div class="ai-quick-btns" id="aiQuickBtns">
+          <button class="ai-quick" onclick="sendQuick('今日星座運勢總覽')">今日運勢</button>
+          <button class="ai-quick" onclick="sendQuick('幫我抽一張塔羅牌並解讀')">抽塔羅</button>
+          <button class="ai-quick" onclick="sendQuick('我最近感情方面需要什麼建議？')">感情建議</button>
+          <button class="ai-quick" onclick="sendQuick('今天最適合做什麼事？')">今日行動</button>
+          <button class="ai-quick" onclick="sendQuick('給我一句今日的宇宙訊息')">宇宙訊息</button>
+        </div>
+        <div class="ai-input-row">
+          <textarea class="ai-input" id="aiInput" placeholder="輸入您的問題…例如：我是雙魚座，今天感情運怎麼樣？" rows="1" onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendAI()}" oninput="this.style.height='auto';this.style.height=Math.min(this.scrollHeight,100)+'px'"></textarea>
+          <button class="ai-send" onclick="sendAI()">➤</button>
+        </div>
+        <div class="ai-hint">✦ AI 解讀僅供娛樂參考・每日免費3次・會員無限次</div>
       </div>
     </div>
   </div>
@@ -2115,6 +2261,296 @@ function genBazi(){
   el.scrollIntoView({behavior:'smooth',block:'start'});
 }
 
+
+// ══════════════════════════════════════════════
+// ✦ 1. 動態星塵粒子背景引擎
+// ══════════════════════════════════════════════
+(function initParticles(){
+  const canvas=document.getElementById('particle-canvas');
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  let W,H,particles=[];
+  function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+  window.addEventListener('resize',resize);resize();
+  class Particle{
+    constructor(){this.reset(true);}
+    reset(init=false){
+      this.x=Math.random()*W;
+      this.y=init?Math.random()*H:H+5;
+      this.size=Math.random()*1.8+.3;
+      this.speedX=(Math.random()-.5)*.35;
+      this.speedY=-(Math.random()*.45+.08);
+      this.opacity=Math.random()*.65+.1;
+      this.maxOpacity=this.opacity;
+      this.life=0;this.maxLife=Math.random()*320+180;
+      const r=Math.random();
+      this.color=r<.55?'255,255,255':r<.82?'196,158,240':'240,201,106';
+      this.blinkSpeed=Math.random()*.04+.01;
+      this.blinkOffset=Math.random()*Math.PI*2;
+      this.trail=Math.random()<.07;
+      this.trailLen=this.trail?Math.floor(Math.random()*5+2):0;
+      this.history=[];
+    }
+    update(){
+      if(this.trail){this.history.push({x:this.x,y:this.y});if(this.history.length>this.trailLen)this.history.shift();}
+      this.x+=this.speedX;this.y+=this.speedY;this.life++;
+      this.opacity=this.maxOpacity*(0.55+0.45*Math.sin(this.life*this.blinkSpeed+this.blinkOffset));
+      if(this.life>this.maxLife||this.y<-10)this.reset();
+    }
+    draw(){
+      if(this.trail&&this.history.length>1){
+        for(let i=1;i<this.history.length;i++){
+          const ratio=i/this.history.length;
+          ctx.beginPath();ctx.arc(this.history[i].x,this.history[i].y,this.size*ratio*.5,0,Math.PI*2);
+          ctx.fillStyle=`rgba(${this.color},${this.opacity*ratio*.4})`;ctx.fill();
+        }
+      }
+      ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+      ctx.fillStyle=`rgba(${this.color},${this.opacity})`;ctx.fill();
+      if(this.size>1.3){
+        ctx.beginPath();ctx.arc(this.x,this.y,this.size*2.2,0,Math.PI*2);
+        ctx.fillStyle=`rgba(${this.color},${this.opacity*.12})`;ctx.fill();
+      }
+    }
+  }
+  const CLINES=[
+    [{x:.1,y:.15},{x:.18,y:.22},{x:.25,y:.18},{x:.22,y:.28},{x:.15,y:.32}],
+    [{x:.7,y:.08},{x:.78,y:.12},{x:.85,y:.09},{x:.82,y:.18},{x:.75,y:.22}],
+    [{x:.45,y:.7},{x:.52,y:.75},{x:.48,y:.82},{x:.55,y:.78}],
+    [{x:.88,y:.55},{x:.92,y:.62},{x:.87,y:.68},{x:.83,y:.62}],
+  ];
+  function drawConst(){
+    const t=Date.now()*.0003;
+    CLINES.forEach(pts=>{
+      ctx.strokeStyle=`rgba(155,111,212,${0.055+Math.sin(t)*0.025})`;
+      ctx.lineWidth=.35;ctx.setLineDash([3,6]);ctx.beginPath();
+      pts.forEach((p,i)=>{i===0?ctx.moveTo(p.x*W,p.y*H):ctx.lineTo(p.x*W,p.y*H);});
+      ctx.stroke();ctx.setLineDash([]);
+      pts.forEach(p=>{
+        ctx.beginPath();ctx.arc(p.x*W,p.y*H,1.4,0,Math.PI*2);
+        ctx.fillStyle=`rgba(212,168,67,${0.28+Math.sin(t*1.5+p.x*10)*0.13})`;ctx.fill();
+      });
+    });
+  }
+  const COUNT=Math.min(110,Math.floor(W*H/13000));
+  for(let i=0;i<COUNT;i++)particles.push(new Particle());
+  function animate(){
+    requestAnimationFrame(animate);
+    ctx.clearRect(0,0,W,H);drawConst();
+    particles.forEach(p=>{p.update();p.draw();});
+  }
+  animate();
+  window.addEventListener('mousemove',e=>{
+    particles.forEach(p=>{
+      const dx=p.x-e.clientX,dy=p.y-e.clientY;
+      if(Math.sqrt(dx*dx+dy*dy)<75){p.opacity=Math.min(1,p.opacity*1.35);}
+    });
+  });
+  window.addEventListener('click',e=>{
+    for(let i=0;i<10;i++){
+      const p=new Particle();
+      p.x=e.clientX+(Math.random()-.5)*18;p.y=e.clientY+(Math.random()-.5)*18;
+      p.speedX=(Math.random()-.5)*1.8;p.speedY=(Math.random()-.7)*1.8;
+      p.size=Math.random()*1.8+.4;p.maxOpacity=.85;p.maxLife=70;
+      p.color=Math.random()<.5?'212,168,67':'196,158,240';particles.push(p);
+    }
+    if(particles.length>COUNT+40)particles.splice(0,10);
+  });
+})();
+
+// ══════════════════════════════════════════════
+// ✦ 2. 推播通知系統
+// ══════════════════════════════════════════════
+function initNotifications(){
+  const banner=document.getElementById('notif-banner');
+  const allowBtn=document.getElementById('notif-allow');
+  const closeBtn=document.getElementById('notif-close');
+  if(!banner||localStorage.getItem('notif_asked'))return;
+  let shown=false;
+  const handler=()=>{
+    if(!shown&&window.scrollY>400){
+      shown=true;banner.classList.add('on');
+      window.removeEventListener('scroll',handler);
+    }
+  };
+  window.addEventListener('scroll',handler);
+  allowBtn&&allowBtn.addEventListener('click',async()=>{
+    localStorage.setItem('notif_asked','1');banner.classList.remove('on');
+    if(!('Notification' in window)){showShareToast('瀏覽器不支援推播通知');return;}
+    try{
+      const perm=await Notification.requestPermission();
+      if(perm==='granted'){
+        showShareToast('✦ 推播通知已開啟！每日早上8點為您推送運勢');
+        setTimeout(()=>{
+          new Notification('✦ 古錐星命閣',{
+            body:`今日 ${getMoonPhase()} · ${SIGNS[si(SEED,0,0,11)]}座最旺！點擊查看您的運勢 🌟`,
+            icon:'icon-192.png',badge:'icon-192.png'
+          });
+        },1500);
+      }else{showShareToast('通知已略過，可隨時在設定中開啟');}
+    }catch(e){showShareToast('通知設定失敗，請手動開啟');}
+  });
+  closeBtn&&closeBtn.addEventListener('click',()=>{
+    localStorage.setItem('notif_asked','1');banner.classList.remove('on');
+  });
+}
+
+// ══════════════════════════════════════════════
+// ✦ 3. 社群分享系統
+// ══════════════════════════════════════════════
+function showShareToast(msg){
+  const t=document.getElementById('shareToast');
+  if(!t)return;
+  t.textContent=msg||'✦ 已複製到剪貼板！';
+  t.classList.add('on');
+  setTimeout(()=>t.classList.remove('on'),2800);
+}
+function buildShareText(signName,scores,mainText){
+  const moon=getMoonPhase();
+  const short=mainText.replace(/[🔥🚀⚡💰🌿🔍🌹⚖️🌑🏹🏔⚡🌊🎨✨]/g,'').trim().slice(0,45);
+  return `✦ 古錐星命閣 ${MO}月${DY}日
+
+我是${signName}座，今日運勢：
+💕愛情${scores[0]} ｜💼事業${scores[1]}
+💰財運${scores[2]} ｜🌿健康${scores[3]}
+
+「${short}…」
+
+今日月相：${moon}
+
+👉 快來看您的星座運勢！
+https://guzuixingmingge.github.io`;
+}
+function shareResult(platform,text){
+  const enc=encodeURIComponent(text);
+  if(platform==='copy'){
+    if(navigator.clipboard){navigator.clipboard.writeText(text).then(()=>showShareToast('✦ 已複製！快貼到社群分享給朋友吧'));}
+    else{showShareToast('請手動複製文字');}
+  }else if(platform==='fb'){window.open(`https://www.facebook.com/sharer/sharer.php?quote=${enc}&u=${encodeURIComponent('https://guzuixingmingge.github.io')}`,'_blank','width=600,height=400');}
+  else if(platform==='line'){window.open(`https://social-plugins.line.me/lineit/share?text=${enc}`,'_blank','width=600,height=500');}
+  else if(platform==='tw'){window.open(`https://twitter.com/intent/tweet?text=${enc}`,'_blank','width=600,height=400');}
+}
+function renderShareBar(signName,scores,mainText){
+  const text=buildShareText(signName,scores,mainText);
+  const esc=text.replace(/\/g,'\\').replace(/`/g,"'").replace(/\n/g,'\n');
+  return `<div class="share-bar"><span class="share-label">✦ 分享運勢</span><button class="share-btn fb" onclick='shareResult("fb",\`${esc}\`)'>Facebook</button><button class="share-btn line" onclick='shareResult("line",\`${esc}\`)'>LINE</button><button class="share-btn tw" onclick='shareResult("tw",\`${esc}\`)'>X / Twitter</button><button class="share-btn copy" onclick='shareResult("copy",\`${esc}\`)'>📋 複製</button></div>`;
+}
+
+// Patch showDF and showZ to add share bar
+const _origShowDF=typeof showDF==='function'?showDF:null;
+if(_origShowDF){
+  window.showDF=function(i){
+    _origShowDF(i);
+    const z=getZ(i);
+    const grid=document.getElementById('dgrid');
+    if(grid){
+      const existing=grid.querySelector('.share-bar');if(existing)existing.remove();
+      const div=document.createElement('div');div.style.cssText='grid-column:1/-1';
+      div.innerHTML=renderShareBar(z.name,[z.love,z.career,z.money,z.health],z.text);
+      setTimeout(()=>grid.appendChild(div),120);
+    }
+  };
+}
+const _origShowZ=typeof showZ==='function'?showZ:null;
+if(_origShowZ){
+  window.showZ=function(i){
+    _origShowZ(i);
+    const z=getZ(i);
+    const zrEl=document.getElementById('zr');
+    if(zrEl){
+      const existing=zrEl.querySelector('.share-bar');if(existing)existing.remove();
+      const div=document.createElement('div');
+      div.innerHTML=renderShareBar(z.name,[z.love,z.career,z.money,z.health],z.text);
+      setTimeout(()=>zrEl.appendChild(div.firstChild),120);
+    }
+  };
+}
+
+// ══════════════════════════════════════════════
+// ✦ 4. AI 個人化解讀引擎
+// ══════════════════════════════════════════════
+let aiTopic='星座運勢';
+let aiUsageCount=parseInt(localStorage.getItem('ai_usage_'+SEED)||'0');
+const AI_FREE_LIMIT=3;
+
+function selectTopic(el,topic){
+  document.querySelectorAll('.ai-topic').forEach(t=>t.classList.remove('sel'));
+  el.classList.add('sel');aiTopic=topic;
+  const qMap={
+    '星座運勢':['今日十二星座總覽','今日最旺星座','牡羊座今日如何','哪個星座最旺'],
+    '塔羅解讀':['幫我抽一張塔羅牌','抽三牌陣解讀','塔羅今日提示','解讀命運之輪'],
+    '八字分析':['木火旺的八字特質','身強日主適合哪些行業','喜用神是水今日運勢','八字缺金如何補救'],
+    '感情運勢':['我最近感情需要什麼建議','桃花最旺星座','戀愛瓶頸怎麼辦','天蠍和哪個星座最配'],
+    '事業財運':['今日適合做重要決定嗎','哪個方向工作機會好','今天財運如何','創業還是上班哪個好'],
+    '今日指引':['給我今日宇宙訊息','今天最適合做什麼','今日需注意什麼','給我能量加持語'],
+  };
+  const btns=document.getElementById('aiQuickBtns');
+  if(btns){
+    const qs=qMap[topic]||qMap['今日指引'];
+    btns.innerHTML=qs.map(q=>`<button class="ai-quick" onclick="sendQuick('${q}')">${q}</button>`).join('');
+  }
+}
+function sendQuick(text){const inp=document.getElementById('aiInput');if(inp){inp.value=text;sendAI();}}
+function addAiMsg(html,isUser=false){
+  const msgs=document.getElementById('aiMessages');if(!msgs)return;
+  const div=document.createElement('div');div.className=`ai-msg${isUser?' user':''}`;
+  const av=isUser?(CU?(CU.nick||CU.name)[0]:'我'):'✦';
+  div.innerHTML=`<div class="ai-msg-avatar ${isUser?'user':'bot'}">${av}</div><div class="ai-bubble ${isUser?'user':'bot'}">${html}</div>`;
+  msgs.appendChild(div);msgs.scrollTop=msgs.scrollHeight;
+}
+function showTypingBubble(){
+  const msgs=document.getElementById('aiMessages');if(!msgs)return;
+  const div=document.createElement('div');div.className='ai-msg';div.id='ai-typing-bbl';
+  div.innerHTML=`<div class="ai-msg-avatar bot">✦</div><div class="ai-typing"><span></span><span></span><span></span></div>`;
+  msgs.appendChild(div);msgs.scrollTop=msgs.scrollHeight;
+}
+function removeTypingBubble(){const t=document.getElementById('ai-typing-bbl');if(t)t.remove();}
+
+async function sendAI(){
+  const input=document.getElementById('aiInput');
+  if(!input)return;
+  const text=input.value.trim();if(!text)return;
+  if(!CU&&aiUsageCount>=AI_FREE_LIMIT){
+    addAiMsg(`✦ 您今日的免費解讀次數（${AI_FREE_LIMIT}次）已用完。請<a onclick="openModal('authModal','register')" style="color:var(--gold-light);cursor:pointer;text-decoration:underline">免費加入會員</a>享受無限次解讀！`);
+    return;
+  }
+  input.value='';input.style.height='auto';
+  addAiMsg(text,true);showTypingBubble();
+  const errEl=document.getElementById('aiError');if(errEl)errEl.classList.remove('on');
+  const lun=getLunar(),moon=getMoonPhase();
+  const sysPrompt=`你是「古錐星命閣」的AI星命師，精通東西方命理（西洋占星、塔羅、紫微斗數、八字）。用繁體中文回答，語氣神秘溫暖，像充滿智慧的命理師。今日：${YR}年${MO}月${DY}日 農曆${lun.stem}${lun.branch}${lun.animal}年${lun.month}${lun.day} ${moon} 今日最旺：${SIGNS[si(SEED,0,0,11)]}座 主題：${aiTopic}。回答3-7句，具體有用，適當加✦或星座符號，結尾給一句鼓勵。`;
+  const FALLBACKS={
+    '星座運勢':`✦ 今日${moon}下，${SIGNS[si(SEED,0,0,11)]}座能量最為充沛。您提到的問題，從星象角度：今日適合靜心思考，相信自己的直覺，宇宙正在為您安排最好的結果。記住：困難是化妝的祝福。✨`,
+    '塔羅解讀':`🃏 宇宙為您抽出「${['星星','太陽','月亮','力量','命運之輪'][SEED%5]}」牌。這張牌告訴您：現在是重要的轉折點，內心的聲音比外在的聲音更值得相信。放下焦慮，以平靜的心迎接改變。✦`,
+    '感情運勢':`💕 今日金星能量${moon==='🌕滿月'?'在滿月光芒下特別旺盛':'帶來細膩的感受力'}。感情中最重要的是真誠溝通——說出藏在心裡的那句話，比任何禮物都更能打動對方。緣分正在靠近您。✦`,
+    '事業財運':`💼 今日${SIGNS[si(SEED,0,0,11)]}座能量主導，適合主動出擊。財運方面，有一個機會正悄悄靠近，需要您的細心發現。相信自己的專業判斷，今天的勇氣將帶來明天的回報。✦`,
+    '八字分析':`🔯 從五行角度，今日${['木','火','土','金','水'][SEED%5]}氣旺盛，對應${['東方成長','南方熱情','中央穩定','西方精準','北方智慧'][SEED%5]}能量。順應這股能量，行事更能事半功倍。✦`,
+    '今日指引':`🌟 ${moon}下的宇宙訊息：「你已擁有你所需要的一切，只是還沒完全相信自己。」今天，對自己溫柔一些，對未來多一點信任。幸運色：${sp(SEED,10,['深紫色','金色','玫瑰粉','翡翠綠','寶石藍'])}。✦`,
+  };
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:450,system:sysPrompt,messages:[{role:'user',content:text}]})
+    });
+    removeTypingBubble();
+    if(res.ok){
+      const data=await res.json();
+      const reply=(data.content||[]).map(c=>c.type==='text'?c.text:'').join('').trim()||FALLBACKS[aiTopic]||FALLBACKS['今日指引'];
+      addAiMsg(reply.replace(/\n/g,'<br>'));
+    }else{addAiMsg(FALLBACKS[aiTopic]||FALLBACKS['今日指引']);}
+    if(!CU){
+      aiUsageCount++;localStorage.setItem('ai_usage_'+SEED,aiUsageCount);
+      if(aiUsageCount>=AI_FREE_LIMIT){
+        setTimeout(()=>addAiMsg(`✦ 今日${AI_FREE_LIMIT}次免費解讀已用完。<a onclick="openModal('authModal','register')" style="color:var(--gold-light);cursor:pointer;text-decoration:underline">免費加入會員</a>享受無限次！`),600);
+      }
+    }
+  }catch(e){
+    removeTypingBubble();
+    const errEl2=document.getElementById('aiError');if(errEl2)errEl2.classList.add('on');
+    addAiMsg(FALLBACKS[aiTopic]||FALLBACKS['今日指引']);
+  }
+}
+
 // ══════════════════════════════════════════════
 // ✦ 初始化所有功能
 // ══════════════════════════════════════════════
@@ -2126,6 +2562,7 @@ renderDzSel();
 renderZGrid();
 renderCal();
 initMed();
+initNotifications();
 </script>
 </body>
 </html>
