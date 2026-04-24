@@ -2528,8 +2528,17 @@ async function sendAI(){
     '今日指引':`🌟 ${moon}下的宇宙訊息：「你已擁有你所需要的一切，只是還沒完全相信自己。」今天，對自己溫柔一些，對未來多一點信任。幸運色：${sp(SEED,10,['深紫色','金色','玫瑰粉','翡翠綠','寶石藍'])}。✦`,
   };
   try{
+    // ★★★ 把下面的 YOUR_API_KEY_HERE 換成您的 Anthropic API Key ★★★
+    // 申請網址：console.anthropic.com → API Keys → Create Key
+    const ANTHROPIC_API_KEY = 'YOUR_API_KEY_HERE';
     const res=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',headers:{'Content-Type':'application/json'},
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'x-api-key': ANTHROPIC_API_KEY,
+        'anthropic-version':'2023-06-01',
+        'anthropic-dangerous-direct-browser-access':'true'
+      },
       body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:450,system:sysPrompt,messages:[{role:'user',content:text}]})
     });
     removeTypingBubble();
